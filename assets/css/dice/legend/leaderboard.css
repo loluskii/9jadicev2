@@ -1,0 +1,29 @@
+.topBar {
+    background: linear-gradient(270deg, #004166 1.21%, #262E31 100%);
+}
+.customPrimaryBgColor {
+    background: #F6CC12;
+}
+.customSecondaryBgColor {
+    background-color: #2C3192;
+}
+.playerListBackground {
+    background: linear-gradient(270deg, #000000 39.86%, #48CDFF 55.31%, #0F4F7D 100%) !important;
+}
+.headerStyle {
+    background-image: url("../../../../../images/mobile/games/dice/legend/podium.png");
+    background-repeat: no-repeat;
+    background-size: 50% 75%;
+    background-position: bottom center;
+    height: 250px;
+}
+@media only screen and (min-width: 375px) and (max-width: 576px) {
+    .headerStyle {
+        height: 235px;
+    }
+}
+@media screen and (max-width: 823px) and (orientation: landscape) {
+    .headerStyle {
+        height: 375px;
+    }
+}

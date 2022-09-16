@@ -1,0 +1,101 @@
+#main-game-section {
+	background-color: #2C3192 !important;
+	background-image: url('../../photos/dice-game/legend-dice-banner.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+	height: 100vh;
+}
+.listOption {
+  width: 60px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.10rem;
+}
+.topNavCard {
+  border-radius: 9px;
+}
+.roundedClass {
+	border-radius: 18.5px;
+}
+/*CREATE TOURNAMENT MODAL STYLES*/
+.customPrimaryBgColor {
+	background: #F6CC12;
+}
+.customPrimaryColor {
+	color: #F6CC12;
+}
+.customSecondaryBgColor {
+	background: #2C3192;
+}
+.customSecondaryColor {
+	color: #2C3192;
+}
+.form-control, .custom-select {
+	background: transparent;
+	border: 1px solid #F6CC12;
+	color: #ffffff !important;
+}
+.custom-select:focus {
+  background: transparent;
+  border: 1px solid #F6CC12;
+  color: #000000 !important;
+}
+.form-control:focus {
+  /*color: #ffffff;*/
+  background-color: transparent;
+  border-color: #F6CC12;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem #F6CC12;
+}
+.form-control::-webkit-input-placeholder {
+  font-size: 0.9rem;
+  color: #E9EBEC;
+  opacity: 1;
+}
+
+.form-control::-moz-placeholder {
+  font-size: 0.9rem;
+  color: #E9EBEC;
+  opacity: 1;
+}
+
+.form-control:-ms-input-placeholder {
+  font-size: 0.9rem;
+  color: #E9EBEC;
+  opacity: 1;
+}
+
+.form-control::-ms-input-placeholder {
+  font-size: 0.9rem;
+  color: #E9EBEC;
+  opacity: 1;
+}
+
+.form-control::placeholder {
+  font-size: 0.9rem;
+  color: #ffffff;
+  opacity: 1;
+}
+.gameCard {
+	height: 150px;
+}
+.timeCard {
+	height: 40px;
+}
+
+
+/*REMOVE ARROWS FROM INPUT TYPE NUMBER TO AVOID NEGATIVE INPUTS*/
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

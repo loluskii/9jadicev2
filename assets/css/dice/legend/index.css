@@ -1,0 +1,62 @@
+.categoryContainer {
+	/*background-color: #348CA4;*/
+	background-color: rgba(52, 140, 164, 0.7);
+}
+.cursorPointer:hover {
+	cursor: pointer;
+}
+.text-9jaluck2 {
+	color: #008D5A;
+}
+.straightEdge {
+	border-radius: 0px !important;
+}
+.cursorPointer:hover {
+	cursor: pointer;
+}
+.curvedEdge {
+	border-radius: 18px;
+}
+.publicSearchInput, .privateSearchInput, .specialSearchInput {
+	padding-left: 30px;
+	color: white;
+}
+.publicSearchInput:focus, .privateSearchInput:focus, .specialSearchInput:focus {
+	padding-left: 30px;
+	color: white;
+}
+.publicSearchInput::placeholder, .privateSearchInput::placeholder, .specialSearchInput::placeholder {
+	/*padding-left: 30px;*/
+	color: grey;
+}
+.listBorderTop {
+	border-top: 1px solid var(--theme-color-primary-text);
+}
+.listOptionTitle {
+	width: 60px !important;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 0.10rem;
+	color: #000000;
+}
+.listOption {
+  width: 60px !important;
+  display: flex;
+  justify-content: center;
+  color: var(--theme-color-primary-text);
+  align-items: center;
+  margin-right: 0.10rem;
+}
+.listBackground:nth-child(2n) {
+	background-color: #3E444A;
+}
+.listBackground:nth-child(2n+1) {
+	background-color: #343A40;
+}
+@media only screen and (max-width: 360px) {
+	.tournamentTitle {
+		font-size: 0.7rem;
+		/*color: yellow;*/
+	}
+}
