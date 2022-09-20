@@ -185,8 +185,9 @@ width: 80%;
 
 .activeGameTypeButton,
 .gameTypeButton:active {
-  background-color: var(--theme-color-primary-background);
-  border-radius: 5px !important;
+  /* background-color: var(--theme-color-primary-background); */
+  border-radius: 0px !important;
+  border-bottom: 3px solid var(--theme-color-primary-background);
 }
 .active-gameslist-btn,
 .gameslist-tab-btn:active {
@@ -197,7 +198,7 @@ width: 80%;
 }
 .tournament-type-btn {
   color: var(--theme-color-primary-text) !important;
-  font-size: small;
+  font-size: smaller;
   font-weight: 400;
 }
 .active-tournament-type-btn,

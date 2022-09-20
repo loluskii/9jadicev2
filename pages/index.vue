@@ -2,7 +2,7 @@
   <div>
     <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12"></div>
-      <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+      <div class="col-sm-12 tops col-md-12 col-lg-12 col-xl-12">
         <div
           class="row flex-nowrap d-flex py-1 mt-0 hideScrollbar"
           style="overflow-x: auto"
@@ -12,7 +12,6 @@
               id="carousel-1"
               v-model="slide"
               :interval="4000"
-              controls
               img-height="480"
               @sliding-start="onSlideStart"
               @sliding-end="onSlideEnd"
@@ -981,6 +980,10 @@ export default {
 .modal-content {
   background-color: black !important;
   color: white !important;
+}
+
+.tops{
+  padding-top: 100px;
 }
 
 .topic-bg {
