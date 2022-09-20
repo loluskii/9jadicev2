@@ -457,7 +457,9 @@
                   </div>
                 </div>
                 <div class="p-0" id="premierLeagueGamesList">
-                  <div class="text-center text-white font-italic">No game available.</div>
+                  <div class="text-center text-white font-italic">
+                    No game available.
+                  </div>
                 </div>
               </div>
               <div class="col-12 mb-3 d-none" id="premierLeagueViewMore"></div>
@@ -493,7 +495,9 @@
                   </div>
                 </div>
                 <div class="p-0" id="luxuryGamesList">
-                  <div class="text-center text-white font-italic">No game available.</div>
+                  <div class="text-center text-white font-italic">
+                    No game available.
+                  </div>
                 </div>
               </div>
               <div class="col-12" id="luxuryGamesViewMore"></div>
@@ -529,7 +533,9 @@
                   </div>
                 </div>
                 <div class="p-0" id="bonusGamesList">
-                  <div class="text-center text-white font-italic">No game available.</div>
+                  <div class="text-center text-white font-italic">
+                    No game available.
+                  </div>
                 </div>
               </div>
               <div class="col-12" id="bonusGamesViewMore"></div>
@@ -564,7 +570,11 @@
                     </div>
                   </div>
                 </div>
-                <div class="p-0" id="freeGamesList"></div>
+                <div class="p-0" id="freeGamesList">
+                  <div class="text-white text-center font-italic">
+                    No game available.
+                  </div>
+                </div>
               </div>
               <div class="col-12" id="freeGamesViewMore"></div>
             </div>
@@ -573,332 +583,8 @@
           <b-tab
             title="Public"
             title-link-class="btn btn-sm border-0 rounded-pill py-0 px-2 mx-2 tournament-type-btn cursorPointer small"
-            ><b-card-text>Tab contents 2</b-card-text></b-tab
           >
-          <b-tab
-            title="Partners"
-            title-link-class="btn btn-sm border-0 rounded-pill py-0 px-2 mx-2 tournament-type-btn cursorPointer small"
-            ><b-card-text>Tab contents 3</b-card-text></b-tab
-          >
-          <b-tab
-            title="Ends in 10 mins"
-            id="endsInTenMinutesButton"
-            title-link-class="btn btn-sm border-0 rounded-pill py-0 pl-1 mr-2 tournament-type-btn cursorPointer small d-flex align-items-center mr-2"
-          >
-            <template #title>
-              <span class="notificationAnimation mr-1"></span> Ends in 10 mins
-            </template>
-            <b-card-text>Tab contents 4</b-card-text>
-          </b-tab>
-        </b-tabs>
-        <div class="row justify-content-center py-1 bg-sv-primary d-none">
-          <div class="col-sm-12 nav d-flex justify-content-around p-0">
-            <a
-              class="btn btn-sm border-0 rounded-pill py-0 px-2 mx-2 tournament-type-btn cursorPointer active-tournament-type-btn small"
-              id="premiumButton"
-            >
-              <span class="small">Premium</span>
-            </a>
-            <a
-              class="btn btn-sm border-0 rounded-pill py-0 px-2 mx-2 tournament-type-btn cursorPointer small"
-              id="specialButton"
-            >
-              <span class="small">Public</span>
-            </a>
-            <a
-              class="btn btn-sm border-0 rounded-pill py-0 px-2 mx-2 tournament-type-btn cursorPointer small"
-              id="partnersButton"
-            >
-              <span class="small">Partners</span>
-            </a>
-            <a
-              class="btn btn-sm border-0 rounded-pill py-0 pl-1 mr-2 tournament-type-btn cursorPointer small d-flex align-items-center mr-2"
-              id="endsInTenMinutesButton"
-            >
-              <span class="notificationAnimation mr-1"></span>
-              <span class="small">Ends in 10mins</span>
-            </a>
-          </div>
-        </div>
-        <div class="tab-content d-none">
-          <div class="tab-pane active" id="premiumTournament">
-            <div class="row">
-              <div class="col-12 p-0">
-                <div class="d-flex justify-content-between py-1 pb-0">
-                  <button
-                    id="specialSubsection"
-                    class="btn btn-sm btn-block bg-sv-primary createTournamentText"
-                    data-toggle="modal"
-                    data-target="#loginModal"
-                  >
-                    <span class="small"
-                      ><i class="fa fa-plus text-sv-warning"></i>&nbsp;Create
-                      Tournament</span
-                    >
-                  </button>
-                  <search-filter></search-filter>
-                </div>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-12 p-0">
-                <div class="d-flex flex-column small py-1 topic-bg">
-                  <div class="d-flex px-1">
-                    <div class="d-flex align-items-center">
-                      <div class="font-weight-bold text-capitalize">
-                        Verified Games
-                      </div>
-                    </div>
-                    <div class="d-flex ml-auto">
-                      <div class="rounded listOptionTitle">
-                        <div
-                          class="text-capitalize small d-flex align-items-center"
-                        >
-                          <span style="margin-right: 0.2rem"
-                            ><i class="fa fa-user"></i
-                          ></span>
-                          <span>Players</span>
-                        </div>
-                      </div>
-                      <div class="rounded listOptionTitle">
-                        <small class="text-capitalize">Amount</small>
-                      </div>
-                      <div class="rounded listOptionTitle">
-                        <small class="text-capitalize">Status</small>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div id="verifiedGamesList"></div>
-              </div>
-              <div class="col-12 p-0" id="verifiedGamesViewMore"></div>
-            </div>
-            <!-- {{-- STATE GAMES --}} -->
-            <div class="row d-md-none d-lg-none d-block mt-2">
-              <div class="col-12 p-0">
-                <div class="d-flex flex-column small py-1 topic-bg">
-                  <div class="d-flex px-1">
-                    <div class="d-flex align-items-center">
-                      <div class="font-weight-bold text-capitalize">
-                        State Games
-                      </div>
-                    </div>
-                    <div class="d-flex ml-auto">
-                      <div class="rounded listOptionTitle">
-                        <div
-                          class="text-capitalize small d-flex align-items-center"
-                        >
-                          <span style="margin-right: 0.2rem"
-                            ><i class="fa fa-user"></i
-                          ></span>
-                          <span>Players</span>
-                        </div>
-                      </div>
-                      <div class="rounded listOptionTitle">
-                        <small class="text-capitalize">Amount</small>
-                      </div>
-                      <div class="rounded listOptionTitle">
-                        <small class="text-capitalize">Status</small>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="p-0" id="stateGamesList"></div>
-              </div>
-              <div class="col-12" id="stateGamesViewMore"></div>
-            </div>
-            <!-- {{-- BIGGEST PRIZES GAMES --}} -->
-            <div class="row mt-2">
-              <div class="col-12 p-0">
-                <div class="d-flex flex-column small py-1 topic-bg">
-                  <div class="d-flex px-1">
-                    <div class="d-flex align-items-center">
-                      <div class="font-weight-bold text-capitalize">
-                        Biggest Prizes
-                      </div>
-                    </div>
-                    <div class="d-flex ml-auto">
-                      <div class="rounded listOptionTitle">
-                        <div
-                          class="text-capitalize small d-flex align-items-center"
-                        >
-                          <span style="margin-right: 0.2rem"
-                            ><i class="fa fa-user"></i
-                          ></span>
-                          <span>Players</span>
-                        </div>
-                      </div>
-                      <div class="rounded listOptionTitle">
-                        <small class="text-capitalize">Amount</small>
-                      </div>
-                      <div class="rounded listOptionTitle">
-                        <small class="text-capitalize">Status</small>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="p-0" id="biggestPrizesList"></div>
-              </div>
-              <div class="col-12" id="biggestPrizesGamesViewMore"></div>
-            </div>
-            <!-- {{-- PREMIER LEAGUES GAMES --}} -->
-            <div class="row mt-2">
-              <div class="col-12 p-0">
-                <div class="d-flex flex-column small py-1 topic-bg">
-                  <div class="d-flex px-1">
-                    <div class="d-flex align-items-center">
-                      <div class="font-weight-bold text-capitalize">
-                        Football Games
-                      </div>
-                    </div>
-                    <div class="d-flex ml-auto">
-                      <div class="rounded listOptionTitle">
-                        <div
-                          class="text-capitalize small d-flex align-items-center"
-                        >
-                          <span style="margin-right: 0.2rem"
-                            ><i class="fa fa-user"></i
-                          ></span>
-                          <span>Players</span>
-                        </div>
-                      </div>
-                      <div class="rounded listOptionTitle">
-                        <small class="text-capitalize">Amount</small>
-                      </div>
-                      <div class="rounded listOptionTitle">
-                        <small class="text-capitalize">Status</small>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="p-0" id="premierLeagueGamesList"></div>
-              </div>
-              <div class="col-12 mb-3" id="premierLeagueViewMore"></div>
-            </div>
-            <!-- {{-- LUXURY GAMES --}} -->
-            <div class="row mt-2">
-              <div class="col-12 p-0">
-                <div class="d-flex flex-column small py-1 topic-bg">
-                  <div class="d-flex px-1">
-                    <div class="d-flex align-items-center">
-                      <div class="font-weight-bold text-capitalize">
-                        Luxury Games
-                      </div>
-                    </div>
-                    <div class="d-flex ml-auto">
-                      <div class="rounded listOptionTitle">
-                        <div
-                          class="text-capitalize small d-flex align-items-center"
-                        >
-                          <span style="margin-right: 0.2rem"
-                            ><i class="fa fa-user"></i
-                          ></span>
-                          <span>Players</span>
-                        </div>
-                      </div>
-                      <div class="rounded listOptionTitle">
-                        <small class="text-capitalize">Amount</small>
-                      </div>
-                      <div class="rounded listOptionTitle">
-                        <small class="text-capitalize">Status</small>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="p-0" id="luxuryGamesList"></div>
-              </div>
-              <div class="col-12" id="luxuryGamesViewMore"></div>
-            </div>
-            <!-- {{-- BONUS GAMES --}} -->
-            <div class="row mt-2">
-              <div class="col-12 p-0">
-                <div class="d-flex flex-column small py-1 topic-bg">
-                  <div class="d-flex px-1">
-                    <div class="d-flex align-items-center">
-                      <div class="font-weight-bold text-capitalize">
-                        Bonus Games
-                      </div>
-                    </div>
-                    <div class="d-flex ml-auto">
-                      <div class="rounded listOptionTitle">
-                        <div
-                          class="text-capitalize small d-flex align-items-center"
-                        >
-                          <span style="margin-right: 0.2rem"
-                            ><i class="fa fa-user"></i
-                          ></span>
-                          <span>Players</span>
-                        </div>
-                      </div>
-                      <div class="rounded listOptionTitle">
-                        <small class="text-capitalize">Amount</small>
-                      </div>
-                      <div class="rounded listOptionTitle">
-                        <small class="text-capitalize">Status</small>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="p-0" id="bonusGamesList"></div>
-              </div>
-              <div class="col-12" id="bonusGamesViewMore"></div>
-            </div>
-            <!-- {{-- FREE GAMES --}} -->
-            <div class="row mt-2">
-              <div class="col-12 p-0">
-                <div class="d-flex flex-column small py-1 topic-bg">
-                  <div class="d-flex px-1">
-                    <div class="d-flex align-items-center">
-                      <div class="font-weight-bold text-capitalize">
-                        Free Games
-                      </div>
-                    </div>
-                    <div class="d-flex ml-auto">
-                      <div class="rounded listOptionTitle">
-                        <div
-                          class="text-capitalize small d-flex align-items-center"
-                        >
-                          <span style="margin-right: 0.2rem"
-                            ><i class="fa fa-user"></i
-                          ></span>
-                          <span>Players</span>
-                        </div>
-                      </div>
-                      <div class="rounded listOptionTitle">
-                        <small class="text-capitalize">Amount</small>
-                      </div>
-                      <div class="rounded listOptionTitle">
-                        <small class="text-capitalize">Status</small>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="p-0" id="freeGamesList"></div>
-              </div>
-              <div class="col-12" id="freeGamesViewMore"></div>
-            </div>
-            <!-- {{-- GAMES LIST END --}} -->
-          </div>
-          <div class="row tab-pane fade pb-2" id="specialTournament">
-            <!-- @auth -->
-            <div class="col-12 p-0 d-none">
-              <div class="d-flex justify-content-between py-1 pb-0">
-                <button
-                  id="specialSubsection"
-                  class="btn btn-sm btn-block bg-sv-primary createTournamentText mr-2"
-                  onclick="launchCreateSpecialTournamentModal(3)"
-                >
-                  <span class="small"
-                    ><i class="fa fa-plus text-sv-warning"></i>&nbsp;Create
-                    Tournament</span
-                  >
-                </button>
-                <search-filter></search-filter>
-              </div>
-            </div>
-            <!-- @endauth -->
-            <div class="col-12">
+            <div class="">
               <div class="row">
                 <div class="tab-content col-12 p-0">
                   <div class="tab-pane active" id="special-all">
@@ -930,47 +616,23 @@
                           </div>
                         </div>
                       </div>
-                      <div id="publicGamesList"></div>
+                      <div id="publicGamesList">
+                        <div class="text-white text-center font-italic">
+                          No game available.
+                        </div>
+                      </div>
                       <div id="specialGamesViewMore"></div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="tab-pane fade" id="partnersTournament">
+          </b-tab>
+          <b-tab
+            title="Partners"
+            title-link-class="btn btn-sm border-0 rounded-pill py-0 px-2 mx-2 tournament-type-btn cursorPointer small"
+          >
             <div class="row">
-              <!-- @auth
-              <div class="col-12 p-0">
-                <div class="d-flex justify-content-between py-1 pb-0">
-                  @if (Auth::user()->role_id == 5 || Auth::user()->role_id ==
-                  10)
-                  <button
-                    id="specialSubsection"
-                    class="btn btn-sm btn-block bg-sv-primary createTournamentText mr-2"
-                    onclick="launchCreatePartnersTournamentModal()"
-                  >
-                    <span class="small"
-                      ><i class="fa fa-plus text-sv-warning"></i>&nbsp;Create
-                      Tournament</span
-                    >
-                  </button>
-                  @else
-                  <button
-                    id="specialSubsection"
-                    class="btn btn-sm btn-block bg-sv-primary createTournamentText mr-2"
-                    onclick="launchVerificationModal('Agents', 'Partners')"
-                  >
-                    <span class="small"
-                      ><i class="fa fa-plus text-sv-warning"></i>&nbsp;Create
-                      Tournament</span
-                    >
-                  </button>
-                  @endif
-                  @include( 'desktop.components.welcome.search-filter' )
-                </div>
-              </div>
-              @endauth -->
               <div class="col-12 px-0">
                 <div>
                   <div class="d-flex flex-column small py-1 topic-bg">
@@ -1000,14 +662,25 @@
                       </div>
                     </div>
                   </div>
-                  <div id="agentGamesList"></div>
+                  <div id="agentGamesList">
+                    <div class="text-white text-center font-italic">
+                      No game available.
+                    </div>
+                  </div>
                   <div id="agentGamesViewMore"></div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="tab-pane fade" id="endsInTenMinutesTournament">
-            <div class="row mt-2">
+          </b-tab>
+          <b-tab
+            title="Ends in 10 mins"
+            id="endsInTenMinutesButton"
+            title-link-class="btn btn-sm border-0 rounded-pill py-0 pl-1 mr-2 tournament-type-btn cursorPointer small d-flex align-items-center mr-2"
+          >
+            <template #title>
+              <span class="notificationAnimation mr-1"></span> Ends in 10 mins
+            </template>
+            <div class="row">
               <div class="col-12 p-0">
                 <div class="d-flex flex-column small py-1 topic-bg">
                   <div class="d-flex px-1">
@@ -1036,98 +709,23 @@
                     </div>
                   </div>
                 </div>
-                <div id="endsInTenMinutesGamesList"></div>
+                <div id="endsInTenMinutesGamesList">
+                  <div class="text-white text-center font-italic">
+                    No game available.
+                  </div>
+                </div>
               </div>
               <div class="col-12 p-0" id="endsInTenMinutesGamesViewMore"></div>
             </div>
-          </div>
-          <div class="row tab-pane fade pb-2" id="privateTournament">
-            <div class="col-12 px-1 py-0">
-              <div class="d-flex justify-content-between py-1">
-                <button
-                  id="privateSubsection"
-                  class="btn btn-sm btn-block bg-sv-primary text-white mr-2"
-                  onclick="categoryID = 2; "
-                  data-toggle="modal"
-                  data-target="#createPrivateTournamentModal"
-                >
-                  <span class="small"
-                    ><i class="fa fa-plus text-sv-warning"></i>&nbsp; Create
-                    Tournament
-                  </span>
-                </button>
-                <div class="input-group flex-fill pl-4">
-                  <div class="input-group-prepend">
-                    <span class="mt-1"
-                      ><i class="fa fa-search text-white"></i
-                    ></span>
-                  </div>
-                  <input
-                    type="search"
-                    class="form-control form-control-sm rounded-pill privateSearchInput bg-transparent border-secondary"
-                    style="margin-left: -25px"
-                    id="privateSearchInput"
-                    placeholder="Search"
-                    name=""
-                  />
-                </div>
-              </div>
-            </div>
-            <div class="col-12">
-              <div class="row">
-                <div class="tab-content col-12 p-0">
-                  <div class="tab-pane" id="special-all">
-                    <div
-                      class="d-flex justify-content-between align-items-end px-1"
-                    >
-                      <div
-                        class="text-sv-warning font-weight-bold text-capitalize small"
-                      >
-                        Private Games
-                      </div>
-                    </div>
-                    <div
-                      class="d-flex flex-column small py-0"
-                      style="background-color: #000000"
-                    >
-                      <div class="d-flex text-white px-1">
-                        <div class="d-flex align-items-center">
-                          <div class="font-weight-bold text-uppercase">
-                            Name
-                          </div>
-                        </div>
-                        <div class="d-flex ml-auto">
-                          <div class="px-2 rounded listOptionTitle2">
-                            <div class="text-capitalize small d-flex">
-                              <span style="margin-right: 0.2rem"
-                                ><i class="fa fa-user"></i
-                              ></span>
-                              <span>Players</span>
-                            </div>
-                          </div>
-                          <div class="px-2 rounded listOptionTitle2">
-                            <small class="text-capitalize">Amount</small>
-                          </div>
-                          <div class="px-2 py-1 rounded listOptionTitle2">
-                            <small class="text-capitalize">Status</small>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div id="privateGamesList"></div>
-                    <div id="privateGamesViewMore"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+          </b-tab>
+        </b-tabs>
       </div>
       <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12"></div>
     </div>
-    <div class="d-none">
+    <!-- STATE GAMES -->
+    <div class="">
       <div class="row d-md-block d-lg-block d-none mt-2 mb-3">
-        <div class="col-12 px-1">
+        <div class="col-12 px-0">
           <div class="d-flex flex-column small py-1 topic-bg">
             <div class="d-flex px-1">
               <div class="d-flex align-items-center">
@@ -1151,7 +749,200 @@
               </div>
             </div>
           </div>
-          <div class="p-0" id="stateGamesList2"></div>
+          <div class="p-0" id="stateGamesList2">
+            <div class="small py-1 listBackground">
+              <span
+                class="ml-1 prizeToFirstText px-1 rounded bg-sv-warning text-white"
+                style="font-size: 8px"
+                >₦360,000 to 1st</span
+              >
+              <div class="d-flex justify-content-between text-white px-1">
+                <div
+                  class="d-flex justify-content-between align-items-center flex-fill mr-3"
+                >
+                  <div
+                    onclick='openInfoModal({"id":81793,"name":"Lagos Fans","category_id":10,"duration":10,"duration_type":"day","slug":"lagos-fans","reference_id":"iaqEdwn1Tl","end_date":"2022-09-27 17:18:42","stake":100,"status":"started","no_of_players":50000,"no_of_players_joined":6,"time_started":"2022-09-17 17:18:42","club_color":null,"club_jesery":null,"hot":0,"creator":{"user_data_name":null,"verfication":null},"api_leaderboard":[],"leaderboard_length":6,"api_userrecords":[],"freetournament":null});'
+                    class="d-flex flex-column"
+                  >
+                    <div class="d-flex align-items-center">
+                      <span
+                        class="font-weight-bold text-uppercase tournamentTitle small"
+                        >Lagos Fans</span
+                      >
+                    </div>
+                    <div class="tournamentGameListInfoText">
+                      <div>
+                        <span>Ends in 7 days</span>
+
+                        <span class="ml-1 badge badge-success px-1">
+                          <i class="fa fa-circle text-white">&nbsp;Live</i>
+                        </span>
+                      </div>
+                      <div class="bg-secondary text-white rounded px-1">
+                        Multiple entries allowed
+                      </div>
+                    </div>
+                  </div>
+                  <span>
+                    <button
+                      class="btn btn-sm btn-light px-1 py-0 rounded-pill text-dark"
+                      onclick='openInfoModal({"id":81793,"name":"Lagos Fans","category_id":10,"duration":10,"duration_type":"day","slug":"lagos-fans","reference_id":"iaqEdwn1Tl","end_date":"2022-09-27 17:18:42","stake":100,"status":"started","no_of_players":50000,"no_of_players_joined":6,"time_started":"2022-09-17 17:18:42","club_color":null,"club_jesery":null,"hot":0,"creator":{"user_data_name":null,"verfication":null},"api_leaderboard":[],"leaderboard_length":6,"api_userrecords":[],"freetournament":null})'
+                    >
+                      <i class="fa fa-info cursorPointer"></i>
+                    </button>
+                  </span>
+                </div>
+
+                <div class="d-flex">
+                  <div class="bg-sv-primary p-1 rounded-left listOption">
+                    <div>
+                      <div id="join81793" class="text-center">6</div>
+                      <div class="listBorderTop text-center">50K</div>
+                    </div>
+                  </div>
+                  <div class="bg-sv-primary p-1 rounded-0 listOption">₦100</div>
+                  <div class="bg-sv-primary p-1 rounded-right small listOption">
+                    <button
+                      id="join_button"
+                      class="btn btn-sm btn-success rounded-pill shadow py-0 px-2 text-white"
+                      data-toggle="modal"
+                      data-target="#loginModal"
+                    >
+                      Join
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="small py-1 listBackground">
+              <span
+                class="ml-1 prizeToFirstText px-1 rounded bg-sv-warning text-white"
+                style="font-size: 8px"
+                >₦180,000 to 1st</span
+              >
+              <div class="d-flex justify-content-between text-white px-1">
+                <div
+                  class="d-flex justify-content-between align-items-center flex-fill mr-3"
+                >
+                  <div
+                    onclick='openInfoModal({"id":81792,"name":"Abuja Fans","category_id":10,"duration":10,"duration_type":"day","slug":"abuja-fans","reference_id":"vCR4LoorcP","end_date":"2022-09-27 17:18:00","stake":100,"status":"started","no_of_players":20000,"no_of_players_joined":1,"time_started":"2022-09-17 17:18:00","club_color":null,"club_jesery":null,"hot":0,"creator":{"user_data_name":null,"verfication":null},"api_leaderboard":[],"leaderboard_length":1,"api_userrecords":[],"freetournament":null});'
+                    class="d-flex flex-column"
+                  >
+                    <div class="d-flex align-items-center">
+                      <span
+                        class="font-weight-bold text-uppercase tournamentTitle small"
+                        >Abuja Fans</span
+                      >
+                    </div>
+                    <div class="tournamentGameListInfoText">
+                      <div>
+                        <span>Ends in 7 days</span>
+
+                        <span class="ml-1 badge badge-success px-1">
+                          <i class="fa fa-circle text-white">&nbsp;Live</i>
+                        </span>
+                      </div>
+                      <div class="bg-secondary text-white rounded px-1">
+                        Multiple entries allowed
+                      </div>
+                    </div>
+                  </div>
+                  <span>
+                    <button
+                      class="btn btn-sm btn-light px-1 py-0 rounded-pill text-dark"
+                      onclick='openInfoModal({"id":81792,"name":"Abuja Fans","category_id":10,"duration":10,"duration_type":"day","slug":"abuja-fans","reference_id":"vCR4LoorcP","end_date":"2022-09-27 17:18:00","stake":100,"status":"started","no_of_players":20000,"no_of_players_joined":1,"time_started":"2022-09-17 17:18:00","club_color":null,"club_jesery":null,"hot":0,"creator":{"user_data_name":null,"verfication":null},"api_leaderboard":[],"leaderboard_length":1,"api_userrecords":[],"freetournament":null})'
+                    >
+                      <i class="fa fa-info cursorPointer"></i>
+                    </button>
+                  </span>
+                </div>
+
+                <div class="d-flex">
+                  <div class="bg-sv-primary p-1 rounded-left listOption">
+                    <div>
+                      <div id="join81792" class="text-center">1</div>
+                      <div class="listBorderTop text-center">20K</div>
+                    </div>
+                  </div>
+                  <div class="bg-sv-primary p-1 rounded-0 listOption">₦100</div>
+                  <div class="bg-sv-primary p-1 rounded-right small listOption">
+                    <button
+                      id="join_button"
+                      class="btn btn-sm btn-success rounded-pill shadow py-0 px-2 text-white"
+                      data-toggle="modal"
+                      data-target="#loginModal"
+                    >
+                      Join
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="small py-1 listBackground">
+              <span
+                class="ml-1 prizeToFirstText px-1 rounded bg-sv-warning text-white"
+                style="font-size: 8px"
+                >₦180,000 to 1st</span
+              >
+              <div class="d-flex justify-content-between text-white px-1">
+                <div
+                  class="d-flex justify-content-between align-items-center flex-fill mr-3"
+                >
+                  <div
+                    onclick='openInfoModal({"id":81791,"name":"Edo Fans","category_id":10,"duration":10,"duration_type":"day","slug":"edo-fans","reference_id":"bHxe3YLMPg","end_date":"2022-09-27 17:17:28","stake":100,"status":"started","no_of_players":20000,"no_of_players_joined":1,"time_started":"2022-09-17 17:17:28","club_color":null,"club_jesery":null,"hot":0,"creator":{"user_data_name":null,"verfication":null},"api_leaderboard":[],"leaderboard_length":1,"api_userrecords":[],"freetournament":null});'
+                    class="d-flex flex-column"
+                  >
+                    <div class="d-flex align-items-center">
+                      <span
+                        class="font-weight-bold text-uppercase tournamentTitle small"
+                        >Edo Fans</span
+                      >
+                    </div>
+                    <div class="tournamentGameListInfoText">
+                      <div>
+                        <span>Ends in 7 days</span>
+
+                        <span class="ml-1 badge badge-success px-1">
+                          <i class="fa fa-circle text-white">&nbsp;Live</i>
+                        </span>
+                      </div>
+                      <div class="bg-secondary text-white rounded px-1">
+                        Multiple entries allowed
+                      </div>
+                    </div>
+                  </div>
+                  <span>
+                    <button
+                      class="btn btn-sm btn-light px-1 py-0 rounded-pill text-dark"
+                      onclick='openInfoModal({"id":81791,"name":"Edo Fans","category_id":10,"duration":10,"duration_type":"day","slug":"edo-fans","reference_id":"bHxe3YLMPg","end_date":"2022-09-27 17:17:28","stake":100,"status":"started","no_of_players":20000,"no_of_players_joined":1,"time_started":"2022-09-17 17:17:28","club_color":null,"club_jesery":null,"hot":0,"creator":{"user_data_name":null,"verfication":null},"api_leaderboard":[],"leaderboard_length":1,"api_userrecords":[],"freetournament":null})'
+                    >
+                      <i class="fa fa-info cursorPointer"></i>
+                    </button>
+                  </span>
+                </div>
+
+                <div class="d-flex">
+                  <div class="bg-sv-primary p-1 rounded-left listOption">
+                    <div>
+                      <div id="join81791" class="text-center">1</div>
+                      <div class="listBorderTop text-center">20K</div>
+                    </div>
+                  </div>
+                  <div class="bg-sv-primary p-1 rounded-0 listOption">₦100</div>
+                  <div class="bg-sv-primary p-1 rounded-right small listOption">
+                    <button
+                      id="join_button"
+                      class="btn btn-sm btn-success rounded-pill shadow py-0 px-2 text-white"
+                      data-toggle="modal"
+                      data-target="#loginModal"
+                    >
+                      Join
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="col-12" id="stateGamesViewMore2"></div>
       </div>
@@ -1180,7 +971,7 @@ export default {
       this.sliding = false;
     },
 
-    showJoinConfirmationModal(){
+    showJoinConfirmationModal() {
       this.$bvModal.show("joinConfirmationModal");
     },
   },

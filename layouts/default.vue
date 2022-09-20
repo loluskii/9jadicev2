@@ -4,14 +4,14 @@
         <div class="container-fluid pb-3">
             <top></top>
             <div class="row">
-                <section class="col-sm-12 col-md-2 col-lg-3 col-xl-3 d-lg-block d-xl-block d-md-block d-none">
-                    <left></left>
+                <section class="col-sm-12 col-md-3 col-lg-3 col-xl-3 d-lg-block d-xl-block d-md-block d-none">
+                    <!-- <left></left> -->
                 </section>
-                <section class="col-sm-12 col-md-8 col-lg-6 col-lg-6">
+                <section class="col-sm-12 col-md-6 col-lg-6 col-lg-6">
                     <Nuxt />
                 </section>
-                <section class="col-sm-12 col-md-2 col-lg-3 col-xl-3 d-lg-block d-xl-block d-md-block d-none">
-                    <right></right>
+                <section class="col-sm-12 col-md-3 col-lg-3 col-xl-3 d-lg-block d-xl-block d-md-block d-none">
+                    <!-- <right></right> -->
                 </section>
             </div>
         </div>
