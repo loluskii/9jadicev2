@@ -1,9 +1,0 @@
-
-#main {
-	
-}
-
-/*when screen is on landscape mode on mobile devices. Current screen size is for pixel 2 XL*/
-@media screen and (max-width: 823px) and (orientation: landscape) {
-
-}

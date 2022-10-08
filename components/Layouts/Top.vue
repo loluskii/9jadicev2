@@ -1,511 +1,121 @@
 <template>
-  <div>
-    <div class="row">
-      <div class="col-sm-12 col-md-1 col-lg-2 col-xl-3"></div>
-      <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
-        <header class="container-fluid fixed-top bg-black">
-          <nav
-            class="row bg-9jaluck align-items-center px-2 text-uppercase font-weight-light customNavbar py-2 small"
-          >
-            <div
-              class="col-md-6 px-0 col-lg-6 col-12 d-flex mx-auto justify-content-between align-items-center"
-            >
-              <a class="" href="">
-                <img
-                  src="~/assets/images/logos/logo.png"
-                  class="img-fluid"
-                  style="height: 30px"
-                  id="brand-logo"
-                />
-              </a>
+  <div class="row">
+    <div class="col-sm-12 col-md-1 col-lg-2 col-xl-3"></div>
+    <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
+      <header class="container-fluid fixed-top bg-black">
+        <nav class="row bg-9jaluck align-items-center px-2 text-uppercase font-weight-light customNavbar py-2 small">
+          <div class="col-md-6 px-0 col-lg-6 col-12 d-flex mx-auto justify-content-between align-items-center">
+            <a class="" href="">
+              <img
+                src="~/assets/images/logos/logo.png"
+                class="img-fluid"
+                style="height: 40px"
+                id="brand-logo"
+              />
+            </a>
 
-              <div id="login-company" class="">
-                <div id="login-signup-div" class="d-flex align-items-center">
-                  <a
-                    href=""
-                    class="text-decoration-none btn btn-sm bg-sv-warning text-white mr-1 px-2"
-                    style="font-size:smaller"
-                  >
-                    <small>Guest</small>
-                  </a>
+            <div v-if="!$auth.loggedIn" id="login-company" class="">
+              <div id="login-signup-div" class="d-flex align-items-center">
+                <a
+                  href=""
+                  class="text-decoration-none btn btn-sm bg-sv-warning text-white mr-1 px-2"
 
-                  <a
-                    href=""
-                    class="text-decoration-none btn btn-sm btn-outline-light text-white mr-1 px-2"
-                    style="font-size:smaller"
-                  >
-                    <small>Login</small>
-                  </a>
-                  <button class="btn btn-sm bg-sv-warning text-white" style="font-size:smaller">
-                    <a
-                      href=""
-                      class="text-decoration-none text-white text-uppercase"
-                    >
-                      <small>SIGN UP</small>
-                    </a>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </nav>
-          <div class="col-md-6 px-sm-2 px-0 col-lg-6 col-12 mx-auto">
-            <!-- Games List -->
-            <div class="row justify-content-center">
-              <div class="col-12 p-0 topGamesList">
-                <div
-                  class="text-capitalize text-nowrap hideScrollbar topGamesList-left"
                 >
-                  <a
-                    onclick="callLoader()"
-                    class="btn btn-sm text-white activeGameTypeButton rounded-0 d-flex flex-column justify-content-center"
-                    href=""
-                  >
-                    <span>
-                      <img
-                        src="~/assets/images/games/tournament/tournament.png"
-                        style="height: 20px"
-                        alt="tournament-icon"
-                        class="mb-1"
-                      />
-                    </span>
-                    <span class="gameTopTitle gameTopTitleActive"
-                      >Tournament</span
-                    >
-                  </a>
-                  <a
-                    onclick="callLoader()"
-                    class="btn btn-sm text-white border-0 rounded-0 position-relative d-flex flex-column justify-content-center"
-                    href=""
-                  >
-                    <span class="newBadge">New</span>
-                    <span>
-                      <img
-                        src="~/assets/images/games/lotto/dice-lotto.png"
-                        style="height: 22px"
-                        alt="dice-lotto-icon"
-                        class="mb-0"
-                      />
-                    </span>
-                    <span class="gameTopTitle">Dice lotto</span>
-                  </a>
-                  <a
-                    onclick="callLoader()"
-                    class="btn btn-sm text-white border-0 rounded-0 position-relative d-flex flex-column justify-content-center"
-                    href=""
-                  >
-                    <span class="newBadge">New</span>
-                    <span>
-                      <img
-                        src="~/assets/images/games/color/dice-colour.png"
-                        style="height: 20px"
-                        alt="dice-colours-icon"
-                        class="mb-1"
-                      />
-                    </span>
-                    <span class="gameTopTitle">Colours</span>
-                  </a>
-                  <a
-                    onclick="callLoader()"
-                    class="btn btn-sm text-white border-0 rounded-0 d-flex flex-column justify-content-center text-white"
-                    href=""
-                  >
-                    <span>
-                      <img
-                        src="~/assets/images/games/single/single.png"
-                        style="height: 20px"
-                        alt="single-icon"
-                        class="mb-1"
-                      />
-                    </span>
-                    <span class="gameTopTitle">Single</span>
-                  </a>
-                  <a
-                    onclick="callLoader()"
-                    class="btn btn-sm text-white border-0 rounded-0 d-flex flex-column justify-content-center"
-                    href=""
-                  >
-                    <span>
-                      <img
-                        src="~/assets/images/games/under-over/under-over.png"
-                        style="height: 20px"
-                        alt="tournament-icon"
-                        class="mb-1"
-                      />
-                    </span>
-                    <span class="gameTopTitle">Under/Over</span>
-                  </a>
-                  <a
-                    onclick="callLoader()"
-                    class="btn btn-sm text-white border-0 rounded-0 d-flex flex-column justify-content-center"
-                    href=""
-                  >
-                    <span>
-                      <img
-                        src="~/assets/images/games/odd-even/odd-even.png"
-                        style="height: 20px"
-                        alt="odd-even-icon"
-                        class="mb-1"
-                      />
-                    </span>
-                    <span class="gameTopTitle">Odd/Even</span>
-                  </a>
-                  <a
-                    onclick="callLoader()"
-                    class="btn btn-sm text-white border-0 rounded-0 d-flex flex-column justify-content-center text-nowrap"
-                    href=""
-                  >
-                    <span>
-                      <img
-                        src="~/assets/images/games/mega-ten/mega-ten.png"
-                        style="height: 20px"
-                        alt="mega-ten-icon"
-                        class="mb-1"
-                      />
-                    </span>
-                    <span class="gameTopTitle">Mega Ten</span>
-                  </a>
-                  <!-- <a
-                    onclick="callLoader()"
-                    class="btn btn-sm d-none text-white border-0 rounded-0 d-flex flex-column justify-content-center text-nowrap"
-                    style="visibility: hidden"
-                  >
-                    <span>
-                      <img
-                        src="~/assets/images/games/mega-ten/mega-ten.png"
-                        style="height: 20px"
-                        alt="mega-ten-icon"
-                        class="mb-1"
-                      />
-                    </span>
-                    <span class="gameTopTitle">Mega Ten</span>
-                  </a> -->
-                  <a
-                    @click="openAllGamesList"
-                    class="btn btn-sm p-1 btn-dark more_menu_btn border-0 rounded-0 d-flex flex-column justify-content-center text-white"
-                  >
-                    <span>
-                      <i
-                        id="allGamesSlideDirection"
-                        class="fa fa-ellipsis-v mb-2"
-                        style="padding-bottom: 1px"
-                      ></i>
-                    </span>
-                    <span class="gameTopTitle">More</span>
-                  </a>
-                </div>
-              </div>
-              <div class="col-12 p-0" style="display: none" id="allGamesList">
-                <div class="topGamesList-left">
-                  <a
-                    onclick="callLoader()"
-                    class="btn btn-sm btn-dark border-0 rounded-0 d-flex flex-column justify-content-center"
-                    href=""
-                  >
-                    <span class="mb-1 gameTopTitle">Under/Over</span>
-                    <span>
-                      <img
-                        src="~/assets/images/games/under-over/under-over.png"
-                        style="height: 20px"
-                        alt="tournament-icon"
-                      />
-                    </span>
-                  </a>
-                  <a
-                    onclick="callLoader()"
-                    class="btn btn-sm btn-dark border-0 rounded-0 d-flex flex-column justify-content-center"
-                    href=""
-                  >
-                    <span class="mb-1 gameTopTitle">Odd/Even</span>
-                    <span>
-                      <img
-                        src="~/assets/images/games/odd-even/odd-even.png"
-                        style="height: 20px"
-                        alt="odd-even-icon"
-                      />
-                    </span>
-                  </a>
-                  <a
-                    onclick="callLoader()"
-                    class="btn btn-sm btn-dark border-0 rounded-0 d-flex flex-column justify-content-center text-nowrap"
-                    href=""
-                  >
-                    <span class="mb-1 gameTopTitle">Mega Ten</span>
-                    <span>
-                      <img
-                        src="~/assets/images/games/mega-ten/mega-ten.png"
-                        style="height: 20px"
-                        alt="mega-ten-icon"
-                      />
-                    </span>
-                  </a>
-                  <a
-                    onclick="callLoader()"
-                    class="btn btn-sm btn-dark border-0 rounded-0 d-flex flex-column justify-content-center text-nowrap"
-                    href=""
-                    style="visibility: hidden"
-                  >
-                    <span class="mb-1 gameTopTitle">Mega Ten</span>
-                    <span>
-                      <img src="" style="height: 20px" alt="mega-ten-icon" />
-                    </span>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <!-- Games List -->
-          </div>
-        </header>
+                  <small>Guest</small>
+                </a>
 
-        <!-- Games List -->
-        <div class="d-none row justify-content-center mt-5">
-          <div class="col-12 p-0 topGamesList">
-            <div
-              class="text-capitalize text-nowrap hideScrollbar topGamesList-left"
-            >
-              <a
-                onclick="callLoader()"
-                class="btn btn-sm text-white activeGameTypeButton rounded-0 d-flex flex-column justify-content-center"
-                href=""
-              >
-                <span>
-                  <img
-                    src="~/assets/images/games/tournament/tournament.png"
-                    style="height: 20px"
-                    alt="tournament-icon"
-                    class="mb-1"
-                  />
-                </span>
-                <span class="gameTopTitle gameTopTitleActive">Tournament</span>
-              </a>
-              <a
-                onclick="callLoader()"
-                class="btn btn-sm text-white border-0 rounded-0 position-relative d-flex flex-column justify-content-center"
-                href=""
-              >
-                <span class="newBadge">New</span>
-                <span>
-                  <img
-                    src="~/assets/images/games/lotto/dice-lotto.png"
-                    style="height: 22px"
-                    alt="dice-lotto-icon"
-                    class="mb-0"
-                  />
-                </span>
-                <span class="gameTopTitle">Dice lotto</span>
-              </a>
-              <a
-                onclick="callLoader()"
-                class="btn btn-sm text-white border-0 rounded-0 position-relative d-flex flex-column justify-content-center"
-                href=""
-              >
-                <span class="newBadge">New</span>
-                <span>
-                  <img
-                    src="~/assets/images/games/color/dice-colour.png"
-                    style="height: 20px"
-                    alt="dice-colours-icon"
-                    class="mb-1"
-                  />
-                </span>
-                <span class="gameTopTitle">Colours</span>
-              </a>
-              <a
-                onclick="callLoader()"
-                class="btn btn-sm text-white border-0 rounded-0 d-flex flex-column justify-content-center text-white"
-                href=""
-              >
-                <span>
-                  <img
-                    src="~/assets/images/games/single/single.png"
-                    style="height: 20px"
-                    alt="single-icon"
-                    class="mb-1"
-                  />
-                </span>
-                <span class="gameTopTitle">Single</span>
-              </a>
-              <a
-                onclick="callLoader()"
-                class="btn btn-sm text-white border-0 rounded-0 d-flex flex-column justify-content-center"
-                href=""
-              >
-                <span>
-                  <img
-                    src="~/assets/images/games/under-over/under-over.png"
-                    style="height: 20px"
-                    alt="tournament-icon"
-                    class="mb-1"
-                  />
-                </span>
-                <span class="gameTopTitle">Under/Over</span>
-              </a>
-              <a
-                onclick="callLoader()"
-                class="btn btn-sm text-white border-0 rounded-0 d-flex flex-column justify-content-center"
-                href=""
-              >
-                <span>
-                  <img
-                    src="~/assets/images/games/odd-even/odd-even.png"
-                    style="height: 20px"
-                    alt="odd-even-icon"
-                    class="mb-1"
-                  />
-                </span>
-                <span class="gameTopTitle">Odd/Even</span>
-              </a>
-              <a
-                onclick="callLoader()"
-                class="btn btn-sm text-white border-0 rounded-0 d-flex flex-column justify-content-center text-nowrap"
-                href=""
-              >
-                <span>
-                  <img
-                    src="~/assets/images/games/mega-ten/mega-ten.png"
-                    style="height: 20px"
-                    alt="mega-ten-icon"
-                    class="mb-1"
-                  />
-                </span>
-                <span class="gameTopTitle">Mega Ten</span>
-              </a>
-              <a
-                onclick="callLoader()"
-                class="btn btn-sm text-white border-0 rounded-0 d-flex flex-column justify-content-center text-nowrap"
-                style="visibility: hidden"
-              >
-                <span>
-                  <img
-                    src="~/assets/images/games/mega-ten/mega-ten.png"
-                    style="height: 20px"
-                    alt="mega-ten-icon"
-                    class="mb-1"
-                  />
-                </span>
-                <span class="gameTopTitle">Mega Ten</span>
-              </a>
-              <a
-                @click="openAllGamesList"
-                class="btn btn-sm p-1 more_menu_btn border-0 rounded-0 d-flex flex-column justify-content-center text-white"
-              >
-                <span>
-                  <i
-                    id="allGamesSlideDirection"
-                    class="fa fa-ellipsis-v mb-2"
-                    style="padding-bottom: 1px"
-                  ></i>
-                </span>
-                <span class="gameTopTitle">More</span>
-              </a>
+                <nuxt-link
+                  to="/auth/login"
+                  class="text-decoration-none btn btn-sm btn-outline-light bg-transparent text-white mr-1 px-2"
+
+                >
+                  <small>Login</small>
+                </nuxt-link>
+                <button
+                  class="btn btn-sm bg-sv-warning text-white"
+
+                >
+                  <nuxt-link
+                    to="/auth/register"
+                    class="text-decoration-none text-white text-uppercase"
+                  >
+                    <small>SIGN UP</small>
+                  </nuxt-link>
+                </button>
+              </div>
+            </div>
+
+            <div v-else class="d-flex align-items-center">
+                <div class="d-flex flex-column small text-white text-right mr-1">
+                    <span class="text-capitalize text-white-50">
+                      {{ $auth.loggedIn }}
+                        Welcome, <span>{{user}}</span>
+                        <!-- {{ substr(Auth::user()->user_data_name, 0, 10) }} -->
+                            <span v-if="user.user_status_role_id == 1 || user.user_status_role_id == 2" class="small">
+                                <i class="fa fa-check-circle text-info"></i>
+                            </span>
+                    </span>
+                    <span id="balanceSpanId" class="font-weight-bold">&#8358;
+                        {{user.balance}}
+                    </span>
+                    <span> Bonus: &#8358;{{ user.bonus }} </span>
+                    <!-- <button @click="logout">logout</button> -->
+                </div>
+                <div class="position-relative">
+                    <button class="btn bg-sv-primary rightNavTopTextColor btn-sm dropdown-toggle" type="button"
+                        id="sidenav-toggler" onclick="openRightNav()">
+                        <span><i class="fa fa-user"></i></span>
+                    </button>
+                </div>
             </div>
           </div>
-          <div class="col-12 p-0" style="display: none" id="allGamesList">
-            <div class="topGamesList-left">
-              <a
-                onclick="callLoader()"
-                class="btn btn-sm btn-dark border-0 rounded-0 d-flex flex-column justify-content-center"
-                href=""
-              >
-                <span class="mb-1 gameTopTitle">Under/Over</span>
-                <span>
-                  <img
-                    src="~/assets/images/games/under-over/under-over.png"
-                    style="height: 20px"
-                    alt="tournament-icon"
-                  />
-                </span>
-              </a>
-              <a
-                onclick="callLoader()"
-                class="btn btn-sm btn-dark border-0 rounded-0 d-flex flex-column justify-content-center"
-                href=""
-              >
-                <span class="mb-1 gameTopTitle">Odd/Even</span>
-                <span>
-                  <img
-                    src="~/assets/images/games/odd-even/odd-even.png"
-                    style="height: 20px"
-                    alt="odd-even-icon"
-                  />
-                </span>
-              </a>
-              <a
-                onclick="callLoader()"
-                class="btn btn-sm btn-dark border-0 rounded-0 d-flex flex-column justify-content-center text-nowrap"
-                href=""
-              >
-                <span class="mb-1 gameTopTitle">Mega Ten</span>
-                <span>
-                  <img
-                    src="~/assets/images/games/mega-ten/mega-ten.png"
-                    style="height: 20px"
-                    alt="mega-ten-icon"
-                  />
-                </span>
-              </a>
-              <a
-                onclick="callLoader()"
-                class="btn btn-sm btn-dark border-0 rounded-0 d-flex flex-column justify-content-center text-nowrap"
-                href=""
-                style="visibility: hidden"
-              >
-                <span class="mb-1 gameTopTitle">Mega Ten</span>
-                <span>
-                  <img src="" style="height: 20px" alt="mega-ten-icon" />
-                </span>
-              </a>
-            </div>
-          </div>
+        </nav>
+        <div class="col-md-6 px-sm-2 px-0 col-lg-6 col-12 mx-auto">
+          <!-- Games List -->
+          <games></games>
+          <!-- Games List -->
         </div>
-        <!-- Games List -->
-      </div>
-      <div class="col-sm-12 col-md-1 col-lg-2 col-xl-3"></div>
+      </header>
     </div>
+    <div class="col-sm-12 col-md-1 col-lg-2 col-xl-3"></div>
   </div>
 </template>
 
 <script>
+import Games from "../Games.vue";
 export default {
+  components: { Games },
   name: "top",
   data() {
     return {
       isAllGamesListActive: false,
     };
   },
-  methods: {
-    openAllGamesList() {
-      if (this.isAllGamesListActive === true) {
-        this.isAllGamesListActive = false;
-        $("#allGamesList").slideUp();
-        $("#allGamesSlideDirection").removeClass("fa-caret-up");
-        $("#allGamesSlideDirection").addClass("fa-caret-down");
-        // document.getElementById('allGamesList').style.display = 'none';
-      } else if (this.isAllGamesListActive == false) {
-        this.isAllGamesListActive = true;
-        $("#allGamesList").slideDown();
-        $("#allGamesSlideDirection").removeClass("fa-caret-down");
-        $("#allGamesSlideDirection").addClass("fa-caret-up");
-        document.getElementById("allGamesList").style.display = "flex";
+  computed: {
+      user(){
+          return this.$store.state.auth.user;
       }
+  },
+  methods: {
+    async logout() {
+        await this.$auth.logout();
     },
   },
 };
 </script>
 
-<style scoped>
+<style>
 @import url("~/assets/css/navbar.css");
 </style>
 
-<style scoped>
+<style>
 .goog-te-banner-frame.skiptranslate {
   display: none !important;
 }
 body {
   top: 0px !important;
 }
-.tops{
-  padding-top: 130px;
-}
+
 .feature-menu {
   overflow-y: hidden;
   overflow-x: auto;

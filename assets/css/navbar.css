@@ -389,11 +389,11 @@
 
 /*CUSTOMIZED FORM INPUTS*/
 .form-group > label {
-  top: 38px;
-  left: 15px;
-  position: relative;
+  /* top: 38px;
+  left: 15px; */
+  /* position: relative; */
   background-color: #000000;
-  padding: 0px 4px 0px 4px;
+  /* padding: 0px 4px 0px 4px; */
   font-size: 1.1em;
   transition: 0.2s;
   pointer-events:none;

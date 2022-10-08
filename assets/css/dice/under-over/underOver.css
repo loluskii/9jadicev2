@@ -1,12 +1,5 @@
 /* CSS Document */
 
-.bg-header {
-	background-image: url('../photos/header.png');
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-color: yellow;
-	/*width: 100%;*/
-}
 #paytableImgBg {
 	/*background-image: url('../photos/dice-game/paytable-img.jpeg');*/
 	background-size: cover;
@@ -61,12 +54,7 @@
 	background-color: transparent;
 	border-color: transparent;
 }
-.hero-bg {
-	background: radial-gradient(circle, rgba(0,0,0,0.6), rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('../photos/hero.jpg');
-	background-size: cover;
-	background-repeat: no-repeat;
-	height: 50vh;
-}
+
 
 /* Add zoom effect on hovering on buttons*/
 .zoom:hover {
@@ -169,15 +157,7 @@
 .w3-animate-left{position:relative;animation:animateleft 0.4s}@keyframes animateleft{from{left:-300px;opacity:0} to{left:0;opacity:1}}
 .w3-animate-right{position:relative;animation:animateright 0.4s}@keyframes animateright{from{right:-300px;opacity:0} to{right:0;opacity:1}}
 
-.card-bg {
-	background: radial-gradient(circle, rgba(0,0,0,0.6), rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('../photos/hero.jpg');
-	background-repeat: no-repeat;
-	background-size: cover;
-	border-radius: 10px;
-	transition-duration: 0.7s;
-	height: 300px;
-	width: 100%;
-}
+
 .card-bg:hover {
 	transform: scale(1.1);
 	z-index: 1;

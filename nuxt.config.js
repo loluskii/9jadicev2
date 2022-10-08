@@ -30,6 +30,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '~plugins/bootstrap.js',
+    // '~/plugins/axios',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -49,6 +50,7 @@ export default {
     '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
+    '@nuxtjs/auth'
   ],
 
   // loading: '~/components/Loading.vue',
@@ -56,7 +58,35 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/',
+    baseURL: 'https://9jadice.test/api',
+  },
+
+  auth: {
+    strategies: {
+      local: {
+        user:{
+            autoFetch: false,
+            property: 'data.user'
+        },
+        endpoints: {
+          login: { url: '/logins', method: 'post', propertyName: 'data.authorization.token' },
+          logout: { url: '/logout', method: 'post', propertyName: 'data.user' },
+          user: false
+        },
+        tokenType:'',
+      }
+    },
+    redirect: {
+      login: '/login',
+      logout: '/',
+      home: '/',
+    },
+    plugins: ['~/plugins/auth.js']
+  },
+
+  toast: {
+    position: 'top-right',
+    duration: 2000
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
@@ -79,5 +109,10 @@ export default {
         "window.jQuery": "jquery",
       }),
     ],
+  },
+
+  generate: {
+    fallback: true
   }
+
 }

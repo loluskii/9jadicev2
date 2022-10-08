@@ -5,7 +5,7 @@
   >
     <div class="container">
       <div class="row text-secondary">
-        <div class="col-sm-12 col-md-7 col-lg-8 col-xl-8 mx-auto">
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mx-auto">
           <div class="d-flex justify-content-between align-items-center">
             <div>
               <a href="">

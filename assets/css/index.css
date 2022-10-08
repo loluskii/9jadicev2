@@ -196,9 +196,10 @@ width: 80%;
 .footerText {
   color: var(--theme-color-primary-text);
 }
+
 .tournament-type-btn {
   color: var(--theme-color-primary-text) !important;
-  font-size: smaller;
+  font-size: 90%;
   font-weight: 400;
 }
 .active-tournament-type-btn,

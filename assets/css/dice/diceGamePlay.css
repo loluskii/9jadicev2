@@ -1,419 +1,516 @@
 /*THIS STYLE IS CREATED FOR THE GAME-PLAY DISPLAY ONLY, IT DOESN'T WORK DIRECTLY WITH A GAME'S SCRIPT EXCEPT IN RARE CASES*/
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
 
-
-#main {
-	background-color: #0E171C;
-	background-position: center;
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	height: 98vh;
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
+
+
+body {
+  background-color: #000000;
+  /*font-family: 'Montserrat';*/
+}
+* {
+  font-family: "Montserrat";
+}
+.wBold {
+  font-weight: bold;
+}
+.w100 {
+  font-weight: 100;
+}
+.w200 {
+  font-weight: 200;
+}
+.w300 {
+  font-weight: 300;
+}
+.w400 {
+  font-weight: 400;
+}
+
+.small,
+small {
+  font-size: 80%;
+  font-weight: 400;
+}
+
 .curvedEdge {
-	border-radius: 18.5px;
+  border-radius: 18.5px;
 }
 .curvedTop {
-	border-radius: 18.5px 18.5px 0 0;
+  border-radius: 18.5px 18.5px 0 0;
 }
-.diceDiv {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	/*height: 80px;*/
-	margin-bottom: 40%;
-	z-index: 2;
+.diceRollInAnimation {
+  animation-name: slideInUp, rotateIn;
+  -webkit-animation-name: slideInUp, rotateIn;
+  animation-duration: 2s, 2s;
+  -webkit-animation-duration: 2s, 2s;
+}
+
+.turnNotification {
+  animation: turnNotification 1s ease-in-out infinite;
+  -webkit-animation: turnNotification 1s ease-in-out infinite;
+  -webkit-animation-name: turnNotification; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes turnNotification {
+  from {
+      background-color: red;
+  }
+  to {
+      background-color: yellow;
+  }
+}
+
+/* Standard syntax */
+@keyframes turnNotification {
+  from {
+      background-color: red;
+  }
+  to {
+      background-color: yellow;
+  }
+}
+
+#total_score,
+#total_position {
+  font-size: 18px;
+}
+#main {
+  /* margin: 0px;
+padding: 0px; */
+  /* background-color: #0E171C; */
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh !important;
+}
+.dice-small {
+  height: 20px;
+  width: 20px;
 }
 .diceSize {
-	width: 45px;
-	height: 45px;
+  width: 40px;
+  height: 40px;
+}
+
+#diceRollGif {
+  max-width: 100%;
+  height: auto;
+  margin-top: -35px;
+}
+
+@media only screen and (min-width: 769px) {
+  #diceRollGif {
+      max-width: 70%;
+      height: auto;
+      margin-top: 10px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  #diceRollGif {
+      max-width: 70%;
+      height: auto;
+      /* margin-top: -45px; */
+  }
 }
 
 .addStakeButton {
-	color: #ffffff;
+  color: #ffffff;
 }
 .chatBoxHeaderTitle {
-	color: var(--theme-color-primary-text);
+  color: var(--theme-color-primary-text);
 }
 .addStakeButtonActive {
-	background-color: var(--theme-color-primary-background) !important;
-	color: var(--theme-color-primary-text);
+  background-color: var(--theme-color-primary-background) !important;
+  color: var(--theme-color-primary-text);
 }
 #hideInstructionButton {
-	color: var(--theme-color-primary-text);
+  color: var(--theme-color-primary-text);
 }
 #toast-header {
-	color: var(--theme-color-primary-text);
+  color: var(--theme-color-primary-text);
 }
+
 .customStartButton {
-	border-radius: 9px;
-	background-color: var(--theme-color-primary-background);
-	letter-spacing: 0.1rem;
-	padding: 0.3rem 0.5rem !important;
-	font-size: 1.4rem;
-	color: var(--theme-color-primary-text);
-	text-transform: capitalize;
-	font-weight: bold;
+  border-radius: 9px;
+  background-color: var(--theme-color-primary-background);
+  letter-spacing: 0.1rem;
+  /*padding: 0.3rem 0.3rem !important;*/
+  font-size: 1.4rem;
+  color: var(--theme-color-primary-text);
+  text-transform: capitalize;
+  font-weight: bold;
 }
 .customMinusPlusButton {
-	background-color: var(--theme-color-warning-background);
-	font-size: 25px;
-	padding: 0 !important;
-	width: 37px;
-	height: 37px;
-	border-radius: 50%;
-	color: #ffffff;
-	font-weight: bold;
+  background-color: var(--theme-color-warning-background);
+  font-size: 25px;
+  padding: 0 !important;
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  color: #ffffff;
+  font-weight: bold;
 }
 .customInputBox {
-	width: 100%;
-	border: 3px solid var(--theme-color-warning-background);
-	letter-spacing: 1.5px;
-	border-radius: 5px;
-	color: #ffffff;
-	font-size: 1.2rem;
-	text-align: center;
-	font-weight: bold;
-	padding: 0.3rem 0.1rem;
-	background-color: #0E171C;
+  width: 100%;
+  border: 3px solid var(--theme-color-warning-background);
+  letter-spacing: 1.5px;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: bold;
+  padding: 0.3rem 0.1rem;
+  background-color: #0e171c;
 }
 .customAmountDiv {
-	border: 2px solid var(--theme-color-warning-background);
-	border-radius: 5px;
-	color: #ffffff;
-	font-weight: bold;
-	padding: 0.3rem 0.7rem;
+  border: 2px solid var(--theme-color-warning-background);
+  border-radius: 5px;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 0.3rem 0.7rem;
 }
 .customFabToggleButton {
-	background-color: var(--theme-color-primary-background);
-	font-size: 25px;
-	width: 50px;
-	height: 50px;
-	border-radius: 50%;
-	color: var(--theme-color-primary-text);
-	font-weight: bold;
+  background-color: var(--theme-color-primary-background);
+  font-size: 25px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: var(--theme-color-primary-text);
+  font-weight: bold;
 }
 .customFabToggleButtonRight {
-	background-color: var(--theme-color-primary-background);
-	border-radius: 8px;
-	/*font-size: 25px;
-	width: 50px;
-	height: 50px;
-	border-radius: 50%;*/
-	color: #ffffff;
-	/*font-weight: bold;*/
+  background-color: var(--theme-color-primary-background);
+  border-radius: 8px;
+  /*font-size: 25px;
+width: 50px;
+height: 50px;
+border-radius: 50%;*/
+  color: #ffffff;
+  /*font-weight: bold;*/
 }
+
 /*.customFabToggleButton {
-  border-radius: 50px;
-  height: 60px;
-  width: 60px;
-  margin: 5px 0px;
+border-radius: 50px;
+height: 60px;
+width: 60px;
+margin: 5px 0px;
 }*/
 .customFabToggleButton:active {
-	background: var(--theme-color-warning-background);
-	outline: none;
-	box-shadow: none !important;
+  background: var(--theme-color-warning-background);
+  outline: none;
+  box-shadow: none !important;
 }
+
 .btn-oddEven {
-	background: #F8C73A;
+  background: #f8c73a;
 }
 .betSelectionArea {
-    background: var(--theme-color-primary-background);
-    border-radius: 5px;
-    z-index: 5;
+  background: var(--theme-color-primary-background);
+  border-radius: 5px;
+  z-index: 5;
 }
 
 .betSelectionAreaActive {
-	background: #BF910D;
+  background: #bf910d;
 }
-#top {
-	width: 50%;
-}
-
 
 .customCircleButton-green-rounded {
-	background: transparent;
-	background-image: url('../../../../images/desktop/games/dice/gameplay-assets/btn-plus-green.png');
-	background-repeat: no-repeat;
-	background-size: 100%;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	background-position: center;
-	border: none;
-	outline: none !important;
-	line-height: 1.5;
+  background: transparent;
+  /* background-image: url("../../../../images/mobile/games/dice/gameplay-assets/btn-plus-green.png"); */
+  background-repeat: no-repeat;
+  background-size: 100%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-position: center;
+  border: none;
+  outline: none !important;
+  line-height: 1.5;
 }
 .customCircleButton-green:active {
-	background: transparent;
-	outline: none;
-	box-shadow: none !important;
+  background: transparent;
+  outline: none;
+  box-shadow: none !important;
 }
 
 .customCircleButton-green {
-	/*background: green;*/
-	background-image: url('../../../../images/desktop/games/dice/gameplay-assets/btn-input.png');
-	background-repeat: no-repeat;
-	background-size: 100px 60px;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	background-position: center;
-	border: none;
-	outline: none !important;
-	width: 100px;
-	height: 60px;
-	line-height: 1.5;
+  /*background: green;*/
+  /* background-image: url("../../../../images/mobile/games/dice/gameplay-assets/btn-input.png"); */
+  background-repeat: no-repeat;
+  background-size: 90px 50px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-position: center;
+  border: none;
+  outline: none !important;
+  width: 90px;
+  height: 50px;
+  line-height: 1.5;
 }
 .customCircleButton-green:active {
-	background: transparent;
-	outline: none;
-	box-shadow: none !important;
+  background: transparent;
+  outline: none;
+  box-shadow: none !important;
 }
 .customCircleButton-input {
-	/*background: green;*/
-	background-image: url('../../../../images/desktop/games/dice/gameplay-assets/btn-input.png');
-	background-repeat: no-repeat;
-	background-size: 100px 60px;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	background-position: center;
-	border: none;
-	/*border-radius: 30px;*/
-	width: 100px;
-	height: 60px;
-	line-height: 1.5;
+  /*background: green;*/
+  /* background-image: url("../../../../images/mobile/games/dice/gameplay-assets/btn-input.png"); */
+  background-repeat: no-repeat;
+  background-size: 90px 50px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-position: center;
+  border: none;
+  /*border-radius: 30px;*/
+  width: 90px;
+  height: 50px;
+  line-height: 1.5;
 }
 .customCircleButton-blue {
-	background: transparent;
-	background-image: url('../../../../images/desktop/games/dice/gameplay-assets/btn-blue.png');
-	background-repeat: no-repeat;
-	background-size: 120%;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	background-position: center;
-	border: none;
-  	border-radius: 50% !important;
-  	padding: 0.5rem 1rem;
-	/*font-size: 1.25rem;*/
-	line-height: 1.5;
+  background: transparent;
+  /* background-image: url("../../../../images/mobile/games/dice/gameplay-assets/btn-blue.png"); */
+  background-repeat: no-repeat;
+  background-size: 120%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-position: center;
+  border: none;
+  border-radius: 50% !important;
+  padding: 0.5rem 1rem;
+  /*font-size: 1.25rem;*/
+  line-height: 1.5;
 }
 .customCircleButton-blue:focus {
-	background: black;
-	outline: none;
-	box-shadow: none !important;
+  background: var(--theme-color-warning-background);
+  outline: none;
+  box-shadow: none !important;
 }
 .customCircleButton-blue:active {
-	background: black;
-	outline: none;
-	box-shadow: none !important;
+  background: var(--theme-color-warning-background);
+  outline: none;
+  box-shadow: none !important;
 }
 .customCircleButton-deepBlue {
-	background: transparent;
-	background-image: url('../../../../images/desktop/games/dice/gameplay-assets/btn-deepBlue.png');
-	background-repeat: no-repeat;
-	background-size: 120%;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	background-position: center;
-	border: none;
-  	border-radius: 50% !important;
-  	padding: 0.5rem 1rem;
-	/*font-size: 1.25rem;*/
-	line-height: 1.5;
+  background: transparent;
+  /* background-image: url("../../../../images/mobile/games/dice/gameplay-assets/btn-deepBlue.png"); */
+  background-repeat: no-repeat;
+  background-size: 120%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-position: center;
+  border: none;
+  border-radius: 50% !important;
+  padding: 0.5rem 1rem;
+  /*font-size: 1.25rem;*/
+  line-height: 1.5;
 }
 .customCircleButton-deepBlue:focus {
-	background: black;
-	outline: none;
-	box-shadow: none !important;
+  background: black;
+  outline: none;
+  box-shadow: none !important;
 }
 .customCircleButton-deepBlue:active {
-	background: black;
-	outline: none;
-	box-shadow: none !important;
+  background: black;
+  outline: none;
+  box-shadow: none !important;
 }
 .customCircleButton-purple {
-	background: transparent;
-	background-image: url('../../../../images/desktop/games/dice/gameplay-assets/btn-purple.png');
-	background-repeat: no-repeat;
-	background-size: 120%;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	background-position: center;
-	border: none;
-  	border-radius: 50% !important;
-  	padding: 0.5rem 1rem;
-	/*font-size: 1.25rem;*/
-	line-height: 1.5;
+  background: transparent;
+  /* background-image: url("../../../../images/mobile/games/dice/gameplay-assets/btn-purple.png"); */
+  background-repeat: no-repeat;
+  background-size: 120%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-position: center;
+  border: none;
+  border-radius: 50% !important;
+  padding: 0.5rem 1rem;
+  /*font-size: 1.25rem;*/
+  line-height: 1.5;
 }
 .customCircleButton-purple:focus {
-	background: black;
-	outline: none;
-	box-shadow: none !important;
+  background: black;
+  outline: none;
+  box-shadow: none !important;
 }
 .customCircleButton-purple:active {
-	background: black;
-	outline: none;
-	box-shadow: none !important;
+  background: black;
+  outline: none;
+  box-shadow: none !important;
 }
 .customCircleButton-red {
-	background: transparent;
-	background-image: url('../../../../images/desktop/games/dice/gameplay-assets/btn-red.png');
-	background-repeat: no-repeat;
-	background-size: 120%;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	background-position: center;
-	border: none;
-  	border-radius: 50% !important;
-  	padding: 0.5rem 1rem;
-	/*font-size: 1.25rem;*/
-	line-height: 1.5;
+  background: transparent;
+  /* background-image: url("../../../../images/mobile/games/dice/gameplay-assets/btn-red.png"); */
+  background-repeat: no-repeat;
+  background-size: 120%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-position: center;
+  border: none;
+  border-radius: 50% !important;
+  padding: 0.5rem 1rem;
+  /*font-size: 1.25rem;*/
+  line-height: 1.5;
 }
 .customCircleButton-red:focus {
-	background: black;
-	outline: none;
-	box-shadow: none !important;
+  background: black;
+  outline: none;
+  box-shadow: none !important;
 }
 .customCircleButton-red:active {
-	background: black;
-	outline: none;
-	box-shadow: none !important;
+  background: black;
+  outline: none;
+  box-shadow: none !important;
 }
 .greenInput {
-	background-color: transparent;
-	background-image: url('../../../../images/desktop/games/dice/gameplay-assets/green-input.png');
-	background-repeat: no-repeat;
-	background-size: 100%;
-	padding: 0.2rem 0.2rem;
-	border-radius: 14px;
-	width: 50px !important;
-	height: 25px !important;
+  background-color: transparent;
+  /* background-image: url("../../../../images/mobile/games/dice/gameplay-assets/green-input.png"); */
+  background-repeat: no-repeat;
+  background-size: 100%;
+  padding: 0.2rem 0.2rem;
+  border-radius: 14px;
+  width: 50px !important;
+  height: 25px !important;
 }
 .greenBg {
-	background-color: green;
-	background-image: url('../../../../images/desktop/games/dice/gameplay-assets/green-bg.png');
-	background-repeat: no-repeat;
-	background-size: cover;
-	padding: 0.5rem 0.2rem;
-	border-radius: 17px;
-	width: 95% !important;
-	height: 30px !important;
+  background-color: green;
+  /* background-image: url("../../../../images/mobile/games/dice/gameplay-assets/green-bg.png"); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 0.5rem 0.2rem;
+  border-radius: 17px;
+  width: 95% !important;
+  height: 30px !important;
 }
 .customYellowMoney {
-	background: transparent;
-	background-image: url('../../../../images/desktop/games/dice/gameplay-assets/yellow-money.png');
-	background-repeat: no-repeat;
-	width: 100px;
-	height: 33px;
-	background-size: 100%;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	background-position: center;
-	border: none;
-	outline: none !important;
-	color: #992501;
-	/*line-height: 1.5;*/
-	border-radius: 0px 15px 15px 0px;
+  background: transparent;
+  /* background-image: url("../../../../images/mobile/games/dice/gameplay-assets/yellow-money.png"); */
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 33px;
+  background-size: 100%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-position: center;
+  border: none;
+  outline: none !important;
+  color: #992501;
+  /*line-height: 1.5;*/
+  border-radius: 0px 15px 15px 0px;
 }
 .customYellowDice {
-	background: transparent;
-	background-image: url('../../../../images/desktop/games/dice/gameplay-assets/yellow-dice.png');
-	background-repeat: no-repeat;
-	width: 100px;
-	height: 33px;
-	background-size: 100%;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	background-position: center;
-	border: none;
-	outline: none !important;
-	color: #992501;
-	/*line-height: 1.5;*/
-	border-radius: 15px 0px 0px 15px;
+  background: transparent;
+  /* background-image: url("../../../../images/mobile/games/dice/gameplay-assets/yellow-dice.png"); */
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 33px;
+  background-size: 100%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-position: center;
+  border: none;
+  outline: none !important;
+  color: #992501;
+  /*line-height: 1.5;*/
+  border-radius: 15px 0px 0px 15px;
 }
 .customYellowPlusButton {
-	background: transparent;
-	background-image: url('../../../../images/desktop/games/dice/gameplay-assets/yellow-plus.png');
-	background-repeat: no-repeat;
-	background-size: contain;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	background-position: center;
-	border: none;
-	outline: none !important;
-	line-height: 1.5;
+  background: transparent;
+  /* background-image: url("../../../../images/mobile/games/dice/gameplay-assets/yellow-plus.png"); */
+  background-repeat: no-repeat;
+  background-size: contain;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-position: center;
+  border: none;
+  outline: none !important;
+  line-height: 1.5;
 }
 .customYellowStartButton {
-	background: transparent;
-	background-image: url('../../../../images/desktop/games/dice/gameplay-assets/yellow-start.png');
-	background-repeat: no-repeat;
-	height: 80px;
-	width: 70px;
-	background-size: 100%, 120px;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	background-position: center;
-	border: none;
-	outline: none !important;
-	line-height: 1.5;
+  background: transparent;
+  /* background-image: url("../../../../images/mobile/games/dice/gameplay-assets/yellow-start.png"); */
+  background-repeat: no-repeat;
+  height: 70px;
+  background-size: 100%, 100px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-position: center;
+  border: none;
+  outline: none !important;
+  line-height: 1.5;
 }
+
+.iconRoundCircleWhite {
+  display: inline-block;
+  border-radius: 60px;
+  border: 1px solid var(--theme-color-primary-background);
+  /*box-shadow: 0px 0px 2px #fff;*/
+  padding: 0.5em 0.6em;
+}
+
 .supClass {
-	font-size: 0.7rem;
+  font-size: 0.7rem;
 }
 .usernameText {
-	width: 70px;
-	font-weight: bold;
-	white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  width: 70px;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .bg-footer {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	margin-bottom: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-bottom: 53px;
+}
+@media only screen and (max-width: 576px) {
+  .bg-footer {
+      margin-bottom: 55px;
+  }
 }
 .bg-footer-legend {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	margin-bottom: 35px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-bottom: 10px;
 }
 .bg-footer-legend-size {
-	border-radius: 20px 20px 0 0;
-	height: 63px;
+  border-radius: 20px 20px 0 0;
+  /*height: 63px;*/
 }
 .game-indicator {
-	border: 1px solid #ff0000;
-	border-radius: 7px;
-}
-.button-chat {
-	position: absolute;
-	bottom: 0;
-	right: 0;
-	margin-right: 15px;
-	margin-bottom: 115px;
+  border: 1px solid #ff0000;
+  border-radius: 7px;
 }
 
 .button-float {
@@ -432,23 +529,18 @@
   width: 4.5rem;
   height: 15.5rem;
   bottom: 5px;
-  margin-bottom: 5rem;
+  margin-bottom: 8rem;
+  margin-right: 0.5rem;
   right: 5px;
-  /*padding: 0rem 1rem;*/
-  /*border-radius: 50px;*/
   text-align: center;
-  z-index: 5;
+  z-index: 7;
 }
 .button-float-action-left {
   position: absolute;
   width: 4.5rem;
   /*height: 15.5rem;*/
   bottom: 5px;
-  margin-bottom: 2rem;
-  margin-left: 5px;
-  /*right: 5px;*/
-  /*padding: 0rem 1rem;*/
-  /*border-radius: 50px;*/
+  margin-bottom: 4.2rem;
   text-align: center;
   z-index: 5;
 }
@@ -457,12 +549,20 @@
   width: 5rem;
   /*height: 10rem;*/
   bottom: 5px;
-  margin-bottom: 2.5rem;
+  margin-bottom: 4.2rem;
   margin-right: 5px;
   right: 0;
   text-align: center;
   z-index: 5;
 }
+.button-chat {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: 15px;
+  margin-bottom: 45px;
+}
+
 .fab-child {
   border-radius: 50px;
   height: 45px;
@@ -473,119 +573,152 @@
 .game-speed-fab-child {
   height: 45px;
   width: 100%;
+  /*margin: 5px 0px;*/
   visibility: hidden;
 }
 .game-speed-fab-child-text {
-	font-size: 13px;
+  font-size: 13px;
+  color: #ffffff;
 }
 .fab-child-active {
   visibility: visible;
 }
-.fab-child-trigger {
-  border-radius: 50px;
-  height: 60px;
-  width: 60px;
-  margin: 5px 0px;
+.wordBreakWord {
+  word-wrap: break-word;
 }
-.fab-child-trigger:active {
-	background: transparent;
-	outline: none;
-	box-shadow: none !important;
+#chatRoomDiv {
+  height: 92vh;
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 6;
 }
+.chatRoomDivChatSection {
+  padding-bottom: 1rem;
+}
+@media only screen and (max-width: 576px) {
+  .chatRoomDivChatSection {
+      padding-bottom: 0.7rem;
+  }
+}
+@media only screen and (max-width: 360px) {
+  .chatRoomDivChatSection {
+      padding-bottom: 1.5rem;
+  }
+}
+#chatRoomDiv > .curvedTop {
+  height: 40px;
+}
+#chatSectionDiv {
+  width: 100%;
+  transition: 0.5s;
+}
+#onlinePlayersDiv {
+  width: 0%;
+  transition: 0.5s;
+}
+.innerChatDivStyle {
+  height: 80%;
+}
+
+.turnToastStyle {
+  z-index: 999;
+  position: absolute;
+  left: 0;
+  margin-top: 30%;
+}
+
 #animated-cup {
-	touch-action: manipulation;
+  touch-action: manipulation;
 }
 #animated-cup-img {
-	height: 100px !important;
-	touch-action: manipulation;
+  height: 110px;
+  touch-action: manipulation;
+  -khtml-user-select: none;
+  -o-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
+
 .infoAlertTop {
-	position: fixed;
-	top: 5px;
-	margin-top: 15%;
-	right: 10px;
-	z-index: 50;
-	width: 96%;
-	display: none;
-	border-radius: 22px;
+  position: fixed;
+  top: 5px;
+  margin-top: 15%;
+  right: 10px;
+  z-index: 50;
+  width: 96%;
+  display: none;
+  border-radius: 22px;
 }
 .curvedEdge {
-	border-radius: 18px;
+  border-radius: 18px;
+}
+
+/*gradient colours*/
+.btn-gradient {
+  background: linear-gradient(#dc3545, orange);
+}
+.btn-gradient-red {
+  background: linear-gradient(#e83c35, #713c37);
+  border: none;
+}
+.btn-gradient-yellow {
+  background: linear-gradient(#fbe33c, #f8933c);
+  color: #c57729;
+  border: none;
+}
+.btn-gradient-blue {
+  background: linear-gradient(#1da1f2, #304584);
+  border: none;
+}
+.btn-gradient-green {
+  background: linear-gradient(#70b340, #296c32);
+  border: none;
+}
+.bg-gradient-green {
+  background: linear-gradient(#70b340, #296c32);
 }
 
 .textYellow {
-	color: yellow;
+  color: yellow;
 }
 .pointsBackground {
-	background: var(--theme-color-primary-background);
-	border-radius: 5px;
-	padding: 0.5rem 0.8rem;
-	color: var(--theme-color-primary-text);
+  background: var(--theme-color-primary-background);
+  border-radius: 5px;
+  padding: 0.5rem 0.8rem;
+  color: var(--theme-color-primary-text);
 }
-/*.instructionBackground {
-	background-color: var(--theme-color-warning-background);
-	color: #000000;
-	padding: 1rem 0.5rem;
-	border-radius: 5px;
-}*/
 .instructionBackground {
-	/*background-color: var(--theme-color-warning-background);*/
-	color: #000000;
-	text-transform: uppercase;
-	padding: 0;
-	color: var(--theme-color-primary-text);
-	border-radius: 18.5px;
-	/*width: 85%;*/
-	 z-index: 6; 
+  /*background-color: var(--theme-color-warning-background);*/
+  color: var(--theme-color-primary-text);
+  /* text-transform: uppercase; */
+  padding: 0;
+  border-radius: 18.5px;
+  width: 85%;
+  z-index: 6;
 }
 
 /*for tournament gameplay*/
 .legendPointsBackground {
-	background-color: var(--theme-color-primary-background);
-   border-radius: 5px;
+  background-color: var(--theme-color-primary-background);
+  border-radius: 5px;
 }
 .leaderboardTableBackground {
-	background-color: var(--theme-color-primary-background);
-    border: 2px solid var(--theme-color-primary-background);
-    border-radius: 3px;
+  background-color: var(--theme-color-primary-background);
+  border: 2px solid var(--theme-color-primary-background);
+  border-radius: 3px;
+  padding: 0px !important;
 }
 
-.leaderboardTable > tbody > tr:nth-child(2n+1) {
-	background-color: rgba(5, 100, 35, 0.9);
+.leaderboardTable > tbody > tr:nth-child(2n + 1) {
+  background-color: rgba(5, 100, 35, 0.9);
 }
 .leaderboardTable > tbody > tr:hover {
-	/*color: #000000;*/
-	font-weight: bold;
-	background-color: var(--theme-color-warning-background);
-}
-
-@media only screen and (max-width: 600px) {
-	#main {
-	    margin-left: 0% !important;
-	    width: 100% !important;
-	    /*padding-bottom: 20px;*/
-	}
-	#animated-cup-img {
-		height: 130px;
-	}
-}
-
-@media only screen and (max-width: 1024px) {
-  #main {
-    /*height: 92% !important;*/
-    height: 100vh !important;
-    width: 100% !important;
-  }
-  #top {
-  	width: 100% !important;
-  }
-}
-
-/*when screen is on landscape mode on mobile devices. Current screen size is for pixel 2 XL*/
-@media screen and (max-width: 823px) and (orientation: landscape) {
-	#animated-cup-img {
-		height: 80px;
-	}
+  color: #000000;
+  font-weight: bold;
+  background-color: var(--theme-color-warning-background);
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -594,20 +727,142 @@
   -webkit-appearance: none;
   margin: 0;
 }
-#betAmountList:focus {
-	background-color: var(--theme-color-warning-background);
-}
 
 /* Firefox */
-#betAmountList[type=number] {
+#betAmountList[type="number"] {
   -moz-appearance: textfield;
 }
-
-.hideScrollbar {
-	/*hide scrollbar on mobile*/
-	-ms-overflow-style: none;  /* Internet Explorer 10+ */
-	scrollbar-width: none;  /* Firefox */
+#betAmountList:focus,
+#betAmountInput:focus {
+  color: #000000 !important;
 }
-.hideScrollbar::-webkit-scrollbar {
-	display: none;  /* Safari and Chrome */
+.betAmountInput:focus {
+  color: #000000 !important;
+}
+
+@media only screen and (max-width: 576px) {
+  #main {
+      height: 100vh !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #main {
+      margin-left: 0% !important;
+      /* width: 100% !important; */
+  }
+  #animated-cup-img {
+      height: 130px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  #animated-cup-img {
+      height: 100px;
+  }
+  .customCircleButton-blue {
+      padding: 0.5rem 0.7rem;
+  }
+  .customCircleButton-input {
+      background-size: 90px 50px;
+      width: 90px;
+      height: 60px;
+  }
+}
+
+/* ANIMATION TO ROTATE DICE IN IN GAMEPLAY */
+#dice,
+#dice1,
+#dice2,
+#dice3,
+#dice4 {
+  display: none;
+  width: 50px;
+  height: 50px;
+  position: relative;
+  -webkit-animation-name: rotateIn; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 0.7s; /* Safari 4.0 - 8.0 */
+  animation-name: rotateIn;
+  animation-duration: 0.7s;
+  z-index: 1;
+}
+
+@keyframes rotateIn {
+  0% {
+      -webkit-transform: rotate(-220deg);
+      -webkit-transform-origin: center;
+      opacity: 0;
+      transform: rotate(-220deg);
+      transform-origin: center;
+      top: 200px;
+  }
+
+  100% {
+      -webkit-transform: translateZ(0);
+      -webkit-transform-origin: center;
+      opacity: 1;
+      transform: translateZ(0);
+      transform-origin: center;
+      top: 0px;
+  }
+}
+
+@keyframes rotateOut {
+  0% {
+      -webkit-transform: rotate(-220deg);
+      -webkit-transform-origin: center;
+      opacity: 1;
+      transform: rotate(-220deg);
+      transform-origin: center;
+      top: 0px;
+  }
+
+  100% {
+      -webkit-transform: translateZ(0);
+      -webkit-transform-origin: center;
+      opacity: 0;
+      transform: translateZ(0);
+      transform-origin: center;
+      top: 200px;
+  }
+}
+
+/* .diceDiv {
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+height: 170px;
+margin-bottom: 75%;
+z-index: 2;
+} */
+
+/* @media only screen and (min-width: 768px) {
+.diceDiv {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-bottom: 75%;
+  z-index: 2;
+}
+} */
+
+@media only screen and (max-width: 1024px) {
+  /* #main {
+      width: 100% !important;
+  } */
+}
+
+/*when screen is on landscape mode on mobile devices. Current screen size is for pixel 2 XL*/
+@media screen and (max-width: 823px) and (orientation: landscape) {
+  #animated-cup-img {
+      height: 80px;
+  }
+}
+
+/*Adjust the height of the generateScore table*/
+@media only screen and (max-height: 1024px) {
+  /* #main {
+      width: 100% !important;
+  } */
 }

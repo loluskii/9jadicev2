@@ -8,19 +8,19 @@
         <div class="d-none d-lg-flex align-items-center">
               <nuxt-link to="/" class="nav-link text-decoration-none text-white"
                 >Home</nuxt-link>
-              <nuxt-link to="/how-to-play" class="nav-link text-decoration-none text-white">
+              <nuxt-link to="/content/how-to-play" class="nav-link text-decoration-none text-white">
                 How to play
               </nuxt-link>
-              <nuxt-link to="/promos" class="nav-link text-decoration-none text-white"
+              <nuxt-link to="/content/promos" class="nav-link text-decoration-none text-white"
                 >PROMOS</nuxt-link
               >
-              <nuxt-link to="/affliates" class="nav-link text-decoration-none text-white"
+              <nuxt-link to="/content/affliates" class="nav-link text-decoration-none text-white"
                 >Affiliates</nuxt-link
               >
-              <nuxt-link to="/blog" class="nav-link text-decoration-none text-white"
+              <nuxt-link to="/content/blog" class="nav-link text-decoration-none text-white"
                 >Blog</nuxt-link
               >
-              <nuxt-link to="/discussions" class="nav-link text-decoration-none text-white"
+              <nuxt-link to="/content/discussions" class="nav-link text-decoration-none text-white"
                 >Discussions</nuxt-link
               >
         </div>
