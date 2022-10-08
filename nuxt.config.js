@@ -14,6 +14,7 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon-32x32.png' },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css?family=Orbitron:700" },
+      { rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" },
       { rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" },
     ]
   },
@@ -24,7 +25,6 @@ export default {
     'bootstrap-vue/dist/bootstrap-vue.css',
     '~/assets/css/index.css',
     '~/assets/css/navbar.css',
-    '~/assets/css/font-awesome.min.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
