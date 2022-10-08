@@ -31,7 +31,7 @@
           </span>
           <span class="gameTopTitle">Dice lotto</span>
         </nuxt-link>
-        <nuxt-link to=""
+        <nuxt-link to="/dice/colors"
           class="btn btn-sm text-white border-0 rounded-0 position-relative d-flex flex-column justify-content-center"
           href=""
         >
