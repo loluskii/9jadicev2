@@ -1,11 +1,11 @@
-export const getters = {
-  isAuthenticated(state) {
-    return state.auth.loggedIn
-  },
+import getters from '../store/getters';
+import mutations from '../store/mutations';
+import actions from '../store/actions';
 
-  loggedInUser(state) {
-    return state.auth.user
-  }
-}
+
+export const state = () => ({
+  right_open: false,
+})
+
 
 

@@ -63,7 +63,7 @@
                 </div>
                 <div class="position-relative">
                     <button class="btn bg-sv-primary rightNavTopTextColor btn-sm dropdown-toggle" type="button"
-                        id="sidenav-toggler" onclick="openRightNav()">
+                        id="sidenav-toggler" @click="toggle_right">
                         <span><i class="fa fa-user"></i></span>
                     </button>
                 </div>
@@ -76,6 +76,7 @@
           <!-- Games List -->
         </div>
       </header>
+      <side-nav></side-nav>
     </div>
     <div class="col-sm-12 col-md-1 col-lg-2 col-xl-3"></div>
   </div>
@@ -83,8 +84,9 @@
 
 <script>
 import Games from "../Games.vue";
+import SideNav from './SideNav.vue';
 export default {
-  components: { Games },
+  components: { Games, SideNav },
   name: "top",
   data() {
     return {
@@ -99,6 +101,9 @@ export default {
   methods: {
     async logout() {
         await this.$auth.logout();
+    },
+    toggle_right() {
+        this.$store.commit('right_menu', "toggle");
     },
   },
 };
