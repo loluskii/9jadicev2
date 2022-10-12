@@ -220,7 +220,7 @@
 
         </li>
         <li>
-          <a href="https://dice.ng/logout" id="logout-list"
+          <a @click="logout" id="logout-list"
             ><span class="mr-3"
               ><i class="fa fa-power-off text-sv-warning"></i></span
             >Log Out</a
@@ -242,6 +242,11 @@ export default {
   methods:{
     toggle_right() {
         this.$store.commit('right_menu', "toggle");
+    },
+    async logout() {
+        await this.$auth.logout();
+        this.$auth.$storage.removeCookie('auth.user',true)
+        this.toggle_right()
     },
   }
 };

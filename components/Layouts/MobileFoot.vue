@@ -7,8 +7,8 @@
 
       >
         <div class="col-lg-6 mx-auto col-sm-12 py-2" style="background-color: #1d2124">
-          <div class="row">
-            <div class="small" style="width: 20%">
+          <div class="row justify-content-center">
+            <div class="small" :class="$auth.loggedIn ? 'w-20' : 'w-25'">
               <a
                 href=""
                 id="sidenav-toggler"
@@ -51,7 +51,7 @@
                 <span class="small">Connect</span>
               </a>
             </div>
-            <div  style="width: 20%" class="small">
+            <div class="small" :class="$auth.loggedIn ? 'w-20' : 'w-25'">
               <a
                 href=""
                 class="d-flex flex-column card-link text-center text-white"
@@ -60,7 +60,7 @@
                 <span class="small">Deposit</span>
               </a>
             </div>
-            <div v-if="!$auth.loggedIn" class="col-2 small">
+            <div v-if="!$auth.loggedIn" class="col-3 small">
               <a
                 href=""
                 class="d-flex flex-column card-link text-center text-white"
@@ -69,7 +69,7 @@
                 <span class="small text-nowrap">Sign Up</span>
               </a>
             </div>
-            <div v-if="!$auth.loggedIn" class="col-2 small">
+            <div v-if="!$auth.loggedIn" class="col-3 small">
               <a
                 href=""
                 class="d-flex flex-column card-link text-center text-white"
@@ -105,3 +105,13 @@ export default {
   methods: {},
 };
 </script>
+
+<style scoped>
+.w-20{
+  width: 20%;
+}
+
+.w-25{
+  width: 25%;
+}
+</style>

@@ -48,17 +48,14 @@
             <div v-else class="d-flex align-items-center">
                 <div class="d-flex flex-column small text-white text-right mr-1">
                     <span class="text-capitalize text-white-50">
-                      {{ $auth.loggedIn }}
-                        Welcome, <span>{{user}}</span>
+                        Welcome, <span>{{user.user_data_name}}</span>
                         <!-- {{ substr(Auth::user()->user_data_name, 0, 10) }} -->
                             <span v-if="user.user_status_role_id == 1 || user.user_status_role_id == 2" class="small">
                                 <i class="fa fa-check-circle text-info"></i>
                             </span>
                     </span>
-                    <span id="balanceSpanId" class="font-weight-bold">&#8358;
-                        {{user.balance}}
-                    </span>
-                    <span> Bonus: &#8358;{{ user.bonus }} </span>
+                    <span id="balanceSpanId" class="font-weight-bold">&#8358; {{ formatNumber(user.balance) }} </span>
+                    <span> Bonus: &#8358;{{ formatNumber(user.bonus) }} </span>
                     <!-- <button @click="logout">logout</button> -->
                 </div>
                 <div class="position-relative">
@@ -99,9 +96,7 @@ export default {
       }
   },
   methods: {
-    async logout() {
-        await this.$auth.logout();
-    },
+    
     toggle_right() {
         this.$store.commit('right_menu', "toggle");
     },

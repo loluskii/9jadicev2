@@ -62,7 +62,7 @@
               </div>
               <span>
                 <button
-                  class="btn btn-sm btn-light px-1 py-0 rounded-pill text-dark"
+                  class="btn btn-sm text-dark btn-light info-button"
                   onclick='openInfoModal({"id":81762,"name":"Mr Funny","category_id":3,"duration":6,"duration_type":"day","slug":"mr-funny","reference_id":"OONUinPaJ2","end_date":"2022-09-04 09:05:15","stake":100,"status":"started","no_of_players":50000,"no_of_players_joined":3,"time_started":"2022-08-29 09:05:15","club_color":null,"club_jesery":null,"hot":0,"creator":{"user_data_name":"larry","verfication":1},"api_leaderboard":[],"leaderboard_length":3,"api_userrecords":[],"freetournament":null})'
                 >
                   <i class="fa fa-info cursorPointer"></i>

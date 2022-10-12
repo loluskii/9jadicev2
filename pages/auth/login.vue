@@ -16,12 +16,12 @@
         </div>
         <form @submit.prevent="loginUser" autocomplete="off">
           <span
-            class="invalid-feedback pt-3"
+            class="invalid-feedback pb-3"
             style="display: block"
             role="alert"
             v-if="error"
           >
-            <strong>{{ message }}</strong>
+            <strong>There was an issue with your login</strong>
           </span>
           <div class="form-group">
             <label for="phone" class="text-white small">Username / Email</label>
@@ -109,26 +109,18 @@ export default {
   },
   methods:{
     async loginUser(){
-      this.$auth.loginWith('local',{
-        data: {
-          email: 'oponechukwuyenum@gmail.com',
-          password: 'Chucky@2020',
-        }
+      $('#loginBtn').text('Please wait...').attr('disabled');
+      await this.$auth.loginWith('local', { data:this.formData })
+      .then(async (res) => {
+        const data = res.data.data.user
+        this.$auth.setUser(data)
+        // this.$auth.$storage.setUniversal('user', data, true)
+        this.$router.push('/')
+      }).catch( (error) => {
+          $('#loginBtn').text('Login').attr('disabled', false);
+          this.error = true;
+          console.log(error)
       })
-      await this.$auth.loginWith('local', {
-        data: {
-            email: 'oponechukwuyenum@gmail.com',
-          password: 'Chucky@2020',
-        }
-      }).then( (res) => {
-        if(res.success){
-          $('#loginBtn').text('Success!!');
-          this.$auth.setUser(res.data.user)
-        }
-
-    })
-
-      // alert('You submitted your form')
     }
   }
 

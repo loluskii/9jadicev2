@@ -28,7 +28,8 @@
           <button
             type="button"
             class="btn rounded-circle p-2 text-sv-primary"
-
+            data-dismiss="modal"
+            aria-label="Close"
           >
             <span aria-hidden="true"><i class="fa fa-times"></i></span>
           </button>
@@ -74,7 +75,6 @@
         nav-wrapper-class="row justify-content-center nav-top"
         nav-class="bg-white text-dark justify-content-between font-weight-bold pubic-info-modal-tabs"
         active-nav-item-class="text-white bg-sv-warning"
-        small
       >
         <b-tab>
           <template #title>
@@ -88,24 +88,32 @@
           >
             <div class="d-flex justify-content-between border-bottom py-2">
               <span id="prizeText">Stake</span>
-              <span id="prizeID">{{ game.stake }}</span>
+              <span id="prizeID">100</span>
             </div>
             <div class="d-flex justify-content-between border-bottom py-2">
               <span>Creator</span>
               <span id="creatorID">larry</span>
             </div>
+            <div
+              style="display: none"
+              class="justify-content-between border-bottom py-2"
+              id="privateAgentGameCodeDisplay"
+            >
+              <span id="startText">Game Code</span>
+              <span id="privateAgentGameCode"></span>
+            </div>
             <div class="d-flex justify-content-between border-bottom py-2">
               <span id="startText">Start Time</span>
               <span>
                 <span><i class="fa fa-clock-o"></i></span>
-                <span id="startID">{{ getDuration(game.time_started) }}</span>
+                <span id="startID">3 days ago</span>
               </span>
             </div>
             <div class="d-flex justify-content-between border-bottom py-2">
-              <span id="endText">End Time</span>
+              <span id="endText">Ends Time</span>
               <span>
                 <span><i class="fa fa-clock-o"></i></span>
-                <span id="endID">{{ getDuration(game.end_date) }}</span>
+                <span id="endID">in 3 days</span>
               </span>
             </div>
             <div
@@ -125,23 +133,22 @@
           <template #title>
             <small>Rules</small>
           </template>
-          <div class="text-white my-2">
-            <div>
-              NOTE: A service charge of 10% of the total amount accummulated for
-              this game will be deducted.
-            </div>
-            <ol class="pl-4">
-              <li>Create a Tournament or Join an existing Tournament.</li>
-              <li>Pay the Entry Fee.</li>
-              <li>Go to game page to play and earn your point.</li>
-              <li>
-                To play the game, tap the dice cup twice to roll the dice and
-                accumulate your points.
-              </li>
-              <li>Check your position on the leaderboard.</li>
-              <li>Claim your prizes!</li>
-            </ol>
+
+          <div>
+            NOTE: A service charge of 10% of the total amount accummulated for
+            this game will be deducted.
           </div>
+          <ol class="p-2">
+            <li>Create a Tournament or Join an existing Tournament.</li>
+            <li>Pay the Entry Fee.</li>
+            <li>Go to game page to play and earn your point.</li>
+            <li>
+              To play the game, tap the dice cup twice to roll the dice and
+              accumulate your points.
+            </li>
+            <li>Check your position on the leaderboard.</li>
+            <li>Claim your prizes!</li>
+          </ol>
         </b-tab>
         <b-tab>
           <template #title>
@@ -151,14 +158,17 @@
           <div class="px-2 py-1 btn btn-sm btn-block rounded-0 text-white">
             <small>Shows the current position of players per ticket.</small>
           </div>
-          <div class="d-flex justify-content-between text-white border-bottom py-2">
+          <div class="d-flex justify-content-between border-bottom py-2">
             <span class="font-weight-bold">Player</span>
             <!--  <span class="font-weight-bold">Winnings</span> -->
 
             <span class="font-weight-bold">Points</span>
           </div>
-          <div id="leaderboard-body"></div>
+          <div id="leaderboard-body">
+
+          </div>
         </b-tab>
+
         <b-tab>
           <template #title>
             <small>Paytable</small>
@@ -167,7 +177,8 @@
           <div class="px-2 py-1 btn btn-sm btn-block rounded-0 text-white">
             <small>Payouts when tickets are completely sold out.</small>
           </div>
-          <div id="tablePay" style="height: 300px; overflow-y: auto"></div>
+          <div id="tablePay" style="height: 300px; overflow-y: auto">
+          </div>
         </b-tab>
         <b-tab>
           <template #title>
@@ -177,11 +188,10 @@
           <div class="px-2 py-1 btn btn-sm btn-block rounded-0 text-white">
             <small>Payouts based on current ticket/tickets sold.</small>
           </div>
-          <div
-            id="livePayoutList"
-            style="height: 300px; overflow-y: auto"
-          ></div>
+          <div id="livePayoutList" style="height: 300px; overflow-y: auto">
+          </div>
         </b-tab>
+
       </b-tabs>
       <div class="col-12">
         <div id="infoModalFeedback"></div>
@@ -206,7 +216,9 @@
               href="https://dice.ng/legend/info/sure-game/syPcDikknA"
               class="btn btn-sm btn-primary mr-1 px-1"
             >
-              <span class="text-white" style="font-size: 12px">Info Page</span>
+              <span class="text-white" style="font-size: 12px"
+                >Info Page</span
+              >
             </a>
             <a
               href="https://dice.ng/tournament/81817/discussions"
@@ -225,14 +237,7 @@
               class="d-flex flex-nowrap hideScrollbar py-3"
               style="overflow-x: scroll"
             >
-              <span
-                style="
-                  position: absolute;
-                  right: 0;
-                  bottom: 10px;
-                  margin-right: 5px;
-                "
-              >
+              <span style="position: absolute; right: 0; bottom: 10px; margin-right: 5px">
                 <i class="fa fa-caret-right fa-2x text-white"></i>
               </span>
             </div>
@@ -251,13 +256,13 @@ export default {
 </script>
 
 <style>
-.nav-top {
-  margin-top: -13px;
-}
+  .nav-top{
+    margin-top: -13px;
+  }
 
-/*INFO MODAL TAB STYLES*/
-#public-info-modal-tabs__BV_tab_controls_ > li.nav-item > a.nav-link {
-  padding: 0.25rem 0.5rem;
-  color: #000;
-}
+  /*INFO MODAL TAB STYLES*/
+  #public-info-modal-tabs__BV_tab_controls_ > li.nav-item > a.nav-link{
+    padding: 0.25rem 0.5rem;
+    color: #000;
+  }
 </style>

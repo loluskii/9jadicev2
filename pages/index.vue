@@ -18,17 +18,17 @@
           >
             <verified-games></verified-games>
             <!-- {{-- STATE GAMES --}} -->
-            <state-games></state-games>
+            <!-- <state-games></state-games> -->
             <!-- {{-- BIGGEST PRIZES GAMES --}} -->
-            <biggest-prize></biggest-prize>
+            <!-- <biggest-prize></biggest-prize> -->
             <!-- {{-- PREMIER LEAGUES GAMES --}} -->
             <football-games></football-games>
             <!-- {{-- LUXURY GAMES --}} -->
-            <luxury-games></luxury-games>
+            <!-- <luxury-games></luxury-games> -->
             <!-- {{-- BONUS GAMES --}} -->
             <bonus-games></bonus-games>
             <!-- {{-- FREE GAMES --}} -->
-            <free-games></free-games>
+            <!-- <free-games></free-games> -->
             <!-- {{-- GAMES LIST END --}} -->
           </b-tab>
           <b-tab
@@ -236,7 +236,7 @@
                   </div>
                   <span>
                     <button
-                      class="btn btn-sm btn-light px-1 py-0 rounded-pill text-dark"
+                      class="btn btn-sm text-dark btn-light info-button"
                       onclick='openInfoModal({"id":81793,"name":"Lagos Fans","category_id":10,"duration":10,"duration_type":"day","slug":"lagos-fans","reference_id":"iaqEdwn1Tl","end_date":"2022-09-27 17:18:42","stake":100,"status":"started","no_of_players":50000,"no_of_players_joined":6,"time_started":"2022-09-17 17:18:42","club_color":null,"club_jesery":null,"hot":0,"creator":{"user_data_name":null,"verfication":null},"api_leaderboard":[],"leaderboard_length":6,"api_userrecords":[],"freetournament":null})'
                     >
                       <i class="fa fa-info cursorPointer"></i>
@@ -300,7 +300,7 @@
                   </div>
                   <span>
                     <button
-                      class="btn btn-sm btn-light px-1 py-0 rounded-pill text-dark"
+                      class="btn btn-sm text-dark btn-light info-button"
                       onclick='openInfoModal({"id":81792,"name":"Abuja Fans","category_id":10,"duration":10,"duration_type":"day","slug":"abuja-fans","reference_id":"vCR4LoorcP","end_date":"2022-09-27 17:18:00","stake":100,"status":"started","no_of_players":20000,"no_of_players_joined":1,"time_started":"2022-09-17 17:18:00","club_color":null,"club_jesery":null,"hot":0,"creator":{"user_data_name":null,"verfication":null},"api_leaderboard":[],"leaderboard_length":1,"api_userrecords":[],"freetournament":null})'
                     >
                       <i class="fa fa-info cursorPointer"></i>
@@ -364,7 +364,7 @@
                   </div>
                   <span>
                     <button
-                      class="btn btn-sm btn-light px-1 py-0 rounded-pill text-dark"
+                      class="btn btn-sm text-dark btn-light info-button"
                       onclick='openInfoModal({"id":81791,"name":"Edo Fans","category_id":10,"duration":10,"duration_type":"day","slug":"edo-fans","reference_id":"bHxe3YLMPg","end_date":"2022-09-27 17:17:28","stake":100,"status":"started","no_of_players":20000,"no_of_players_joined":1,"time_started":"2022-09-17 17:17:28","club_color":null,"club_jesery":null,"hot":0,"creator":{"user_data_name":null,"verfication":null},"api_leaderboard":[],"leaderboard_length":1,"api_userrecords":[],"freetournament":null})'
                     >
                       <i class="fa fa-info cursorPointer"></i>
@@ -402,17 +402,27 @@
 </template>
 
 <script>
-import Slider from '~/components/Slider';
-import BiggestPrize from '~/components/Tournaments/BiggestPrize';
-import BonusGames from '~/components/Tournaments/BonusGames';
-import FootballGames from '~/components/Tournaments/FootballGames.vue';
-import FreeGames from '~/components/Tournaments/FreeGames.vue';
-import LuxuryGames from '~/components/Tournaments/LuxuryGames';
-import StateGames from '~/components/Tournaments/StateGames.vue';
-import VerifiedGames from '~/components/Tournaments/VerifiedGames';
+import Slider from "~/components/Slider";
+import BiggestPrize from "~/components/Tournaments/BiggestPrize";
+import BonusGames from "~/components/Tournaments/BonusGames";
+import FootballGames from "~/components/Tournaments/FootballGames.vue";
+import FreeGames from "~/components/Tournaments/FreeGames.vue";
+import LuxuryGames from "~/components/Tournaments/LuxuryGames";
+import StateGames from "~/components/Tournaments/StateGames.vue";
+import VerifiedGames from "~/components/Tournaments/VerifiedGames";
 import searchFilter from "../components/search-filter";
 export default {
-  components: { searchFilter, Slider, VerifiedGames, LuxuryGames, BonusGames,BiggestPrize, StateGames, FootballGames, FreeGames, },
+  components: {
+    searchFilter,
+    Slider,
+    VerifiedGames,
+    LuxuryGames,
+    BonusGames,
+    BiggestPrize,
+    StateGames,
+    FootballGames,
+    FreeGames,
+  },
   name: "IndexPage",
   layout: "default",
   data() {
@@ -436,13 +446,9 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
 .topic-bg {
   background: #b7bac4;
-}
-
-.tops {
-  padding-top: 116px;
 }
 
 .nav-link {

@@ -60,7 +60,7 @@
               </div>
               <span>
                 <button
-                  class="btn btn-sm btn-light px-1 py-0 rounded-pill text-dark"
+                  class="btn btn-sm text-dark btn-light info-button"
                   onclick='openInfoModal({"id":81760,"name":"Big Dice","category_id":6,"duration":1,"duration_type":"week","slug":"big-dice","reference_id":"1nkZr7ewhC","end_date":"2022-09-02 12:09:43","stake":200,"status":"started","no_of_players":5000,"no_of_players_joined":2,"time_started":"2022-08-26 12:09:43","club_color":null,"club_jesery":null,"hot":0,"creator":{"user_data_name":null,"verfication":null},"api_leaderboard":[],"leaderboard_length":2,"api_userrecords":[],"freetournament":null})'
                 >
                   <i class="fa fa-info cursorPointer"></i>
@@ -207,4 +207,3 @@ export default {
   }
 }
 </style>
-

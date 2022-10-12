@@ -2,7 +2,11 @@
   <div>
     <div class="row py-1">
       <div class="col-6 pl-0 pr-1">
-        <button id="specialSubsection" @click.prevent="showCreateTournament"  class="btn btn-sm btn-block bg-sv-primary createTournamentText">
+        <button
+          id="specialSubsection"
+          @click.prevent="showCreateTournament"
+          class="btn btn-sm btn-block bg-sv-primary createTournamentText"
+        >
           <span class="small"
             ><i class="fa fa-plus text-sv-warning"></i>&nbsp;Create
             Tournament</span
@@ -57,80 +61,157 @@
           </div>
         </div>
         <div id="verifiedGamesList">
-          <div class="small py-1 listBackground">
-            <span
-              class="ml-1 prizeToFirstText px-1 rounded bg-sv-warning text-white"
-              style="font-size: 8px"
-              >₦360,000 to 1st</span
+          <b-skeleton-wrapper :loading="loading">
+            <template #loading>
+              <div class="small py-1 listBackground px-2">
+                <span><b-skeleton width="25%"></b-skeleton></span>
+                <div class="d-flex justify-content-between text-white">
+                  <div class="d-flex justify-content-between align-items-center flex-fill mr-3">
+                    <div class="d-flex h-100 w-100" >
+                      <b-skeleton width="70%" height="100%"></b-skeleton>
+                    </div>
+                  </div>
+                  <div class="" style="width: 185px">
+                    <div class="w-100">
+                      <b-skeleton width="100%" height="45px"></b-skeleton>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="small py-1 listBackground px-2">
+                <span class="mb-1"><b-skeleton width="25%"></b-skeleton></span>
+                <div class="d-flex justify-content-between text-white px-1">
+                  <div class="d-flex justify-content-between align-items-center flex-fill mr-3">
+                    <div class="d-flex h-100 w-100" >
+                      <b-skeleton width="70%" height="100%"></b-skeleton>
+                    </div>
+                  </div>
+                  <div class="" style="width: 185px">
+                    <div class="w-100">
+                      <b-skeleton width="100%" height="45px"></b-skeleton>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="small py-1 listBackground px-2">
+                <span><b-skeleton width="25%"></b-skeleton></span>
+                <div class="d-flex justify-content-between text-white px-1">
+                  <div class="d-flex justify-content-between align-items-center flex-fill mr-3">
+                    <div class="d-flex h-100 w-100" >
+                      <b-skeleton width="70%" height="100%"></b-skeleton>
+                    </div>
+                  </div>
+                  <div class="" style="width: 185px">
+                    <div class="w-100">
+                      <b-skeleton width="100%" height="45px"></b-skeleton>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="small py-1 listBackground px-2">
+                <span><b-skeleton width="25%"></b-skeleton></span>
+                <div class="d-flex justify-content-between text-white px-1">
+                  <div class="d-flex justify-content-between align-items-center flex-fill mr-3">
+                    <div class="d-flex h-100 w-100" >
+                      <b-skeleton width="70%" height="100%"></b-skeleton>
+                    </div>
+                  </div>
+                  <div class="" style="width: 185px">
+                    <div class="w-100">
+                      <b-skeleton width="100%" height="45px"></b-skeleton>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="small py-1 listBackground px-2">
+                <span><b-skeleton width="25%"></b-skeleton></span>
+                <div class="d-flex justify-content-between text-white px-1">
+                  <div class="d-flex justify-content-between align-items-center flex-fill mr-3">
+                    <div class="d-flex h-100 w-100" >
+                      <b-skeleton width="70%" height="100%"></b-skeleton>
+                    </div>
+                  </div>
+                  <div class="" style="width: 185px">
+                    <div class="w-100">
+                      <b-skeleton width="100%" height="45px"></b-skeleton>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </template>
+
+            <div
+              v-for="(game, index) in verified_games"
+              :key="index"
+              class="small py-1 listBackground"
             >
-            <div class="d-flex justify-content-between text-white px-1">
-              <div
-                class="d-flex justify-content-between align-items-center flex-fill mr-3"
+              <span
+                class="ml-1 prizeToFirstText px-1 rounded bg-sv-warning text-white"
+                style="font-size: 8px"
+                >₦360,000 to 1st</span
               >
+              <div class="d-flex justify-content-between text-white px-1">
                 <div
-                  onclick='openInfoModal({"id":81762,"name":"Mr Funny","category_id":3,"duration":6,"duration_type":"day","slug":"mr-funny","reference_id":"OONUinPaJ2","end_date":"2022-09-04 09:05:15","stake":100,"status":"started","no_of_players":50000,"no_of_players_joined":3,"time_started":"2022-08-29 09:05:15","club_color":null,"club_jesery":null,"hot":0,"creator":{"user_data_name":"larry","verfication":1},"api_leaderboard":[],"leaderboard_length":3,"api_userrecords":[],"freetournament":null});'
-                  class="d-flex flex-column"
+                  class="d-flex justify-content-between align-items-center flex-fill mr-3"
                 >
-                  <div class="d-flex align-items-center">
-                    <small
-                      class="font-weight-bold text-uppercase tournamentTitle"
-                      >Mr Funny</small
-                    >
-                    <span class="small ml-2"
+                  <div class="d-flex flex-column">
+                    <div class="d-flex align-items-center">
+                      <small
+                        class="font-weight-bold text-uppercase tournamentTitle"
+                        >{{ game.name }}</small
+                      >
+                      <!-- <span class="small ml-2"
                       ><i class="fa fa-check-circle text-info"></i
-                    ></span>
+                    ></span> -->
+                    </div>
+                    <div class="tournamentGameListInfoText">
+                      <div>
+                        <span>{{ getGameTime(game) }}</span>
+                        <span v-html="getGameStatus(game)"></span>
+                      </div>
+                      <div class="bg-secondary text-white rounded px-1">
+                        Multiple entries allowed
+                      </div>
+                    </div>
                   </div>
-                  <div class="tournamentGameListInfoText">
+                  <span>
+                    <button
+                      class="btn btn-sm text-dark btn-light info-button"
+                      v-b-modal="'game_' + game.reference_id"
+                    >
+                      <i class="fa fa-info cursorPointer"></i>
+                    </button>
+                  </span>
+                </div>
+
+                <div class="d-flex">
+                  <div class="bg-sv-primary p-1 rounded-left listOption">
                     <div>
-                      <span>Ends in 5 days</span>
-
-                      <span class="ml-1 badge badge-success px-1">
-                        <i class="fa fa-circle text-white">&nbsp;Live</i>
-                      </span>
-                    </div>
-                    <div class="bg-secondary text-white rounded px-1">
-                      Multiple entries allowed
+                      <div class="text-center">
+                        {{ game.no_of_players_joined }}
+                      </div>
+                      <div class="listBorderTop text-center">
+                        {{ roundPlayers(game.no_of_players) }}
+                      </div>
                     </div>
                   </div>
-                </div>
-                <span>
-                  <button
-                    class="btn btn-sm btn-light px-1 py-0 rounded-pill text-dark"
-                  >
-                    <i class="fa fa-info cursorPointer"></i>
-                  </button>
-                </span>
-              </div>
-
-              <div class="d-flex">
-                <div class="bg-sv-primary p-1 rounded-left listOption">
-                  <div>
-                    <div id="join81762" class="text-center">3</div>
-                    <div class="listBorderTop text-center">50K</div>
+                  <div class="bg-sv-primary p-1 rounded-0 listOption">
+                    ₦{{ formatNumber(game.stake) }}
                   </div>
-                </div>
-                <div class="bg-sv-primary p-1 rounded-0 listOption">₦100</div>
-                <div class="bg-sv-primary p-1 rounded-right small listOption">
-                  <button
-                    id="join_button"
-                    class="btn btn-sm btn-success rounded-pill shadow py-0 px-2 text-white"
-                    data-toggle="modal"
-                    data-target="#loginModal"
-                  >
-                    Join
-                  </button>
+                  <div
+                    v-html="displayGameButton(game)"
+                    class="bg-sv-primary p-1 rounded-right small listOption"
+                  ></div>
                 </div>
               </div>
+              <info-modal :game="game"></info-modal>
             </div>
-          </div>
+          </b-skeleton-wrapper>
         </div>
       </div>
       <div class="col-12 p-0" id="verifiedGamesViewMore">
         <div class="text-center my-1">
-          <a
-            href="https://dice.ng/verified-games-list"
-            class="btn-sm rounded-pill bg-outline-sv-white btn-light-outline text-white py-0 px-4 small"
-          >
+          <a class="btn-sm rounded-pill bg-outline-sv-white btn-light-outline text-white py-0 px-4 small">
             <small>View more </small>
           </a>
         </div>
@@ -141,30 +222,35 @@
 </template>
 
 <script>
-import CreateTournament from '../Modals/CreateTournament';
+import CreateTournament from "../Modals/CreateTournament";
+import InfoModal from "../Modals/InfoModal.vue";
 export default {
   name: "",
-  components:{CreateTournament},
+  components: { CreateTournament, InfoModal },
   data() {
     return {
       verified_games: [],
+      loading: false,
     };
   },
-  methods:{
-    showCreateTournament(){
+
+  methods: {
+    showCreateTournament() {
       this.$bvModal.show("createTournament");
     },
-    getVerifiedGames(){
-      this.$axios.$get(
-          'https://dice.ng/verified-games'
-        )
-        .then((res) => (this.weather = res));
-    }
+    getVerifiedGames() {
+      this.loading = true;
+      this.$axios.get("/tournaments?category=3&take=10").then((res) => {
+        this.verified_games = res.data.data;
+        this.loading = false;
+      });
+    },
   },
 
-  mounted(){
-    this.getVerifiedGames()
-  }
+  mounted() {
+    this.getVerifiedGames();
+    console.log(this.game_status);
+  },
 };
 </script>
 
@@ -262,9 +348,17 @@ export default {
   }
 }
 
-#create-tournament-pills  li.nav-item  a.nav-link {
-    background: grey;
-    color: #000000;
-    padding: 3px 10px;
+#create-tournament-pills li.nav-item a.nav-link {
+  background: grey;
+  color: #000000;
+  padding: 3px 10px;
+}
+
+
+
+.b-skeleton-text {
+    height: 1rem;
+    /* margin-bottom: 0; */
+    border-radius: 0.25rem;
 }
 </style>

@@ -30,7 +30,8 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '~plugins/bootstrap.js',
-    // '~/plugins/axios',
+    '~/plugins/util.js',
+    { src: '~/plugins/vue-persist.js', ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -50,7 +51,8 @@ export default {
     '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
-    '@nuxtjs/auth'
+    '@nuxtjs/auth-next',
+    '@nuxtjs/moment'
   ],
 
   // loading: '~/components/Loading.vue',
@@ -58,22 +60,36 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: 'https://9jadice.test/api',
+    baseURL: 'https://v2.dice.ng/api',
   },
 
   auth: {
     strategies: {
       local: {
-        user:{
-            autoFetch: false,
-            property: 'data.user'
+        scheme: 'refresh',
+        localStorage:{
+          prefix: 'auth.'
+        },
+        token: {
+          prefix: 'token.',
+          property: 'data.authorization.token',
+          maxAge: 1800,
+          global: true,
+        },
+        user: {
+          property: false,
+          autoFetch: false
+        },
+        refreshToken:{
+          prefix: 'refresh_token.',
+          property: 'data.authorization.token',
         },
         endpoints: {
-          login: { url: '/logins', method: 'post', propertyName: 'data.authorization.token' },
-          logout: { url: '/logout', method: 'post', propertyName: 'data.user' },
+          login: { url: '/login', method: 'post' },
+          logout: { url: '/logout', method: 'post' },
+          refresh: { url: '/refresh', method: 'post'},
           user: false
-        },
-        tokenType:'',
+        }
       }
     },
     redirect: {
@@ -81,7 +97,7 @@ export default {
       logout: '/',
       home: '/',
     },
-    plugins: ['~/plugins/auth.js']
+    // plugins: ['~/plugins/auth.js']
   },
 
   toast: {
