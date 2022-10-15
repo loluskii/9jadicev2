@@ -9,6 +9,10 @@ let mutations = {
       document.getElementById("rightnav").classList.remove("rightnav-active");
     }
   },
+
+  setBetlist(state, payload){
+    state.betlist = payload
+  }
 };
 
 export default mutations

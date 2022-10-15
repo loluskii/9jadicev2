@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-12 col-md-1 col-lg-2 col-xl-3"></div>
     <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
-      <header class="container-fluid fixed-top bg-black">
+      <header class="container-fluid bg-black">
         <nav class="row bg-9jaluck align-items-center px-2 text-uppercase font-weight-light customNavbar py-2 small">
           <div class="col-md-6 px-0 col-lg-6 col-12 d-flex mx-auto justify-content-between align-items-center">
             <a class="" href="">
@@ -67,11 +67,6 @@
             </div>
           </div>
         </nav>
-        <div class="col-md-6 px-sm-2 px-0 col-lg-6 col-12 mx-auto">
-          <!-- Games List -->
-          <games></games>
-          <!-- Games List -->
-        </div>
       </header>
       <side-nav v-if="$auth.loggedIn"></side-nav>
     </div>

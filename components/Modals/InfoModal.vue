@@ -7,7 +7,7 @@
     body-class="p-0 bg-dark curvedEdge"
     :id="'game_' + game.reference_id"
   >
-    <div class="container-fluid">
+    <div class="container-fluid" id="infoModal">
       <div
         class="row bg-sv-primary p-2"
         style="border-radius: 18px 18px 0 0; height: 115px"
@@ -37,9 +37,9 @@
           class="col-12 d-flex justify-content-between align-items-center small font-weight-bold text-sv-primary px-2 pt-2 pb-3"
           id="matchInfo"
         >
-          <div class="small">
-            <p class="small mb-0">October 8th 2022</p>
-            <small>11:26:15 pm</small>
+          <div class="small mr-2">
+            <p class="small mb-0">{{ formatDate(game.time_started) }}</p>
+            <small>{{ getTime }}</small>
           </div>
           <div class="flex-fill small px-2">
             <div id="infojoin81817">
@@ -47,7 +47,7 @@
               {{ formatNumber(game.no_of_players) }}
             </div>
             <div class="text-uppercase d-flex align-items-center small">
-              <div id="percent81817" class="text-nowrap mr-1">0.12% full</div>
+              <div id="percent81817" class="text-nowrap mr-1">{{ percent }}</div>
               <div class="progress w-100" style="height: 5px">
                 <div
                   id="progress81817"
@@ -247,6 +247,19 @@
 export default {
   name: "info-modal",
   props: ["game"],
+  computed:{
+    getTime(){
+      return this.$moment().format('LTS')
+    },
+
+    percent(){
+      let total = this.game.no_of_players
+      let joined = this.game.no_of_players_joined
+      return `${((joined/total) * 100 ).toFixed(2)}% full`;
+    }
+  },
+  methods:{
+  },
 };
 </script>
 
@@ -260,4 +273,10 @@ export default {
   padding: 0.25rem 0.5rem;
   color: #000;
 }
+
+#infoModal small,#infoModal  .small{
+  font-size: 80%;
+    font-weight: 400;
+}
+
 </style>

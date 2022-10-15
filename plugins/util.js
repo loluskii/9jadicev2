@@ -105,40 +105,16 @@ Vue.mixin({
       return this.$moment(date).fromNow();
     },
 
-    formatDate(date, format) {
-      return this.$moment(date).format(format);
+    formatDate(date) {
+      return this.$moment(date).format('ll');
     },
-    getStatus(status) {
-      if (status == 1) {
-        return "Won";
-      } else if (status == 2) {
-        return "Lost";
-      } else if (status == 3) {
-        return "Cancelled";
-      } else if (status == 4) {
-        return "CUT 2";
-      } else if (status == 6) {
-        return "Cancelled";
-      } else {
-        return "Pending";
-      }
+
+    openModal(id){
+      this.$bvModal.show(id);
     },
-    setClass(status) {
-      if (status == 1) {
-        return "text-success";
-      } else if (status == 2) {
-        return "text-danger";
-      } else if (status == 3) {
-        return "text-secondary";
-      } else if (status == 4) {
-        return "text-success";
-      } else if (status == 5) {
-        return "text-success";
-      } else if (status == 6) {
-        return "text-danger";
-      } else {
-        return "text-warning";
-      }
-    },
+
+    closeModal(id){
+      this.$bvModal.hide(id);
+    }
   },
 });

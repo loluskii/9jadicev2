@@ -2,7 +2,7 @@
   <div>
     <div class="row">
       <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12"></div>
-      <div class="col-sm-12 tops col-md-12 col-lg-12 col-xl-12">
+      <div class="col-sm-12 tops col-md-12 col-lg-12 col-xl-12" :class="$auth.loggedIn ? 'tops-auth': 'tops'">
         <slider></slider>
         <b-tabs
           small
@@ -454,7 +454,13 @@ export default {
 .nav-link {
   padding: 0;
 }
+.tops {
+  padding-top: 108px;
+}
 
+.tops-auth{
+  padding-top: 114px;
+}
 .categoryContainer {
   background-color: rgba(52, 140, 164, 0.7);
 }

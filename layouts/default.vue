@@ -16,17 +16,19 @@
         <Foot />
         <menu-footer></menu-footer>
     </main>
+    <login-modal></login-modal>
 </div>
 </template>
 
 <script>
+import LoginModal from '~/components/Modals/LoginModal.vue'
 import Foot from '../components/Layouts/Foot'
 import MenuFooter from '../components/Layouts/MobileFoot'
 import Top from '../components/Layouts/Top'
 
 
 export default {
-  components: { Top, Foot, MenuFooter },
+  components: { Top, Foot, MenuFooter, LoginModal },
   name: 'default',
 }
 </script>

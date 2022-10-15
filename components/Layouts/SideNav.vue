@@ -26,15 +26,15 @@
             <a href="https://dice.ng/my-profile">
               <span
                 class="lead font-weight-bold text-capitalize text-sv-primary"
-                >Escobar</span
+                >{{ user.user_data_name }}</span
               >
             </a>
-            <span class="small">USER ID: 4811048</span>
+            <span class="small">USER ID: {{ user.username }}</span>
             <span class="small text-uppercase">
               <span>Balance</span>
-              <span class="font-weight-bold">₦826</span>
+              <span class="font-weight-bold">&#8358; {{ formatNumber(user.balance) }}</span>
             </span>
-            <span class="small">COMMISSION: ₦1484</span>
+            <span class="small">COMMISSION: ₦{{user.commission_balance}}</span>
           </div>
         </div>
       </section>
@@ -68,29 +68,29 @@
     <div id="other-options">
       <ul class="list-unstyled">
         <li>
-          <a href="https://dice.ng/affiliate" class="text-warning"
-            ><span class="mr-3"><i class="fa fa-users"></i></span>Affiliates</a
+          <nuxt-link to="/content/affiliates" class="text-warning"
+            ><span class="mr-3"><i class="fa fa-users"></i></span>Affiliates</nuxt-link
           >
         </li>
         <li>
-          <a href="https://dice.ng/blog"
+          <a href="/blog"
             ><span class="mr-3"><i class="fa fa-newspaper-o"></i></span>Blog</a
           >
         </li>
         <li>
-          <a href="https://dice.ng/discussions"
+          <a href="/discussions"
             ><span class="mr-3"><i class="fa fa-comments"></i></span
             >Discussions</a
           >
         </li>
         <li>
-          <a href="https://dice.ng/settled-bets"
+          <a href="/settled-bets"
             ><span class="mr-3"><i class="fa fa-list"></i></span>My Bet
             History</a
           >
         </li>
         <li>
-          <a href="https://dice.ng/my-profile"
+          <a href="/my-profile"
             ><span class="mr-3"><i class="fa fa-user"></i></span>Profile</a
           >
         </li>
@@ -107,44 +107,44 @@
           </a>
         </li>
         <li>
-          <a href="https://dice.ng/change-password"
+          <a href="/change-password"
             ><span class="mr-3"><i class="fa fa-lock"></i></span>Change
             Password</a
           >
         </li>
         <li>
-          <a href="https://dice.ng/my-cards"
+          <a href="/my-cards"
             ><span class="mr-3"><i class="fa fa-credit-card"></i></span>Card
             Management</a
           >
         </li>
 
         <li>
-          <a href="https://dice.ng/my-transfers"
+          <a href="/my-transfers"
             ><span class="mr-3"><i class="fa fa-align-left"></i></span>My
             Transfers</a
           >
         </li>
         <li>
-          <a href="https://dice.ng/my-withdrawals"
+          <a href="/my-withdrawals"
             ><span class="mr-3"><i class="fa fa-align-left"></i></span>My
             Withdrawals</a
           >
         </li>
         <li>
-          <a href="https://dice.ng/my-tokens"
+          <a href="/my-tokens"
             ><span class="mr-3"><i class="fa fa-money"></i></span>My Tokens</a
           >
         </li>
         <li>
-          <a href="https://dice.ng/dice-commission"
+          <a href="/dice-commission"
             ><span class="mr-3"><i class="fa fa-align-left"></i></span>My
             Commissions</a
           >
         </li>
 
         <li>
-          <a href="https://dice.ng/my-transactions"
+          <a href="/my-transactions"
             ><span class="mr-3"><i class="fa fa-clock-o"></i></span>Transaction
             History</a
           >
@@ -237,6 +237,11 @@ export default {
   data(){
     return{
 
+    }
+  },
+  computed:{
+    user(){
+      return this.$store.state.auth.user;
     }
   },
   methods:{

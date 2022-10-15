@@ -7,7 +7,7 @@
           @click.prevent="showCreateTournament"
           class="btn btn-sm btn-block bg-sv-primary createTournamentText"
         >
-          <span class="small"
+          <span class="small text-white"
             ><i class="fa fa-plus text-sv-warning"></i>&nbsp;Create
             Tournament</span
           >
@@ -17,9 +17,8 @@
         <button
           type="button"
           id="filterButton"
+          @click="openModal('filterModal')"
           class="btn btn-sm btn-block px-3 bg-sv-primary createTournamentText cursorPointer mx-1 filterButton"
-          data-toggle="modal"
-          data-target="#publicFilterModal"
         >
           <span class="small align-items-center">
             <i class="fa fa-filter mr-1"></i>
@@ -60,6 +59,7 @@
             </div>
           </div>
         </div>
+
         <div id="verifiedGamesList">
           <b-skeleton-wrapper :loading="loading">
             <template #loading>
@@ -218,15 +218,19 @@
       </div>
     </div>
     <create-tournament></create-tournament>
+    <login-modal v-if="!$auth.loggedIn"></login-modal>
+    <filter-modal></filter-modal>
   </div>
 </template>
 
 <script>
 import CreateTournament from "../Modals/CreateTournament";
+import FilterModal from '../Modals/FilterModal.vue';
 import InfoModal from "../Modals/InfoModal.vue";
+import LoginModal from '../Modals/LoginModal.vue';
 export default {
   name: "",
-  components: { CreateTournament, InfoModal },
+  components: { CreateTournament, InfoModal, LoginModal, FilterModal },
   data() {
     return {
       verified_games: [],
@@ -236,7 +240,15 @@ export default {
 
   methods: {
     showCreateTournament() {
-      this.$bvModal.show("createTournament");
+      if(this.$auth.loggedIn){
+        this.$bvModal.show("createTournament");
+      }else{
+        // console.log('log in now')
+        // this.$bvModal.show("loginModal");
+        this.$router.push('/auth/login')
+      }
+
+
     },
     getVerifiedGames() {
       this.loading = true;
@@ -249,7 +261,7 @@ export default {
 
   mounted() {
     this.getVerifiedGames();
-    console.log(this.game_status);
+    // console.log(this.game_status);
   },
 };
 </script>
@@ -258,10 +270,6 @@ export default {
 .modal-content {
   background-color: black !important;
   color: white !important;
-}
-
-.tops {
-  padding-top: 100px;
 }
 
 .topic-bg {

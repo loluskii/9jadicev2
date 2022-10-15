@@ -4,7 +4,7 @@
     <div class="container-fluid">
       <div class="row justify-content-between align-items-center bg-sv-primary p-2 customModalTop">
         <div>
-          <img style="height: 25px" src="https://dice.ng/images/mobile/logo-white.png" />
+          <img style="height: 25px" src="~/assets/images/logos/logo-white.png" />
         </div>
         <div class="d-flex flex-column text-uppercase text-center font-weight-bold mb-2">
           <span>Create Tournament</span>
@@ -174,7 +174,7 @@ import api from '../../services/apis';
       hideCreateTournament(){
         this.$bvModal.hide("createTournament");
       },
-      
+
     }
   };
 </script>
