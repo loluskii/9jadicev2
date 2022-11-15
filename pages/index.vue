@@ -930,8 +930,14 @@
                           </div>
                         </div>
                       </div>
-                      <div id="publicGamesList"></div>
-                      <div id="specialGamesViewMore"></div>
+                      <div id="publicGamesList">
+                        <div class="text-white text-center font-italic">
+                          No game available.
+                        </div>
+                      </div>
+                      <div id="specialGamesViewMore">
+                        <button v-b-modal.modal-1>vvvvvv</button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1156,13 +1162,35 @@
         <div class="col-12" id="stateGamesViewMore2"></div>
       </div>
     </div>
+
+    <throw-limit-modal></throw-limit-modal>
   </div>
 </template>
 
 <script>
-import searchFilter from "../components/search-filter.vue";
+import ThrowLimitModal from '~/components/Modals/gameplay/ThrowLimitModal.vue';
+import Slider from "~/components/Slider";
+import BiggestPrize from "~/components/Tournaments/BiggestPrize";
+import BonusGames from "~/components/Tournaments/BonusGames";
+import FootballGames from "~/components/Tournaments/FootballGames.vue";
+import FreeGames from "~/components/Tournaments/FreeGames.vue";
+import LuxuryGames from "~/components/Tournaments/LuxuryGames";
+import StateGames from "~/components/Tournaments/StateGames.vue";
+import VerifiedGames from "~/components/Tournaments/VerifiedGames";
+import searchFilter from "../components/search-filter";
 export default {
-  components: { searchFilter },
+  components: {
+    searchFilter,
+    Slider,
+    VerifiedGames,
+    LuxuryGames,
+    BonusGames,
+    BiggestPrize,
+    StateGames,
+    FootballGames,
+    FreeGames,
+    ThrowLimitModal,
+  },
   name: "IndexPage",
   layout: "default",
   data() {

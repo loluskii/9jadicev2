@@ -69,12 +69,6 @@
 	background-color: transparent;
 	border-color: transparent;
 }
-.hero-bg {
-	background: radial-gradient(circle, rgba(0,0,0,0.6), rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('../photos/hero.jpg');
-	background-size: cover;
-	background-repeat: no-repeat;
-	height: 50vh;
-}
 
 /* Add zoom effect on hovering on buttons*/
 .zoom:hover {
@@ -177,15 +171,7 @@
 .w3-animate-left{position:relative;animation:animateleft 0.4s}@keyframes animateleft{from{left:-300px;opacity:0} to{left:0;opacity:1}}
 .w3-animate-right{position:relative;animation:animateright 0.4s}@keyframes animateright{from{right:-300px;opacity:0} to{right:0;opacity:1}}
 
-.card-bg {
-	background: radial-gradient(circle, rgba(0,0,0,0.6), rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('../photos/hero.jpg');
-	background-repeat: no-repeat;
-	background-size: cover;
-	border-radius: 10px;
-	transition-duration: 0.7s;
-	height: 300px;
-	width: 100%;
-}
+
 .card-bg:hover {
 	transform: scale(1.1);
 	z-index: 1;
@@ -283,12 +269,7 @@
 .textYellow {
 	color: yellow;
 }
-.pointsBackground {
-	background-image: url('../../../../../images/desktop/games/dice/legend/points-bg.png');
-	background-repeat: no-repeat;
-	background-size: 118%;
-	height: 125px;
-}
+
 /*.leaderboardTableBackground {
 	background: linear-gradient(to right, rgba(10, 28, 61, 1), rgba(42, 109, 203, 0.5), rgba(10, 28, 61, 1));
 	border: 3px solid #B6A442;

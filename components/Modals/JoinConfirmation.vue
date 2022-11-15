@@ -1,16 +1,16 @@
 <template>
-  <div
-    class="modal fade"
-    tabindex="-1"
-    role="dialog"
-    id="joinConfirmationModal"
-    data-backdrop="static"
-    data-keyboard="false"
-  >
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content curvedEdge">
-        <div class="modal-body p-0 bg-dark curvedEdge">
-          <div class="container-fluid">
+  <div>
+      <b-modal
+        centered
+        hide-header
+        hide-footer
+        no-close-on-backdrop
+        no-close-on-esc
+        content-class="bg-sv-primary curvedEdge"
+        body-class="p-0 bg-dark curvedEdge"
+        :id="'joinConfirmation_' + game.id"
+      >
+        <div class="container-fluid">
             <div
               class="row justify-content-between align-items-center bg-sv-primary p-2 customModalTop"
             >
@@ -34,22 +34,24 @@
                     class="d-flex justify-content-center bg-black lead font-weight-bold p-2"
                   >
                     <div class="text-sv-warning mr-3">Stake:</div>
-                    <div>Free</div>
+                    <div>{{ game.stake }}</div>
                   </div>
                 </div>
-                <div id="confirmationFeedback"></div>
+                <div id="confirmationFeedback">
+                  <span v-if="loading" class="alert alert-primary py-1"><span>{{ loadingMsg }}</span></span>
+                  <span v-if="error" class="alert alert-danger py-1"><span>{{ errorMsg }}</span></span>
+                </div>
                 <div
                   class="d-flex justify-content-center align-items-center mt-3"
                   id="confirmationButtonsDiv"
                 >
                   <div>
-                    <div id="confirmationFeedback"></div>
                     <div class="d-flex align-items-center">
                       <div class="mr-3">
                         <button
                           class="btn bg-sv-primary text-white px-4"
                           id="joinSpecialTournamentButton"
-                          onclick="joinSpecialTournament(${tournament.id}, ${tournament.stake})"
+                          @click="joinSpecialTournament(game.id)"
                         >
                           Yes
                         </button>
@@ -57,7 +59,7 @@
                       <div>
                         <button
                           class="btn btn-danger btn-sm px-3"
-                          data-dismiss="modal"
+                          @click="closeModal(game.id)"
                         >
                           No
                         </button>
@@ -71,14 +73,45 @@
               <div class="col-12"></div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
+      </b-modal>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  name: "join-confirmation",
+  props: ["game"],
+  data(){
+    return {
+      loading: false,
+      loadingMsg: "Joining game...",
+      error: false,
+      errorMsg: ""
+    }
+  },
+  methods: {
+    joinSpecialTournament(id){
+      this.loading = true;
+      this.$axios.post(`/tournaments/${id}/join`).then((res)=>{
+        let name = res.data.data.slug;
+        let ref = res.data.data.reference
+        let refid = res.data.data.reference_id
+        this.$store.commit('setTournament',res.data.data);
+
+        this.$router.push({name: "legend-name-ref-refid-game", params: {name:name, ref:ref, refid:refid}})
+      }).catch(err => {
+        console.log(err)
+        this.loading = false;
+        this.error = true;
+        this.errorMsg = err.response.data.message;
+      })
+    },
+    closeModal(id){
+      this.error= false,
+      this.$bvModal.hide(`joinConfirmation_${id}`);
+    }
+  }
+};
 </script>
 
 <style></style>

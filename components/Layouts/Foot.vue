@@ -1,6 +1,6 @@
 <template>
   <section
-    class="bg-dark pt-3 pb-md-0 pb-5"
+    class="bg-dark pt-3 pb-md-0 pb-5 footer"
     style="border-top: 2px solid #ed8d0e"
   >
     <div class="container">
