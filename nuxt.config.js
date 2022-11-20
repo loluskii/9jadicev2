@@ -133,21 +133,21 @@ export default {
         name: "legend-name-ref-refid-game",
         path: "/legend/:name/:ref/:refid/game",
         components: {
-          default: resolve(__dirname, "pages/legend"), // or routes[index].component
-          layout: resolve(__dirname, "layouts/game.vue"),
+          default: resolve(__dirname, "pages/legend/index"), // or routes[index].component
+          layout: resolve(__dirname, "layouts/legend.vue"),
         },
         chunkNames: {
-          layout: "layouts/game",
+          layout: "layouts/legend",
         },
       },{
-        name: "legend-refid-leaderboard",
-        path: "/legend/:refid/leaderboard",
+        name: "legend-tournamentid-leaderboard",
+        path: "/legend/:tournamentid/leaderboard",
         components: {
           default: resolve(__dirname, "pages/legend/leaderboard"), // or routes[index].component
-          layout: resolve(__dirname, "layouts/game.vue"),
+          layout: resolve(__dirname, "layouts/legend.vue"),
         },
         chunkNames: {
-          layout: "layouts/game",
+          layout: "layouts/legend",
         },
       });
     },

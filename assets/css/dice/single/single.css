@@ -1,5 +1,5 @@
 .bg-header {
-	background-image: url('../photos/header.png');
+	/* background-image: url('../photos/header.png'); */
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-color: yellow;
@@ -60,7 +60,7 @@
 }
 
 .hero-bg {
-	background: radial-gradient(circle, rgba(0,0,0,0.6), rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('../photos/hero.jpg');
+	/* background: radial-gradient(circle, rgba(0,0,0,0.6), rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('../photos/hero.jpg'); */
 	background-size: cover;
 	background-repeat: no-repeat;
 	height: 50vh;
@@ -183,7 +183,7 @@
 .w3-animate-right{position:relative;animation:animateright 0.4s}@keyframes animateright{from{right:-300px;opacity:0} to{right:0;opacity:1}}
 
 .card-bg {
-	background: radial-gradient(circle, rgba(0,0,0,0.6), rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('../photos/hero.jpg');
+	/* background: radial-gradient(circle, rgba(0,0,0,0.6), rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('../photos/hero.jpg'); */
 	background-repeat: no-repeat;
 	background-size: cover;
 	border-radius: 10px;

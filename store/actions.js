@@ -8,6 +8,9 @@ let actions = {
         commit('setBetlist',res.data.data);
       })
   },
+  setCommitRecordID({commit}, data){
+    commit('setRecordID', data)
+  }
 }
 
 

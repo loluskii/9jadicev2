@@ -26,7 +26,7 @@
 
 }
 #my-image-div{
-    background-image: url("{{ asset('/images/legend/code.png')}}");
+    /* background-image: url("{{ asset('/images/legend/code.png')}}"); */
     background-repeat: no-repeat;
     background-size: 400px 80px;
     align-self: center;

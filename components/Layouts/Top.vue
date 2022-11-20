@@ -7,14 +7,14 @@
           <nav
             class="row bg-9jaluck align-items-center text-uppercase font-weight-light customNavbar py-2 small"
           >
-            <a class="" href="">
+            <nuxt-link class=""  to="/">
               <img
                 src="~/assets/images/logos/logo.png"
                 class="img-fluid"
                 style="height: 30px"
                 id="brand-logo"
               />
-            </a>
+            </nuxt-link>
             <div class="d-none d-lg-flex align-items-center">
               <nuxt-link to="/" class="nav-link text-decoration-none text-white"
                 >Home</nuxt-link
@@ -40,28 +40,48 @@
               id="login-company"
               class="d-flex justify-content-end align-items-center flex-grow-1 ml-auto"
             >
-              <div id="login-signup-div" class="d-flex align-items-center">
-                <a
-                  href=""
+              <div v-if="!$auth.loggedIn" id="login-signup-div" class="d-flex align-items-center">
+                <!-- <nuxt-link
+                  to="/"
                   class="text-decoration-none btn btn-sm bg-sv-warning text-white mr-2 px-2"
                 >
                   <small>Guest</small>
-                </a>
+                </nuxt-link> -->
 
-                <a
-                  href=""
+                <nuxt-link
+                  to="/auth/login"
                   class="text-decoration-none btn btn-sm btn-outline-light text-white mr-2 px-2"
                 >
                   <small>Login</small>
-                </a>
+                </nuxt-link>
                 <button class="btn btn-sm bg-sv-warning text-white">
-                  <a
-                    href=""
+                  <nuxt-link
+                    to="/auth/register"
                     class="text-decoration-none text-white text-uppercase"
                   >
                     <small>SIGN UP</small>
-                  </a>
+                  </nuxt-link>
                 </button>
+              </div>
+              <div v-else class="d-flex align-items-center">
+                <div class="d-flex flex-column small text-white text-right mr-1">
+                  <span class="text-capitalize text-white-50">
+                      Welcome, <span>{{user.user_data_name}}</span>
+                      <!-- {{ substr(Auth::user()->user_data_name, 0, 10) }} -->
+                          <span v-if="user.user_status_role_id == 1 || user.user_status_role_id == 2" class="small">
+                              <i class="fa fa-check-circle text-info"></i>
+                          </span>
+                  </span>
+                  <span id="balanceSpanId" class="font-weight-bold">&#8358; {{ formatNumber(user.balance) }} </span>
+                  <span> Bonus: &#8358;{{ formatNumber(user.bonus) }} </span>
+                    <!-- <button @click="logout">logout</button> -->
+                </div>
+                <div class="position-relative">
+                    <button class="btn bg-sv-primary rightNavTopTextColor btn-sm dropdown-toggle" type="button"
+                        id="sidenav-toggler" @click="toggle_right">
+                        <span><i class="fa fa-user"></i></span>
+                    </button>
+                </div>
               </div>
             </div>
           </nav>
@@ -71,10 +91,9 @@
         <div class="row justify-content-center">
           <div class="col-12 p-0 topGamesList">
             <div class="text-capitalize topGamesList-left">
-              <a
-                onclick="callLoader()"
+              <nuxt-link
                 class="btn btn-sm btn-dark border-0 rounded-0 d-flex flex-column justify-content-center bg-sv-primary"
-                href=""
+                to="/"
               >
                 <span class="mb-1 gameTopTitle gameTopTitleActive"
                   >Tournament</span
@@ -86,11 +105,10 @@
                     alt="tournament-icon"
                   />
                 </span>
-              </a>
-              <a
-                onclick="callLoader()"
+              </nuxt-link>
+              <nuxt-link
                 class="btn btn-sm btn-dark border-0 rounded-0 position-relative d-flex flex-column justify-content-center"
-                href=""
+                to="/"
               >
                 <span class="newBadge">New</span>
                 <span class="mb-1 gameTopTitle">Dice lotto</span>
@@ -101,11 +119,10 @@
                     alt="dice-lotto-icon"
                   />
                 </span>
-              </a>
-              <a
-                onclick="callLoader()"
+              </nuxt-link>
+              <nuxt-link
                 class="btn btn-sm btn-dark border-0 rounded-0 position-relative d-flex flex-column justify-content-center"
-                href=""
+                to="/"
               >
                 <span class="newBadge">New</span>
                 <span class="mb-1 gameTopTitle">Colours</span>
@@ -116,11 +133,10 @@
                     alt="dice-colours-icon"
                   />
                 </span>
-              </a>
-              <a
-                onclick="callLoader()"
+              </nuxt-link>
+              <nuxt-link
                 class="btn btn-sm btn-dark border-0 rounded-0 d-flex flex-column justify-content-center text-white"
-                href=""
+                to="/"
               >
                 <span class="mb-1 gameTopTitle">Single</span>
                 <span>
@@ -130,7 +146,7 @@
                     alt="single-icon"
                   />
                 </span>
-              </a>
+              </nuxt-link>
             </div>
             <div class="topGamesList-right">
               <a
@@ -149,10 +165,9 @@
           </div>
           <div class="col-12 p-0" style="display: none" id="allGamesList">
             <div class="topGamesList-left">
-              <a
-                onclick="callLoader()"
+              <nuxt-link
                 class="btn btn-sm btn-dark border-0 rounded-0 d-flex flex-column justify-content-center"
-                href=""
+                to="/"
               >
                 <span class="mb-1 gameTopTitle">Under/Over</span>
                 <span>
@@ -162,11 +177,11 @@
                     alt="tournament-icon"
                   />
                 </span>
-              </a>
-              <a
-                onclick="callLoader()"
+              </nuxt-link>
+
+              <nuxt-link
                 class="btn btn-sm btn-dark border-0 rounded-0 d-flex flex-column justify-content-center"
-                href=""
+                to="/"
               >
                 <span class="mb-1 gameTopTitle">Odd/Even</span>
                 <span>
@@ -176,11 +191,11 @@
                     alt="odd-even-icon"
                   />
                 </span>
-              </a>
-              <a
-                onclick="callLoader()"
+              </nuxt-link>
+
+              <nuxt-link
                 class="btn btn-sm btn-dark border-0 rounded-0 d-flex flex-column justify-content-center text-nowrap"
-                href=""
+                to="/"
               >
                 <span class="mb-1 gameTopTitle">Mega Ten</span>
                 <span>
@@ -190,13 +205,14 @@
                     alt="mega-ten-icon"
                   />
                 </span>
-              </a>
-              <a onclick="callLoader()" class="btn btn-sm btn-dark border-0 rounded-0 d-flex flex-column justify-content-center text-nowrap" href="" style="visibility: hidden">
+              </nuxt-link>
+
+              <nuxt-link to=""  class="btn btn-sm btn-dark border-0 rounded-0 d-flex flex-column justify-content-center text-nowrap" style="visibility: on" >
                 <span class="mb-1 gameTopTitle">Mega Ten</span>
                 <span>
                     <img src="" style="height: 20px" alt="mega-ten-icon" />
                 </span>
-            </a>
+              </nuxt-link>
             </div>
           </div>
         </div>
@@ -215,6 +231,11 @@ export default {
       isAllGamesListActive: false,
     };
   },
+  computed: {
+      user(){
+          return this.$store.state.auth.user;
+      }
+  },
   methods: {
     openAllGamesList() {
       if (this.isAllGamesListActive === true) {
@@ -230,6 +251,9 @@ export default {
         $("#allGamesSlideDirection").addClass("fa-caret-up");
         document.getElementById("allGamesList").style.display = "flex";
       }
+    },
+    toggle_right() {
+        this.$store.commit('right_menu', "toggle");
     },
   },
 };

@@ -34,7 +34,7 @@
                     class="d-flex justify-content-center bg-black lead font-weight-bold p-2"
                   >
                     <div class="text-sv-warning mr-3">Stake:</div>
-                    <div>{{ game.stake }}</div>
+                    <div>₦{{ game.stake }}</div>
                   </div>
                 </div>
                 <div id="confirmationFeedback">
@@ -96,7 +96,7 @@ export default {
         let name = res.data.data.slug;
         let ref = res.data.data.reference
         let refid = res.data.data.reference_id
-        this.$store.commit('setTournament',res.data.data);
+        this.$store.dispatch('setCommitRecordID', res.data.data.recordId)
 
         this.$router.push({name: "legend-name-ref-refid-game", params: {name:name, ref:ref, refid:refid}})
       }).catch(err => {

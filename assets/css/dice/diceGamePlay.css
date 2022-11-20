@@ -133,7 +133,7 @@
 
 .customCircleButton-green-rounded {
 	background: transparent;
-	background-image: url('../../../../images/desktop/games/dice/gameplay-assets/btn-plus-green.png');
+	/* background-image: url('../../../../images/desktop/games/dice/gameplay-assets/btn-plus-green.png'); */
 	background-repeat: no-repeat;
 	background-size: 100%;
 	-webkit-user-select: none;
@@ -153,7 +153,7 @@
 
 .customCircleButton-green {
 	/*background: green;*/
-	background-image: url('../../../../images/desktop/games/dice/gameplay-assets/btn-input.png');
+	/* background-image: url('../../../../images/desktop/games/dice/gameplay-assets/btn-input.png'); */
 	background-repeat: no-repeat;
 	background-size: 100px 60px;
 	-webkit-user-select: none;
@@ -174,7 +174,7 @@
 }
 .customCircleButton-input {
 	/*background: green;*/
-	background-image: url('../../../../images/desktop/games/dice/gameplay-assets/btn-input.png');
+	/* background-image: url('../../../../images/desktop/games/dice/gameplay-assets/btn-input.png'); */
 	background-repeat: no-repeat;
 	background-size: 100px 60px;
 	-webkit-user-select: none;
@@ -190,7 +190,7 @@
 }
 .customCircleButton-blue {
 	background: transparent;
-	background-image: url('../../../../images/desktop/games/dice/gameplay-assets/btn-blue.png');
+	/* background-image: url('../../../../images/desktop/games/dice/gameplay-assets/btn-blue.png'); */
 	background-repeat: no-repeat;
 	background-size: 120%;
 	-webkit-user-select: none;
@@ -216,7 +216,7 @@
 }
 .customCircleButton-deepBlue {
 	background: transparent;
-	background-image: url('../../../../images/desktop/games/dice/gameplay-assets/btn-deepBlue.png');
+	/* background-image: url('../../../../images/desktop/games/dice/gameplay-assets/btn-deepBlue.png'); */
 	background-repeat: no-repeat;
 	background-size: 120%;
 	-webkit-user-select: none;
@@ -242,7 +242,7 @@
 }
 .customCircleButton-purple {
 	background: transparent;
-	background-image: url('../../../../images/desktop/games/dice/gameplay-assets/btn-purple.png');
+	/* background-image: url('../../../../images/desktop/games/dice/gameplay-assets/btn-purple.png'); */
 	background-repeat: no-repeat;
 	background-size: 120%;
 	-webkit-user-select: none;
@@ -268,7 +268,7 @@
 }
 .customCircleButton-red {
 	background: transparent;
-	background-image: url('../../../../images/desktop/games/dice/gameplay-assets/btn-red.png');
+	/* background-image: url('../../../../images/desktop/ga/mes/dice/gameplay-assets/btn-red.png'); */
 	background-repeat: no-repeat;
 	background-size: 120%;
 	-webkit-user-select: none;
@@ -294,7 +294,7 @@
 }
 .greenInput {
 	background-color: transparent;
-	background-image: url('../../../../images/desktop/games/dice/gameplay-assets/green-input.png');
+	/* background-image: url('../../../../images/desktop/games/dice/gameplay-assets/green-input.png'); */
 	background-repeat: no-repeat;
 	background-size: 100%;
 	padding: 0.2rem 0.2rem;
@@ -304,7 +304,7 @@
 }
 .greenBg {
 	background-color: green;
-	background-image: url('../../../../images/desktop/games/dice/gameplay-assets/green-bg.png');
+	/* background-image: url('../../../../images/desktop/games/dice/gameplay-assets/green-bg.png'); */
 	background-repeat: no-repeat;
 	background-size: cover;
 	padding: 0.5rem 0.2rem;
@@ -314,7 +314,7 @@
 }
 .customYellowMoney {
 	background: transparent;
-	background-image: url('../../../../images/desktop/games/dice/gameplay-assets/yellow-money.png');
+	/* background-image: url('../../../../images/desktop/games/dice/gameplay-assets/yellow-money.png'); */
 	background-repeat: no-repeat;
 	width: 100px;
 	height: 33px;
@@ -332,7 +332,7 @@
 }
 .customYellowDice {
 	background: transparent;
-	background-image: url('../../../../images/desktop/games/dice/gameplay-assets/yellow-dice.png');
+	/* background-image: url('../../../../images/desktop/games/dice/gameplay-assets/yellow-dice.png'); */
 	background-repeat: no-repeat;
 	width: 100px;
 	height: 33px;
@@ -350,7 +350,7 @@
 }
 .customYellowPlusButton {
 	background: transparent;
-	background-image: url('../../../../images/desktop/games/dice/gameplay-assets/yellow-plus.png');
+	/* background-image: url('../../../../images/desktop/games/dice/gameplay-assets/yellow-plus.png'); */
 	background-repeat: no-repeat;
 	background-size: contain;
 	-webkit-user-select: none;
@@ -364,7 +364,7 @@
 }
 .customYellowStartButton {
 	background: transparent;
-	background-image: url('../../../../images/desktop/games/dice/gameplay-assets/yellow-start.png');
+	/* background-image: url('../../../../images/desktop/games/dice/gameplay-assets/yellow-start.png'); */
 	background-repeat: no-repeat;
 	height: 80px;
 	width: 70px;
@@ -536,7 +536,7 @@
 	color: var(--theme-color-primary-text);
 	border-radius: 18.5px;
 	/*width: 85%;*/
-	 z-index: 6; 
+	 z-index: 6;
 }
 
 /*for tournament gameplay*/

@@ -135,6 +135,8 @@ Vue.mixin({
     closeModal(id) {
       this.$bvModal.hide(id);
     },
+
+
   },
 
   //gameplay

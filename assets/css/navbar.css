@@ -389,11 +389,11 @@
 
 /*CUSTOMIZED FORM INPUTS*/
 .form-group > label {
-  top: 38px;
-  left: 15px;
-  position: relative;
+  /* top: 38px;
+  left: 15px; */
+  /* position: relative; */
   background-color: #000000;
-  padding: 0px 4px 0px 4px;
+  /* padding: 0px 4px 0px 4px; */
   font-size: 1.1em;
   transition: 0.2s;
   pointer-events:none;
@@ -404,6 +404,12 @@
   top: 18px !important;
   left: 16px !important;
   font-size: 0.9em;
+  position: relative;
+  background-color: #000000;
+  padding: 0px 4px 0px 4px;
+  transition: 0.2s;
+  pointer-events:none;
+  z-index: 1;
 }
 
 .roundedPillLeft {

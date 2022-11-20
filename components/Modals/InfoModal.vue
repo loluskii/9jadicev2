@@ -164,6 +164,9 @@
                   <span>{{ player.score ?? 0 }}</span>
               </div>
             </div>
+            <div class="text-center mb-2">
+              <nuxt-link :to="{name: 'legend-refid-leaderboard', params:{refid: game.reference_id}}" class="btn bg-sv-warning btn-sm text-white">View leaderboard</nuxt-link>
+            </div>
           </div>
         </b-tab>
         <b-tab>

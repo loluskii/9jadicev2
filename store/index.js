@@ -5,10 +5,7 @@ import actions from '../store/actions';
 
 export const state = () => ({
   right_open: false,
-  tournament: [],
-
-  //gameplay
-
+  record_id: null,
   betlist: []
 })
 

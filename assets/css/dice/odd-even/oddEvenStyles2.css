@@ -8,11 +8,11 @@ html, body {
 	background-position: center;
 	background-attachment: fixed;
 	/*background-image: radial-gradient(circle, rgba(0,0,0,0.6), rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('../photos/dice-bg.jpg');*/
-	background-image: radial-gradient(circle, rgba(0,0,0,0.6), rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('../photos/small-bg.png');
+	/* background-image: radial-gradient(circle, rgba(0,0,0,0.6), rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('../photos/small-bg.png'); */
 	height: 1000px;
 }
 .hero-bg {
-	background: radial-gradient(circle, rgba(0,0,0,0.6), rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('../photos/hero.jpg');
+	/* background: radial-gradient(circle, rgba(0,0,0,0.6), rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('../photos/hero.jpg'); */
 	background-size: cover;
 	background-repeat: no-repeat;
 	height: 50vh;
@@ -30,14 +30,14 @@ h1, h2, h3, h4, h5, h6 {
 	background: linear-gradient(#405DE3, #282CCC);
 }
 .bg-header {
-	background-image: url('../photos/header.png');
+	/* background-image: url('../photos/header.png'); */
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-color: yellow;
 	/*width: 100%;*/
 }
 .bg-footer {
-	background-image: url('../photos/header.png');
+	/* background-image: url('../photos/header.png'); */
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-color: yellow;
@@ -93,7 +93,7 @@ h1, h2, h3, h4, h5, h6 {
 	background-color: transparent;
 }
 .bg-btn {
-	background-image: url('../photos/wide-btn.png');
+	/* background-image: url('../photos/wide-btn.png'); */
 	background-size: contain;
 	background-repeat: no-repeat;
 	/*background: linear-gradient(red, yellow);*/
@@ -183,7 +183,7 @@ h1, h2, h3, h4, h5, h6 {
 .w3-animate-right{position:relative;animation:animateright 0.4s}@keyframes animateright{from{right:-300px;opacity:0} to{right:0;opacity:1}}
 
 .card-bg {
-	background: radial-gradient(circle, rgba(0,0,0,0.6), rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('../photos/hero.jpg');
+	/* background: radial-gradient(circle, rgba(0,0,0,0.6), rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('../photos/hero.jpg'); */
 	background-repeat: no-repeat;
 	background-size: cover;
 	border-radius: 10px;

@@ -17,8 +17,7 @@
         <button
           type="button"
           id="filterButton"
-          data-bs-toggle="modal"
-          data-bs-target="#loginModal"
+          @click="openModal('filterModal')"
           class="btn btn-sm btn-block px-3 bg-sv-primary createTournamentText cursorPointer mx-1 filterButton"
         >
           <span class="small align-items-center">
@@ -241,11 +240,11 @@
                   </div>
                 </div>
               </div>
-              <info-modal
+              <!-- <info-modal
                 :game="game"
                 :leaderboard="leaderboard"
                 :paytable="paytable"
-              ></info-modal>
+              ></info-modal> -->
               <join-confirmation :game="game" v-if="$auth.loggedIn"></join-confirmation>
             </div>
           </b-skeleton-wrapper>
@@ -299,8 +298,8 @@ export default {
     },
     getVerifiedGames() {
       this.loading = true;
-      this.$axios.get("/tournaments?category=3&take=10").then((res) => {
-        this.verified_games = res.data.data.slice(0, 5);
+      this.$axios.get("/tournaments/verified?count=10").then((res) => {
+        this.verified_games = res.data.data;
         this.loading = false;
       });
     },

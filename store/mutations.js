@@ -14,8 +14,8 @@ let mutations = {
     state.betlist = payload
   },
 
-  setTournament(state, payload){
-    state.tournament = payload
+  setRecordID(state, payload){
+    state.record_id = payload
   }
 };
 

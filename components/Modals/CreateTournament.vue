@@ -202,7 +202,7 @@ import api from '../../services/apis';
           })
         }).catch(err => {
             $('#create_special_game').prop("disabled",true);
-            $('#specialErrorFeedback').html(`<span class="alert alert-danger text-dark py-1 font-weight-normal small">${err.response.data.message}</span>`)
+            $('#specialErrorFeedback').html(`<span class="alert alert-danger text-dark py-1 font-weight-normal small">${err.response ? err.response.data.message : 'An Error Occurred'}</span>`)
         });
       },
 

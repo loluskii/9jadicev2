@@ -1,0 +1,330 @@
+<template>
+  <div class="row">
+    <section class="col-sm-12" style="background-color: #0e171c; min-height: 95vh">
+      <main class="position-relative" id="main">
+        <section class="container-fluid vsComputer">
+          <div class="d-flex justify-content-center turnToastStyle w-100">
+            <div
+              id="turnToast"
+              data-delay="1200"
+              class="toast text-white mt-3 w-100"
+            >
+              <div
+                class="toast-header bg-sv-primary justify-content-center text-sv-primary font-weight-bold"
+                id="toast-header"
+              ></div>
+              <div class="toast-body bg-dark">
+                <div id="toast-body" class="text-center"></div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 col-md-2 col-lg-1 col-xl-3"></div>
+            <div class="col-sm-12 col-md-8 col-lg-10 col-xl-6">
+              <div class="mx-4 mb-4">
+                <div class="pointsBackground">
+                  <div class="h4 text-center">
+                    <span class="text-capitalize wBold text-break"
+                      >Escobar</span
+                    >
+                  </div>
+                  <div class="d-flex justify-content-center wBold">
+                    <div class="col-5 p-0 text-center">
+                      <div
+                        class="lead text-center wBold text-dark bg-sv-warning"
+                        id="throwCount"
+                      >
+                        0
+                      </div>
+                      <div class="text-uppercase wBold small px-2 py-1">
+                        throws
+                      </div>
+                    </div>
+                    <div class="col-2 text-center"></div>
+                    <div class="col-5 p-0 text-center">
+                      <div
+                        class="lead text-center wBold text-dark bg-sv-warning"
+                        id="diceTotal"
+                      >
+                        0
+                      </div>
+                      <div class="text-uppercase wBold small px-2 py-1">
+                        total
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-center">
+                <div
+                  class="instructionBackground text-center position-relative bg-dark pb-2"
+                  id="instructionDiv"
+                >
+                  <div style="position: absolute;right: 0;top: 0;margin-right: 7px;margin-top: -20px;">
+                    <button
+                      class="btn bg-sv-primary rounded-pill px-3 shadow"
+                      id="hideInstructionButton"
+                      onclick="hideInstructionDiv()"
+                    >
+                      <span><i class="fa fa-info"></i></span>
+                    </button>
+                  </div>
+                  <div
+                    class="bg-sv-primary text-sv-primary curvedTop d-flex align-items-center justify-content-center"
+                    style="height: 15%"
+                  >
+                    Paytable
+                  </div>
+                  <div class="text-center small pb-4">
+                    <div class="text-white text-capitalize py-2">
+                      Roll the dice 10 times straight, the higher your score,
+                      the higher your prize.
+                    </div>
+                    <div class="text-center">
+                      <table class="table table-sm mb-0 text-white">
+                        <thead>
+                          <tr>
+                            <th>Total Dice</th>
+                            <th>To win</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>0 - 70</td>
+                            <td>₦0</td>
+                          </tr>
+                          <tr>
+                            <td>71-80</td>
+                            <td>stake x 1</td>
+                          </tr>
+                          <tr>
+                            <td>81 - 100</td>
+                            <td>stake x 2</td>
+                          </tr>
+                          <tr>
+                            <td>101 - 120</td>
+                            <td>stake x 5</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div
+                      class="lead text-sv-primary text-white font-weight-bold"
+                    >
+                      Scroll up to play!
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-2 col-lg-1 col-xl-3"></div>
+          </div>
+        </section>
+        <section class="container-fluid">
+          <div class="row text-white">
+            <div class="col-md-4 col-lg-4 col-xl-4 col-3 lead">
+              <div class="lead text-center text-white" id="diceValue1"></div>
+            </div>
+            <div class="col-md-4 col-lg-4 col-xl-4 col-6 text-center my-auto">
+              <div class="row text-center">
+                <div class="col-6 px-0">
+                  <div id="die1container">
+                    <img
+                      id="die-1"
+                      class="diceSize"
+                      src="https://dice.ng/images/mobile/games/dice/gameplay-assets/dices/1.png"
+                      style="display: none"
+                    />
+                  </div>
+                </div>
+                <div class="col-6 px-0">
+                  <div id="die2container">
+                    <img
+                      id="die-2"
+                      class="diceSize"
+                      src="https://dice.ng/images/mobile/games/dice/gameplay-assets/dices/2.png"
+                      style="display: none"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6 px-0">
+                  <div id="die3container">
+                    <img
+                      id="die-3"
+                      class="diceSize"
+                      src="https://dice.ng/images/mobile/games/dice/gameplay-assets/dices/3.png"
+                      style="display: none"
+                    />
+                  </div>
+                </div>
+                <div class="col-6 px-0">
+                  <div id="die4container">
+                    <img
+                      id="die-4"
+                      class="diceSize"
+                      src="https://dice.ng/images/mobile/games/dice/gameplay-assets/dices/4.png"
+                      style="display: none"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-lg-4 col-xl-4 col-3 lead">
+              <div class="lead text-center text-white"></div>
+            </div>
+          </div>
+        </section>
+        <section class="container-fluid">
+          <div class="row">
+            <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3"></div>
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+              <div
+                id="feedback"
+                class="text-white font-weight-bold text-center"
+                style="font-size: 1.3rem"
+              ></div>
+            </div>
+            <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3"></div>
+          </div>
+        </section>
+
+        <section class="container-fluid bg-footer py-1">
+          <div class="d-flex justify-content-center" id="animated-cup-div">
+            <div id="animated-cup" class="text-center" style="display: none">
+              <a onclick="rollDiceFromCup();">
+                <img
+                  src="https://dice.ng/images/mobile/games/dice/gameplay-assets/dice-cup-green.png"
+                  draggable="false"
+                  alt="dice-cup"
+                  id="animated-cup-img"
+                  class="mx-auto"
+                />
+              </a>
+            </div>
+          </div>
+          <div class="row justify-content-between align-items-center bg-dark">
+            <div class="col-12 p-1" id="amount-container">
+              <div class="d-flex justify-content-center">
+                <div
+                  class="d-flex flex-column text-white text-center align-items-center"
+                >
+                  <div class="small text-uppercase">Total Stake</div>
+                  <input
+                    class="bg-sv-warning font-weight-bold text-white font-weight-bold text-center form-control border-0 outline-none d-inline py-0 w-50"
+                    type="number"
+                    style="height: 25px"
+                    value="100"
+                    oninput="editStake()"
+                    id="betAmountList"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-12 px-0" id="stakeSection">
+              <div
+                class="d-flex justify-content-center align-items-center mb-1 px-3"
+              >
+                <div class="mr-2">
+                  <button
+                    class="btn btn-sm btn-block black-bg addStakeButton rounded-pill py-0 font-weight-bold addStakeButtonActive"
+                    onclick="addStake(100)"
+                  >
+                    +100
+                  </button>
+                </div>
+                <div class="mr-1">
+                  <button
+                    class="btn btn-sm btn-block black-bg addStakeButton rounded-pill py-0 font-weight-bold"
+                    onclick="addStake(200)"
+                  >
+                    +200
+                  </button>
+                </div>
+                <div class="ml-1">
+                  <button
+                    class="btn btn-sm btn-block black-bg addStakeButton rounded-pill py-0 font-weight-bold"
+                    onclick="addStake(500)"
+                  >
+                    +500
+                  </button>
+                </div>
+                <div class="ml-2">
+                  <button
+                    class="btn btn-sm btn-block black-bg addStakeButton rounded-pill py-0 font-weight-bold"
+                    onclick="addStake(1000)"
+                  >
+                    +1000
+                  </button>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-center">
+                <div class="flex-fill">
+                  <button
+                    type="button"
+                    id="clearButton"
+                    class="btn py-0 customStartButton btn-block rounded-0 bg-danger text-white zoom"
+                    onclick="clearSelectedStake();"
+                  >
+                    <span>Clear</span>
+                  </button>
+                </div>
+                <div class="flex-fill border-right border-dark">
+                  <button
+                    type="button"
+                    id="rollAutoButton"
+                    class="btn py-0 customStartButton btn-block text-black rounded-0 zoom"
+                    onclick="rollAuto();"
+                    style="display: block"
+                  >
+                    <span>Auto</span>
+                  </button>
+                </div>
+                <div class="flex-fill">
+                  <button
+                    type="button"
+                    id="startButton"
+                    class="btn py-0 customStartButton btn-block rounded-0 zoom"
+                    onclick="validateForm(); return false;"
+                    style="display: block"
+                  >
+                    <span><i class="fa fa-play"></i></span>
+                    <span>Play</span>
+                  </button>
+                  <button
+                    type="button"
+                    style="display: none"
+                    id="restartButton"
+                    class="btn customStartButton btn-block zoom"
+                    onclick="document.querySelector('#restartButton').style.display='none'; restart();"
+                  >
+                    RESTART
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </section>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "megaten",
+  layout: "game",
+};
+</script>
+
+<style scoped>
+@import url("~/assets/css/dice/diceGamePlay.css");
+@import url("~/assets/css/dice/mega-ten/mega-ten.css");
+
+
+main#main{
+  margin-top: 160px;
+}
+</style>
