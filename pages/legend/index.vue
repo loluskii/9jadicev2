@@ -127,7 +127,7 @@
           <div class="col-12 text-center">
 
             <div id="animated-cup" class="text-center">
-              <a @click.prevent="playNormalGame()">
+              <a @click.prevent="playNormalGame">
                 <img src="https://dice.ng/images/mobile/games/dice/gameplay-assets/dice-cup-green.png" draggable="false"
                   alt="dice-cup" id="animated-cup-img" class="mx-auto">
               </a>
@@ -146,8 +146,8 @@
         </button>
       </div>
       <div class=" d-flex flex-column align-items-center button-float-action-right">
-        <button class="btn bg-sv-primary px-3 py-2 game-speed-fab-chil text-sv-primary fab-child-active"
-          onclick="activateTurboMode(0)" id="turboModeButton">
+        <button @click.prevent="turboMode" class="btn text-white bg-sv-primary px-3 py-2 game-speed-fab-chil text-sv-primary fab-child-active"
+         id="turboModeButton">
           <div class="d-flex justify-content-end">
             <div class="game-speed-fab-child-text text-right mr-2">Play</div>
             <span><i class="fa fa-play"></i></span>
@@ -228,6 +228,33 @@ import ThrowLimitModal from '~/components/Modals/gameplay/ThrowLimitModal.vue';
 
           setTimeout(() => this.showThrowLimitModal(), 1500);
 
+        }
+      },
+
+      async turboMode(){
+        this.isCupShaking = true;
+        document.getElementById("totalOutputDiv").style.display = "flex";
+        document.getElementById("feedback").innerHTML = "";
+        document.getElementById("score1").innerHTML = "";
+        document.getElementById("generatedTotalScore").innerHTML = "";
+        // sound.currentTime = 0; // Rewind audio timing to isStart
+        // sound.play(); // Play the cup shaking audio
+        this.cupShakeAnimation("#animated-cup", "tada");//add animation class to cup container
+        document.getElementById("diceThrowInstruction").innerHTML = "rolling...";
+
+        this.gameDataResponse = await this.recordTurbo(this.tournament.id, this.recordId)
+
+        document.getElementById("diceThrowInstruction").innerHTML = "tap again to throw";
+
+        if (this.gameDataResponse) {
+          document.getElementById("diceThrowInstruction").innerHTML = "";
+          // sound.pause();
+          // sound.currentTime = 0;
+          document.querySelector("#animated-cup").remove("animated", "tada", "infinite")
+          document.getElementById("generatedTotalScore").innerHTML = this.gameDataResponse.data.score;
+          document.getElementById("score1").innerHTML = `<span style="font-size: 13px">${this.gameDataResponse.data.score}</span>`;
+          this.showAnimatedDice();
+          setTimeout(() => this.showThrowLimitModal(), 1500);
         }
       },
 

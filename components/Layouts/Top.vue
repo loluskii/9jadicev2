@@ -207,7 +207,7 @@
                 </span>
               </nuxt-link>
 
-              <nuxt-link to=""  class="btn btn-sm btn-dark border-0 rounded-0 d-flex flex-column justify-content-center text-nowrap" style="visibility: on" >
+              <nuxt-link to=""  class="btn btn-sm btn-dark border-0 rounded-0 d-flex flex-column justify-content-center text-nowrap" style="visibility: hidden;" >
                 <span class="mb-1 gameTopTitle">Mega Ten</span>
                 <span>
                     <img src="" style="height: 20px" alt="mega-ten-icon" />
@@ -218,13 +218,16 @@
         </div>
         <!-- Games List -->
       </div>
+      <side-nav v-if="$auth.loggedIn"></side-nav>
       <div class="col-sm-12 col-md-1 col-lg-2 col-xl-2"></div>
     </div>
   </div>
 </template>
 
 <script>
+import SideNav from './SideNav.vue';
 export default {
+  components: { SideNav },
   name: "top",
   data() {
     return {

@@ -286,7 +286,4 @@ export default {
 
 @import url("~/assets/css/dice/under-over/underOver.css");
 
-main#main {
-  margin-top: 140px;
-}
 </style>

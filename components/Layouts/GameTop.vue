@@ -49,7 +49,7 @@
             </div>
             <div class="position-relative">
               <button class="btn bg-sv-primary rightNavTopTextColor btn-sm dropdown-toggle" type="button"
-                id="sidenav-toggler">
+                id="sidenav-toggler"  @click="toggle_right">
                 <span><i class="fa fa-user"></i></span>
               </button>
             </div>
@@ -77,9 +77,6 @@
             <img src="https://dice.ng/images/desktop/games/single.png" style="height: 25px" alt="single-icon">
           </span>
         </a>
-
-
-
         <a onclick="callLoader()"
           class="btn btn-sm btn-dark border-0 rounded-0 flex-fill px-2 py-2 mr-1 d-flex flex-column justify-content-center text-nowrap "
           href="https://dice.ng/dice/odd-even">
@@ -107,17 +104,26 @@
       </div>
 
     </div>
+    <side-nav v-if="$auth.loggedIn"></side-nav>
   </div>
 </template>
 
 <script>
+import SideNav from './SideNav.vue';
   export default {
     name: "game-top",
+    components:{ SideNav },
     computed: {
       user(){
           return this.$store.state.auth.user;
       }
     },
+    methods:{
+      toggle_right() {
+        console.log('sdfdsdsd')
+        this.$store.commit('right_menu', "toggle");
+      },
+    }
   }
 </script>
 

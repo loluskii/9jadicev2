@@ -1,5 +1,5 @@
 <template>
-  <section style="z-index: 1031;" id="rightnav" class="rightnav overflow-auto pt-0">
+  <section :class="this.$store.state.right_open ? 'rightnav-active' : ''" style="z-index: 1031;" id="rightnav" class="rightnav overflow-auto pt-0">
     <a
 
       id="closeRightNav"
@@ -220,10 +220,10 @@
 
         </li>
         <li>
-          <a @click="logout" id="logout-list"
+          <button class="btn btn-link text-decoration-none text-white" @click="logout" id="logout-list"
             ><span class="mr-3"
               ><i class="fa fa-power-off text-sv-warning"></i></span
-            >Log Out</a
+            >Log Out</button
           >
         </li>
       </ul>

@@ -78,7 +78,6 @@
             <template #title>
               <span class="notificationAnimation mr-1"></span> Ends in 10 mins
             </template>
-            <b-card-text>Tab contents 4</b-card-text>
           </b-tab>
         </b-tabs>
 
