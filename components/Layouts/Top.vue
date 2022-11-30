@@ -116,7 +116,7 @@
           <div class="col-12 p-0 topGamesList">
             <div class="text-capitalize topGamesList-left">
               <nuxt-link
-                class="btn btn-sm btn-dark border-0 rounded-0 d-flex flex-column justify-content-center bg-sv-primary"
+                class="btn btn-sm btn-dark border-0 text-nowrap rounded-0 d-flex flex-column justify-content-center bg-sv-primary"
                 to="/"
               >
                 <span class="mb-1 gameTopTitle gameTopTitleActive"
@@ -131,7 +131,7 @@
                 </span>
               </nuxt-link>
               <nuxt-link
-                class="btn btn-sm btn-dark border-0 rounded-0 position-relative d-flex flex-column justify-content-center"
+                class="btn btn-sm btn-dark border-0 text-nowrap rounded-0 position-relative d-flex flex-column justify-content-center"
                 to="/"
               >
                 <span class="newBadge">New</span>
@@ -145,7 +145,7 @@
                 </span>
               </nuxt-link>
               <nuxt-link
-                class="btn btn-sm btn-dark border-0 rounded-0 position-relative d-flex flex-column justify-content-center"
+                class="btn btn-sm btn-dark border-0 text-nowrap rounded-0 position-relative d-flex flex-column justify-content-center"
                 to="/dice/colors"
               >
                 <span class="newBadge">New</span>
@@ -159,7 +159,7 @@
                 </span>
               </nuxt-link>
               <nuxt-link
-                class="btn btn-sm btn-dark border-0 rounded-0 d-flex flex-column justify-content-center text-white"
+                class="btn btn-sm btn-dark border-0 text-nowrap rounded-0 d-flex flex-column justify-content-center text-white"
                 to="/dice/single"
               >
                 <span class="mb-1 gameTopTitle">Single</span>
@@ -190,7 +190,7 @@
           <div class="col-12 p-0" style="display: none" id="allGamesList">
             <div class="topGamesList-left">
               <nuxt-link
-                class="btn btn-sm btn-dark border-0 rounded-0 d-flex flex-column justify-content-center"
+                class="btn btn-sm btn-dark border-0 text-nowrap rounded-0 d-flex flex-column justify-content-center"
                 to="/dice/under-over"
               >
                 <span class="mb-1 gameTopTitle">Under/Over</span>
@@ -204,7 +204,7 @@
               </nuxt-link>
 
               <nuxt-link
-                class="btn btn-sm btn-dark border-0 rounded-0 d-flex flex-column justify-content-center"
+                class="btn btn-sm btn-dark border-0 text-nowrap rounded-0 d-flex flex-column justify-content-center"
                 to="/dice/odd-even"
               >
                 <span class="mb-1 gameTopTitle">Odd/Even</span>
@@ -218,7 +218,7 @@
               </nuxt-link>
 
               <nuxt-link
-                class="btn btn-sm btn-dark border-0 rounded-0 d-flex flex-column justify-content-center text-nowrap"
+                class="btn btn-sm btn-dark border-0 text-nowrap rounded-0 d-flex flex-column justify-content-center text-nowrap"
                 to="/dice/mega-ten"
               >
                 <span class="mb-1 gameTopTitle">Mega Ten</span>
@@ -231,7 +231,7 @@
                 </span>
               </nuxt-link>
 
-              <nuxt-link to=""  class="btn btn-sm btn-dark border-0 rounded-0 d-flex flex-column justify-content-center text-nowrap" style="visibility: hidden;" >
+              <nuxt-link to=""  class="btn btn-sm btn-dark border-0 rounded-0 text-nowrap d-flex flex-column justify-content-center text-nowrap" style="visibility: hidden;" >
                 <span class="mb-1 gameTopTitle">Mega Ten</span>
                 <span>
                     <img src="" style="height: 20px" alt="mega-ten-icon" />
