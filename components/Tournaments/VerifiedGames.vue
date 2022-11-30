@@ -272,9 +272,10 @@
         </div>
       </div>
     </div>
-    <create-tournament></create-tournament>
+    <create-tournament :category_id="3"></create-tournament>
     <login-modal v-if="!$auth.loggedIn"></login-modal>
     <filter-modal></filter-modal>
+    <not-verified></not-verified>
 
   </div>
 </template>
@@ -285,9 +286,10 @@ import FilterModal from "../Modals/FilterModal.vue";
 import InfoModal from "../Modals/InfoModal.vue";
 import JoinConfirmation from '../Modals/JoinConfirmation.vue';
 import LoginModal from "../Modals/LoginModal.vue";
+import NotVerified from '../Modals/NotVerified.vue';
 export default {
   name: "",
-  components: { CreateTournament, InfoModal, LoginModal, FilterModal, JoinConfirmation },
+  components: { CreateTournament, InfoModal, LoginModal, FilterModal, JoinConfirmation, NotVerified },
   data() {
     return {
       verified_games: [],
@@ -300,8 +302,14 @@ export default {
 
   methods: {
     showCreateTournament() {
+      console.log(this.user.user_status_role_id)
       if (this.$auth.loggedIn) {
-        this.$bvModal.show("createTournament");
+        if(this.user.user_status_role_id == 1 || this.user.user_status_role_id == 2){
+          this.$bvModal.show("createTournament"+3);
+        }else{
+          console.log(this.user.user_status_role_id)
+          this.$bvModal.show("notVerified");
+        }
       } else {
         // console.log('log in now')
         // this.$bvModal.show("loginModal");

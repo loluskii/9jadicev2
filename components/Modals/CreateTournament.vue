@@ -1,6 +1,6 @@
 <template>
   <b-modal centered hide-header hide-footer content-class="bg-sv-primary curvedEdge" body-class="p-0 bg-dark curvedEdge"
-    id="createTournament" title="Create Tournament" title-class="text-uppercase font-weight-bold">
+    :id="'createTournament_'+category_id" title="Create Tournament" title-class="text-uppercase font-weight-bold">
     <div class="container-fluid">
       <div class="row justify-content-between align-items-center bg-sv-primary p-2 customModalTop">
         <div>
@@ -145,6 +145,7 @@
 import api from '../../services/apis';
   export default {
     name: "create-tournament",
+    props: ["category_id"],
     data(){
       return{
         formData:{

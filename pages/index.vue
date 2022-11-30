@@ -35,49 +35,7 @@
             title="Public"
             title-link-class="btn btn-sm border-0 rounded-pill py-0 px-2 mx-2 tournament-type-btn cursorPointer "
           >
-            <div class="">
-              <div class="row">
-                <div class="tab-content col-12 p-0">
-                  <div class="tab-pane active" id="special-all">
-                    <div>
-                      <div class="d-flex flex-column small py-1 topic-bg">
-                        <div class="d-flex px-1">
-                          <div class="d-flex align-items-center">
-                            <div class="font-weight-bold text-capitalize">
-                              Public Games
-                            </div>
-                          </div>
-                          <div class="d-flex ml-auto">
-                            <div class="rounded listOptionTitle">
-                              <div
-                                class="text-capitalize small d-flex align-items-center"
-                              >
-                                <span style="margin-right: 0.2rem"
-                                  ><i class="fa fa-user"></i
-                                ></span>
-                                <span>Players</span>
-                              </div>
-                            </div>
-                            <div class="rounded listOptionTitle">
-                              <small class="text-capitalize">Amount</small>
-                            </div>
-                            <div class="rounded listOptionTitle">
-                              <small class="text-capitalize">Status</small>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div id="publicGamesList">
-                        <div class="text-white text-center font-italic">
-                          No game available.
-                        </div>
-                      </div>
-                      <div id="specialGamesViewMore"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <public></public>
           </b-tab>
           <b-tab
             title="Partners"
@@ -408,6 +366,7 @@ import BonusGames from "~/components/Tournaments/BonusGames";
 import FootballGames from "~/components/Tournaments/FootballGames.vue";
 import FreeGames from "~/components/Tournaments/FreeGames.vue";
 import LuxuryGames from "~/components/Tournaments/LuxuryGames";
+import Public from '~/components/Tournaments/Public.vue';
 import StateGames from "~/components/Tournaments/StateGames.vue";
 import VerifiedGames from "~/components/Tournaments/VerifiedGames";
 import searchFilter from "../components/search-filter";
@@ -422,6 +381,7 @@ export default {
     StateGames,
     FootballGames,
     FreeGames,
+    Public
   },
   name: "IndexPage",
   layout: "default",

@@ -69,7 +69,7 @@
                 celebrity partners
               </div>
               <nuxt-link
-                to=""
+                to="/content/affiliates/celebrity"
                 style="font-size: small"
                 class="text-muted"
                 >Click here to get started on the program.</nuxt-link
@@ -96,7 +96,7 @@
                 verified partners
               </div>
               <nuxt-link
-                to=""
+                to="/content/affiliates/verified"
                 style="font-size: small"
                 class="text-muted"
                 >Click here to get started as a verified player.</nuxt-link
@@ -123,7 +123,7 @@
                 agent partners
               </div>
               <nuxt-link
-                to=""
+                to="/content/affiliates/agents"
                 style="font-size: small"
                 class="text-muted"
                 >Click here to get started as an agent partner.</nuxt-link
