@@ -1,5 +1,5 @@
 <template>
-  <section style="z-index: 1031;" id="rightnav" class="rightnav overflow-auto pt-0">
+  <section :class="this.$store.state.right_open ? 'rightnav-active' : ''" style="z-index: 1031;" id="rightnav" class="rightnav overflow-auto pt-0">
     <a
       href="javascript:void(0)"
       id="closeRightNav"
@@ -46,19 +46,19 @@
           <div
             class="btn bg-sv-warning rounded-pill cursorPointer text-white py-2 col-4 mb-2 d-inline-block"
           >
-            <a href="https://dice.ng/make-deposit" class="text-decoration-none">
+            <a href="/make-deposit" class="text-decoration-none">
               <span class="small text-white">Deposit</span>
             </a>
           </div>
 
           <div class="btn bg-light text-dark rounded-pill py-2 col-4 mb-2">
-            <a href="https://dice.ng/withdraw" class="text-decoration-none">
+            <a href="/withdraw" class="text-decoration-none">
               <span class="small text-dark">Withdraw</span>
             </a>
           </div>
 
           <div class="btn btn-danger text-white rounded-pill py-2 col-4 mb-2">
-            <a href="https://dice.ng/how-to-play" class="text-decoration-none">
+            <a href="/content/how-to-play" class="text-decoration-none">
               <span class="small text-white">How to play</span>
             </a>
           </div>
@@ -84,7 +84,7 @@
           >
         </li>
         <li>
-          <a href="/settled-bets"
+          <a href="/bets/settled-bets"
             ><span class="mr-3"><i class="fa fa-list"></i></span>My Bet
             History</a
           >

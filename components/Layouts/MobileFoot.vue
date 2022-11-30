@@ -1,6 +1,5 @@
 <!-- Please remove this file from your project -->
 <template>
-  <div class="">
     <div class="container-fluid">
       <section
         class="row text-center justify-content-between fixed-bottom"
@@ -86,7 +85,6 @@
         </div>
       </section>
     </div>
-  </div>
 </template>
 
 <script>

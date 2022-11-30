@@ -5,6 +5,7 @@
 }
 .active-tournament-type-btn > span, .tournament-type-btn:active > span{
   color: #000000 !important;
+  border-radius: 5px;
   /*background: linear-gradient(#F1D521, #F79F02);*/
 }
 .categoryContainer {
@@ -13,9 +14,6 @@
 }
 .cursorPointer:hover {
 	cursor: pointer;
-}
-.text-9jaluck2 {
-	color: #008D5A;
 }
 .bg-sv-primary {
   background-color: #067a23; 
@@ -36,14 +34,17 @@
 .text-sv-warning {
   color: #ed8d0e;
 }
+.text-9jaluck2 {
+	color: #008D5A;
+}
 .straightEdge {
 	border-radius: 0px !important;
 }
-.cursorPointer:hover {
-	cursor: pointer;
-}
 .curvedEdge {
 	border-radius: 18px;
+}
+.cursorPointer:hover {
+	cursor: pointer;
 }
 .publicSearchInput, .privateSearchInput, .specialSearchInput {
 	padding-left: 30px;
@@ -56,6 +57,9 @@
 .publicSearchInput::placeholder, .privateSearchInput::placeholder, .specialSearchInput::placeholder {
 	/*padding-left: 30px;*/
 	color: grey;
+}
+.mr1 {
+	margin-right: 1px;
 }
 .listOption {
   width: 60px !important;

@@ -130,17 +130,6 @@ body {
   font-weight: 500;
 }
 
-.topGamesList-left > a > span.newBadge {
-  position: absolute;
-  bottom: 36px;
-  right: 14px;
-  font-size: 8px;
-  border-radius: 2px;
-  background-color: #ff0000;
-  padding-left: 2px;
-  padding-right: 2px;
-}
-
 @media screen and (max-width: 578px) {
   .topGamesList-left {
     overflow-y: hidden;

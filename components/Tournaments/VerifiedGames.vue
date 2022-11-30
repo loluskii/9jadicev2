@@ -66,8 +66,10 @@
               <div class="small py-1 listBackground px-2">
                 <span><b-skeleton width="25%"></b-skeleton></span>
                 <div class="d-flex justify-content-between text-white">
-                  <div class="d-flex justify-content-between align-items-center flex-fill mr-3">
-                    <div class="d-flex h-100 w-100" >
+                  <div
+                    class="d-flex justify-content-between align-items-center flex-fill mr-3"
+                  >
+                    <div class="d-flex h-100 w-100">
                       <b-skeleton width="70%" height="100%"></b-skeleton>
                     </div>
                   </div>
@@ -81,8 +83,10 @@
               <div class="small py-1 listBackground px-2">
                 <span class="mb-1"><b-skeleton width="25%"></b-skeleton></span>
                 <div class="d-flex justify-content-between text-white px-1">
-                  <div class="d-flex justify-content-between align-items-center flex-fill mr-3">
-                    <div class="d-flex h-100 w-100" >
+                  <div
+                    class="d-flex justify-content-between align-items-center flex-fill mr-3"
+                  >
+                    <div class="d-flex h-100 w-100">
                       <b-skeleton width="70%" height="100%"></b-skeleton>
                     </div>
                   </div>
@@ -96,8 +100,10 @@
               <div class="small py-1 listBackground px-2">
                 <span><b-skeleton width="25%"></b-skeleton></span>
                 <div class="d-flex justify-content-between text-white px-1">
-                  <div class="d-flex justify-content-between align-items-center flex-fill mr-3">
-                    <div class="d-flex h-100 w-100" >
+                  <div
+                    class="d-flex justify-content-between align-items-center flex-fill mr-3"
+                  >
+                    <div class="d-flex h-100 w-100">
                       <b-skeleton width="70%" height="100%"></b-skeleton>
                     </div>
                   </div>
@@ -111,8 +117,10 @@
               <div class="small py-1 listBackground px-2">
                 <span><b-skeleton width="25%"></b-skeleton></span>
                 <div class="d-flex justify-content-between text-white px-1">
-                  <div class="d-flex justify-content-between align-items-center flex-fill mr-3">
-                    <div class="d-flex h-100 w-100" >
+                  <div
+                    class="d-flex justify-content-between align-items-center flex-fill mr-3"
+                  >
+                    <div class="d-flex h-100 w-100">
                       <b-skeleton width="70%" height="100%"></b-skeleton>
                     </div>
                   </div>
@@ -126,8 +134,10 @@
               <div class="small py-1 listBackground px-2">
                 <span><b-skeleton width="25%"></b-skeleton></span>
                 <div class="d-flex justify-content-between text-white px-1">
-                  <div class="d-flex justify-content-between align-items-center flex-fill mr-3">
-                    <div class="d-flex h-100 w-100" >
+                  <div
+                    class="d-flex justify-content-between align-items-center flex-fill mr-3"
+                  >
+                    <div class="d-flex h-100 w-100">
                       <b-skeleton width="70%" height="100%"></b-skeleton>
                     </div>
                   </div>
@@ -148,7 +158,7 @@
               <span
                 class="ml-1 prizeToFirstText px-1 rounded bg-sv-warning text-white"
                 style="font-size: 8px"
-                >₦360,000 to 1st</span
+                >₦{{ calculateWinnings(game) }} to 1st</span
               >
               <div class="d-flex justify-content-between text-white px-1">
                 <div
@@ -177,6 +187,7 @@
                   <span>
                     <button
                       class="btn btn-sm text-dark btn-light info-button"
+                      @click="loadData(game.id)"
                       v-b-modal="'game_' + game.reference_id"
                     >
                       <i class="fa fa-info cursorPointer"></i>
@@ -198,20 +209,64 @@
                   <div class="bg-sv-primary p-1 rounded-0 listOption">
                     ₦{{ formatNumber(game.stake) }}
                   </div>
-                  <div
-                    v-html="displayGameButton(game)"
-                    class="bg-sv-primary p-1 rounded-right small listOption"
-                  ></div>
+                  <div class="bg-sv-primary p-1 rounded-right small listOption">
+                    <div
+                      v-if="
+                        $moment(currentDate).format() >
+                        $moment(game.end_date).format()
+                      "
+                    >
+                      <span class="badge badge-danger px-1">Ended</span>
+                    </div>
+                    <div
+                      v-else-if="
+                        game.no_of_players_joined >= game.no_of_players
+                      "
+                    >
+                      <span class="ml-1 badge badge-danger px-1">Sold Out</span
+                      >
+                    </div>
+                    <div
+                      v-else-if="(game.no_of_players_joined < game.no_of_players) && (game.auth_user.pending_count < 1)"
+                    >
+                      <button
+                        id="join_button"
+                        @click="showJoinConfirmation(game)"
+                        class="btn btn-sm btn-success rounded-pill shadow py-0 px-2 text-white"
+                      >
+                        Join
+                      </button>
+                    </div>
+                    <div
+                      v-else-if="game.auth_user.pending_count > 0"
+                    >
+                      <button
+                        id="join_button"
+                        @click="loadData(game.id)"
+                        v-b-modal="'game_' + game.reference_id"
+                        class="btn btn-sm btn-success rounded-pill shadow py-0 px-2 text-white"
+                      >
+                        Play
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <info-modal :game="game"></info-modal>
+              <info-modal
+                :game="game"
+                :leaderboard="leaderboard"
+                :paytable="paytable"
+              ></info-modal>
+              <join-confirmation :game="game" v-if="$auth.loggedIn"></join-confirmation>
             </div>
           </b-skeleton-wrapper>
         </div>
       </div>
       <div class="col-12 p-0" id="verifiedGamesViewMore">
         <div class="text-center my-1">
-          <a class="btn-sm rounded-pill bg-outline-sv-white btn-light-outline text-white py-0 px-4 small">
+          <a
+            class="btn-sm rounded-pill bg-outline-sv-white btn-light-outline text-white py-0 px-4 small"
+          >
             <small>View more </small>
           </a>
         </div>
@@ -220,43 +275,69 @@
     <create-tournament></create-tournament>
     <login-modal v-if="!$auth.loggedIn"></login-modal>
     <filter-modal></filter-modal>
+
   </div>
 </template>
 
 <script>
 import CreateTournament from "../Modals/CreateTournament";
-import FilterModal from '../Modals/FilterModal.vue';
+import FilterModal from "../Modals/FilterModal.vue";
 import InfoModal from "../Modals/InfoModal.vue";
-import LoginModal from '../Modals/LoginModal.vue';
+import JoinConfirmation from '../Modals/JoinConfirmation.vue';
+import LoginModal from "../Modals/LoginModal.vue";
 export default {
   name: "",
-  components: { CreateTournament, InfoModal, LoginModal, FilterModal },
+  components: { CreateTournament, InfoModal, LoginModal, FilterModal, JoinConfirmation },
   data() {
     return {
       verified_games: [],
+      leaderboard: [],
+      paytable: [],
       loading: false,
+      currentDate: new Date(),
     };
   },
 
   methods: {
     showCreateTournament() {
-      if(this.$auth.loggedIn){
+      if (this.$auth.loggedIn) {
         this.$bvModal.show("createTournament");
-      }else{
+      } else {
         // console.log('log in now')
         // this.$bvModal.show("loginModal");
-        this.$router.push('/auth/login')
+        this.$router.push("/auth/login");
       }
-
-
     },
     getVerifiedGames() {
       this.loading = true;
-      this.$axios.get("/tournaments?category=3&take=10").then((res) => {
+      this.$axios.get("/tournaments/verified?count=10").then((res) => {
         this.verified_games = res.data.data;
         this.loading = false;
       });
     },
+
+    loadData(id) {
+      this.$axios.get(`/tournaments/${id}/tournament-pay-stat`).then((res) => {
+        this.paytable = res.data.data;
+        this.$axios
+          .get(`/tournaments/${id}/leaderboard?count=10`)
+          .then((res2) => {
+            this.leaderboard = res2.data.data;
+          });
+      });
+    },
+    showJoinConfirmation(game){
+      if (this.$auth.loggedIn) {
+        this.$bvModal.show(`joinConfirmation_${game.id}`);
+      } else {
+        this.$router.push("/auth/login");
+      }
+    }
+
+
+    // getPaytable(){
+    //   this.$axios.get(`/tournaments/${this.game.id}/tournament-pay-stat`).then((res) => {})
+    // },
   },
 
   mounted() {
@@ -362,11 +443,9 @@ export default {
   padding: 3px 10px;
 }
 
-
-
 .b-skeleton-text {
-    height: 1rem;
-    /* margin-bottom: 0; */
-    border-radius: 0.25rem;
+  height: 1rem;
+  /* margin-bottom: 0; */
+  border-radius: 0.25rem;
 }
 </style>

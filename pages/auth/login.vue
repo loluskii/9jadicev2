@@ -101,8 +101,8 @@ export default {
   data(){
     return {
       formData: {
-        email: 'oponechukwuyenum@gmail.com',
-        password: 'Chucky@2020',
+        email: 'adeloreisaac@gmail.com',
+        password: 'clarioncall123',
       },
       error: false,
     }
@@ -112,8 +112,8 @@ export default {
       $('#loginBtn').text('Please wait...').attr('disabled');
       await this.$auth.loginWith('local', { data:this.formData })
       .then(async (res) => {
-        const data = res.data.data.user
-        this.$auth.setUser(data)
+        // const data = res.data.data.user
+        // this.$auth.setUser(data)
         // this.$auth.$storage.setUniversal('user', data, true)
         this.$router.push('/')
       }).catch( (error) => {

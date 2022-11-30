@@ -13,9 +13,9 @@
 .headerStyle {
     background-image: url("../../../../../images/mobile/games/dice/legend/podium.png");
     background-repeat: no-repeat;
-    background-size: 50% 75%;
+    background-size: 80%;
     background-position: bottom center;
-    height: 250px;
+    height: 210px;
 }
 @media only screen and (min-width: 375px) and (max-width: 576px) {
     .headerStyle {

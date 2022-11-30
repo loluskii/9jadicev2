@@ -10,7 +10,7 @@
           <span>Create Tournament</span>
         </div>
         <button type="button" class="btn rounded-circle p-2 text-sv-primary" @click="hideCreateTournament" aria-label="Close">
-          <span aria-hidden="true"><i class="fa fa-times"></i></span>
+          <span aria-hidden="true"><i class="fa fa-times text-white"></i></span>
         </button>
       </div>
       <div class="row mb-2" style="margin-top: -13px">
@@ -85,7 +85,7 @@
                 <div class="text-white mb-2">Tournament Duration</div>
                 <div class="d-flex">
                   <div class="w-75 mr-2">
-                    <select class="form-control bg-dark text-white" id="specialDurationOption"
+                    <select class="form-control bg-dark text-white" v-model="formData.special_duration" id="specialDurationOption"
                       onchange="selectDuration()" name="special_duration">
                       <option value="">Duration</option>
                       <option value="minute">Minute(s)</option>
@@ -97,16 +97,16 @@
                     <small id="specialDurationOptionHint" class="text-white"></small>
                   </div>
                   <div>
-                    <input type="number" class="form-control bg-dark text-white" id="specialNoOfDuration" placeholder=""
-                      name="special_time" onfocus="displayHint()" />
+                    <input type="number" v-model="formData.special_time" class="form-control bg-dark text-white" id="specialNoOfDuration" placeholder=""
+                      name="special_time"/>
                     <small id="specialNoOfDurationHint" class="text-white" style="display: none">In figures, e.g
                       24</small>
                   </div>
                 </div>
               </div>
               <div class="text-center">
-                <div class="text-danger font-weight-bold mb-2" id="specialErrorFeedback"></div>
-                <button id="create_special_game" class="btn text-uppercase bg-sv-primary text-sv-primary">
+                <div class="text-danger font-weight-bold mb-2" id="specialErrorFeedback"> </div>
+                <button @click.prevent="createTournament" id="create_special_game" class="btn text-uppercase bg-sv-primary text-sv-primary">
                   Create
                 </button>
               </div>
@@ -172,7 +172,38 @@ import api from '../../services/apis';
         $('#formTab').removeClass('active show');
       },
       hideCreateTournament(){
+        this.formData = {
+          name: "",
+          amount: '',
+          no_of_players: "",
+          duration: "",
+          special_time: "",
+          duration_type: "",
+          special_duration: "",
+        }
         this.$bvModal.hide("createTournament");
+      },
+      createTournament(){
+        $('#specialErrorFeedback').html('<span class="alert alert-primary text-dark py-1 font-weight-normal small">Creating tournament...please wait</span>')
+        $('#create_special_game').prop("disabled",true);
+        this.formData.duration = this.formData.special_time;
+        this.formData.duration_type = this.formData.special_duration;
+        this.$axios.post("/tournaments/create?category=4",this.formData).then((res) => {
+          let game_id = res.data.data.id;
+          this.$axios.post(`/tournaments/${game_id}/join`).then((res2)=>{
+            let name = res2.data.data.slug;
+            let ref = res2.data.data.reference
+            let refid = res2.data.data.reference_id
+
+            this.$router.push({name: "legend-name-ref-refid-game", params: {name:name, ref:ref, refid:refid}})
+          }).catch(err => {
+            $('#create_special_game').prop("disabled",true);
+            $('#specialErrorFeedback').html(`<span class="alert alert-danger text-dark py-1 font-weight-normal small">${err.response.data.message}</span>`)
+          })
+        }).catch(err => {
+            $('#create_special_game').prop("disabled",true);
+            $('#specialErrorFeedback').html(`<span class="alert alert-danger text-dark py-1 font-weight-normal small">${err.response ? err.response.data.message : 'An Error Occurred'}</span>`)
+        });
       },
 
     }

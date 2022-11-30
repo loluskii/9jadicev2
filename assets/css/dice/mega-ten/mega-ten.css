@@ -1,6 +1,7 @@
 /* CSS Document */
-html, body {
+html, body, p, h1, h2, h3, h4, h5, h6, span, div {
 	/*background-image: radial-gradient(circle, rgba(0,0,0,0.6), rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('../photos/dice-bg.jpg');*/
+  font-family: 'Montserrat' !important;
 }
 
 #paytableImgBg {

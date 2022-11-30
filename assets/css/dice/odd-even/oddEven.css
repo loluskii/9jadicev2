@@ -1,12 +1,10 @@
 /* CSS Document */
-html, body {
-	/*background-image: radial-gradient(circle, rgba(0,0,0,0.6), rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('../photos/dice-bg.jpg');*/
+html, body, p, h1, h2, h3, h4, h5, h6, span, div {
+  font-family: 'Montserrat' !important;
 }
-
 
 .username-bg {
 	background: linear-gradient(to right, #FBE33C, #F8933C);
-	/*color: #C57729;*/
 	border: none;
 }
 .bg-transparent-green {
@@ -19,30 +17,13 @@ html, body {
 }
 
 /* Add Gradient to button */
-.btn-gradient {
-	background: linear-gradient(#dc3545, orange);
-}
-.btn-gradient-red {
-	background: linear-gradient(#E83C35, #713C37);
-	border: none;
-}
-.btn-gradient-yellow {
-	background: linear-gradient(#FBE33C, #F8933C);
-	color: #C57729;
-	border: none;
-}
-.btn-gradient-blue {
-	background: linear-gradient(#1DA1F2, #304584);
-	border: none;
-}
-.active, .btn-gradient-green {
+
+.active {
 	background: linear-gradient(#70B340, #296C32);
-	border: none;
+	border: 2px solid #fff;
+	/* box-shadow: */
 }
-.bet-options-button-div {
-	background: linear-gradient(120deg, #267241, #29B14B);
-	box-shadow: 2px 2px 2px black;
-}
+
 .bg-gradient-green {
 	background: linear-gradient(#70B340, #296C32);
 }

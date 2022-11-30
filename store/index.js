@@ -5,8 +5,9 @@ import actions from '../store/actions';
 
 export const state = () => ({
   right_open: false,
-  
-  betlist: []
+  record_id: null,
+  betlist: [],
+  cup_shake: require('~/assets/images/gameplay/gameplay-assets/shake-cup.mp3').default,
 })
 
 

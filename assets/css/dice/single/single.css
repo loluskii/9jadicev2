@@ -1,4 +1,3 @@
-
 .username-bg {
 	background: linear-gradient(to right, #FBE33C, #F8933C);
 	/*color: #C57729;*/
@@ -13,35 +12,8 @@
 	color: rgba(255, 255, 255, 1);
 }
 
-/*.smallestText {
-	font-size: 0.5rem;
-}*/
-
-
 /* Add Gradient to button */
-.btn-gradient {
-	background: linear-gradient(#dc3545, orange);
-}
-.btn-gradient-red {
-	background: linear-gradient(#E83C35, #713C37);
-	border: none;
-}
-.btn-gradient-yellow {
-	background: linear-gradient(#FBE33C, #F8933C);
-	color: #C57729;
-	border: none;
-}
-.btn-gradient-blue {
-	background: linear-gradient(#1DA1F2, #304584);
-	border: none;
-}
-.active, .btn-gradient-green {
-	background: linear-gradient(#70B340, #296C32);
-	border: none;
-}
-.bg-gradient-green {
-	background: linear-gradient(#70B340, #296C32);
-}
+
 .bet-options-button-div {
 	background: linear-gradient(120deg, #267241, #29B14B);
 	box-shadow: 2px 2px 2px black;
@@ -111,6 +83,12 @@
 	margin: 5px 0px 0px 5px;
 }
 
+.diceArea {
+	display: block;
+	position: absolute;
+	left: 37%;
+}
+
 #die-1, #die-2, #die-3, #die-4 {
 	display: none;
 	width: 50px;
@@ -121,11 +99,6 @@
 	animation-name: rotateIn;
 	animation-duration: 0.7s;
 	z-index: 1;
-}
-.diceArea {
-	display: block;
-	position: absolute;
-	left: 37%;
 }
 
 @keyframes rotateIn {

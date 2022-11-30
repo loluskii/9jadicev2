@@ -7,6 +7,9 @@ let actions = {
       .then((res) => {
         commit('setBetlist',res.data.data);
       })
+  },
+  setCommitRecordID({commit}, data){
+    commit('setRecordID', data)
   }
 }
 

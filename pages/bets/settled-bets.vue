@@ -8,13 +8,13 @@
           role="tablist"
         >
           <li class="nav-item flex-fill" role="presentation">
-            <a class="nav-link text-center" href="https://dice.ng/active-bets">
+            <nuxt-link class="nav-link text-center" to="/bets/pending-bets">
               Pending
-            </a>
+            </nuxt-link>
           </li>
           <li class="nav-item flex-fill mx-1" role="presentation">
-            <a class="nav-link text-center active" href="https://dice.ng/settled-bets"
-              >Settled</a
+            <nuxt-link class="nav-link text-center text-white active" to="/bets/settled-bets"
+              >Settled</nuxt-link
             >
           </li>
           <li class="nav-item flex-fill" role="presentation">
@@ -25,10 +25,10 @@
               0
             </span>
 
-            <a
+            <nuxt-link
               class="nav-link text-center"
-              href="https://dice.ng/unclaimed-bets"
-              >Unclaimed</a
+              to="/bets/unclaimed-bets"
+              >Unclaimed</nuxt-link
             >
           </li>
         </ul>

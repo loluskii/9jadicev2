@@ -31,6 +31,14 @@ import SubTop from '~/components/Layouts/sub-top.vue';
 import Top from "~/components/Layouts/Top.vue";
 export default {
   components: { Top, MobileFoot, SubTop },
+  methods:{
+    refresh_user(){
+      this.$auth.fetchUser()
+    }
+  },
+  mounted(){
+    this.refresh_user();
+  }
 };
 
 </script>

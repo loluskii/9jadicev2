@@ -16,7 +16,7 @@
           <div>
             <img
               style="height: 25px"
-              src="https://dice.ng/images/mobile/logo-white.png"
+              src="~/assets/images/logos/logo-white.png"
             />
           </div>
           <div
@@ -25,11 +25,7 @@
           >
             {{ game.name }}
           </div>
-          <button
-            type="button"
-            class="btn rounded-circle p-2 text-sv-primary"
-
-          >
+          <button type="button" class="btn rounded-circle p-2 text-sv-primary">
             <span aria-hidden="true"><i class="fa fa-times"></i></span>
           </button>
         </div>
@@ -47,13 +43,15 @@
               {{ formatNumber(game.no_of_players) }}
             </div>
             <div class="text-uppercase d-flex align-items-center small">
-              <div id="percent81817" class="text-nowrap mr-1">{{ percent }}</div>
+              <div id="percent81817" class="text-nowrap mr-1">
+                {{ percent }} % full
+              </div>
               <div class="progress w-100" style="height: 5px">
                 <div
                   id="progress81817"
                   class="progress-bar bg-warning"
                   role="progressbar"
-                  style="width: 0.12%"
+                  :style="{ width: percent + '%' }"
                   aria-valuenow="0.12"
                   aria-valuemin="0"
                   aria-valuemax="100"
@@ -63,7 +61,7 @@
           </div>
           <div class="small text-right">
             <div>Guaranteed to first</div>
-            <div>₦31,500</div>
+            <div>₦{{ calculateWinnings(game) }} to 1st</div>
           </div>
         </div>
       </div>
@@ -92,7 +90,7 @@
             </div>
             <div class="d-flex justify-content-between border-bottom py-2">
               <span>Creator</span>
-              <span id="creatorID">larry</span>
+              <span id="creatorID">{{ game.creator.user_data_name }}</span>
             </div>
             <div class="d-flex justify-content-between border-bottom py-2">
               <span id="startText">Start Time</span>
@@ -113,7 +111,9 @@
               style="overflow-x: auto"
             >
               <span>Players</span>
-              <span id="playerCount">6/5,000</span>
+              <span id="playerCount"
+                >{{ game.no_of_players_joined }}/{{ game.no_of_players }}</span
+              >
             </div>
             <div
               id="specialErrorInfoFeedback"
@@ -151,13 +151,38 @@
           <div class="px-2 py-1 btn btn-sm btn-block rounded-0 text-white">
             <small>Shows the current position of players per ticket.</small>
           </div>
-          <div class="d-flex justify-content-between text-white border-bottom py-2">
+          <div
+            class="d-flex justify-content-between text-white border-bottom py-2"
+          >
             <span class="font-weight-bold">Player</span>
             <!--  <span class="font-weight-bold">Winnings</span> -->
 
             <span class="font-weight-bold">Points</span>
           </div>
-          <div id="leaderboard-body"></div>
+          <div id="leaderboard-body">
+            <div v-for="(player, index) in leaderboard" :key="index">
+              <div
+                class="d-flex justify-content-between bg-dark text-white px-1 py-2 topBar mb-1"
+              >
+                <span
+                  >{{ index + 1 }}. {{ player.username }} #{{
+                    player.join_count ? player.join_count : ""
+                  }}</span
+                >
+                <span>{{ player.score ?? 0 }}</span>
+              </div>
+            </div>
+            <div class="text-center mb-2">
+              <nuxt-link
+                :to="{
+                  name: 'legend-tournamentid-leaderboard',
+                  params: { tournamentid: game.id },
+                }"
+                class="btn bg-sv-warning btn-sm text-white"
+                >View leaderboard</nuxt-link
+              >
+            </div>
+          </div>
         </b-tab>
         <b-tab>
           <template #title>
@@ -167,7 +192,14 @@
           <div class="px-2 py-1 btn btn-sm btn-block rounded-0 text-white">
             <small>Payouts when tickets are completely sold out.</small>
           </div>
-          <div id="tablePay" style="height: 300px; overflow-y: auto"></div>
+          <div id="tablePay" style="height: 300px; overflow-y: auto">
+            <div v-for="(data, index) in paytable.pay_table" :key="index">
+              <div class="d-flex justify-content-between p-2 text-white">
+                <div>{{ data.position }}</div>
+                <div class="font-weight-bold">₦{{ data.amount }}</div>
+              </div>
+            </div>
+          </div>
         </b-tab>
         <b-tab>
           <template #title>
@@ -177,10 +209,14 @@
           <div class="px-2 py-1 btn btn-sm btn-block rounded-0 text-white">
             <small>Payouts based on current ticket/tickets sold.</small>
           </div>
-          <div
-            id="livePayoutList"
-            style="height: 300px; overflow-y: auto"
-          ></div>
+          <div id="livePayoutList" style="height: 300px; overflow-y: auto">
+            <div v-for="(x, index) in paytable.payout" :key="index">
+              <div class="d-flex justify-content-between p-2 text-white">
+                <div>{{ x.position }}</div>
+                <div class="font-weight-bold">₦{{ x.amount }}</div>
+              </div>
+            </div>
+          </div>
         </b-tab>
       </b-tabs>
       <div class="col-12">
@@ -220,21 +256,38 @@
         </div>
         <div id="playSlider" class="">
           <div id="joinedGamesDiv">
-            <div class="small text-center mb-2">My active games:</div>
+            <div class="small text-white text-center mb-2">My active games:</div>
             <div
               class="d-flex flex-nowrap hideScrollbar py-3"
               style="overflow-x: scroll"
+              v-if="game.auth_user.pending_count > 0"
             >
-              <span
-                style="
-                  position: absolute;
-                  right: 0;
-                  bottom: 10px;
-                  margin-right: 5px;
-                "
-              >
+              <span style="position: absolute; right: 0; margin-right: 5px">
                 <i class="fa fa-caret-right fa-2x text-white"></i>
               </span>
+
+              <div class="mb-1 mr-2" v-for="(play, index) in game.auth_user.pending_plays" :key="index">
+                <div class="small text-center position-relative">
+                  <span
+                    class="badge badge-pill bg-sv-warning text-dark small font-weight-light"
+                    style="
+                      position: absolute;
+                      left: 0;
+                      top: 0;
+                      margin-left: 46%;
+                      margin-top: -8px;
+                    "
+                    > {{ play.join_count }} </span
+                  >
+                  <div class="bg-sv-primary text-white">
+                    <button
+                    @click.prevent="playUnrolled(play.id, play.reference)"
+                      class="btn bg-sv-primary text-sv-primary py-1 w-100 btn-sm"
+                      >Play Game</button
+                    >
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -246,19 +299,29 @@
 <script>
 export default {
   name: "info-modal",
-  props: ["game"],
-  computed:{
-    getTime(){
-      return this.$moment().format('LTS')
+  data() {
+    return {};
+  },
+  props: ["game", "paytable", "leaderboard"],
+  computed: {
+    getTime() {
+      return this.$moment().format("LTS");
     },
-
-    percent(){
-      let total = this.game.no_of_players
-      let joined = this.game.no_of_players_joined
-      return `${((joined/total) * 100 ).toFixed(2)}% full`;
+    percent() {
+      let total = this.game.no_of_players;
+      let joined = this.game.no_of_players_joined;
+      return ((joined / total) * 100).toFixed(2);
+    },
+  },
+  methods: {
+    playUnrolled(id, ref){
+      let name = this.game.slug;
+      let refid = this.game.reference_id
+      this.$store.dispatch('setCommitRecordID', id)
+      this.$router.push({name: "legend-name-ref-refid-game", params: {name:name, ref:ref, refid:refid}})
     }
   },
-  methods:{
+  mounted() {
   },
 };
 </script>
@@ -274,9 +337,9 @@ export default {
   color: #000;
 }
 
-#infoModal small,#infoModal  .small{
+#infoModal small,
+#infoModal .small {
   font-size: 80%;
-    font-weight: 400;
+  font-weight: 400;
 }
-
 </style>

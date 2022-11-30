@@ -5,7 +5,7 @@
       <div class="col-sm-12 tops col-md-12 col-lg-12 col-xl-12" :class="$auth.loggedIn ? 'tops-auth': 'tops'">
         <slider></slider>
         <b-tabs
-          small
+
           nav-class="bg-sv-primary w-100 justify-content-around py-1"
           active-nav-item-class="active-tournament-type-btn rounded-pill"
           nav-wrapper-class="row"
@@ -13,7 +13,7 @@
         >
           <b-tab
             title="Premium"
-            title-link-class="btn btn-sm border-0 py-0 px-2 mx-2 tournament-type-btn cursorPointer small"
+            title-link-class="btn btn-sm border-0 py-0 px-2 mx-2 tournament-type-btn cursorPointer "
             active
           >
             <verified-games></verified-games>
@@ -33,7 +33,7 @@
           </b-tab>
           <b-tab
             title="Public"
-            title-link-class="btn btn-sm border-0 rounded-pill py-0 px-2 mx-2 tournament-type-btn cursorPointer small"
+            title-link-class="btn btn-sm border-0 rounded-pill py-0 px-2 mx-2 tournament-type-btn cursorPointer "
           >
             <div class="">
               <div class="row">
@@ -447,6 +447,9 @@ export default {
 };
 </script>
 <style scoped>
+body{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
 .topic-bg {
   background: #b7bac4;
 }
@@ -454,13 +457,7 @@ export default {
 .nav-link {
   padding: 0;
 }
-.tops {
-  padding-top: 108px;
-}
 
-.tops-auth{
-  padding-top: 114px;
-}
 .categoryContainer {
   background-color: rgba(52, 140, 164, 0.7);
 }

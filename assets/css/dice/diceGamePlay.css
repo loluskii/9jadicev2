@@ -1,42 +1,10 @@
 /*THIS STYLE IS CREATED FOR THE GAME-PLAY DISPLAY ONLY, IT DOESN'T WORK DIRECTLY WITH A GAME'S SCRIPT EXCEPT IN RARE CASES*/
-@import url("https://fonts.googleapis.com/css?family=Montserrat");
 
 body {
   margin: 0;
   padding: 0;
   height: 100%;
 }
-
-
-body {
-  background-color: #000000;
-  /*font-family: 'Montserrat';*/
-}
-* {
-  font-family: "Montserrat";
-}
-.wBold {
-  font-weight: bold;
-}
-.w100 {
-  font-weight: 100;
-}
-.w200 {
-  font-weight: 200;
-}
-.w300 {
-  font-weight: 300;
-}
-.w400 {
-  font-weight: 400;
-}
-
-.small,
-small {
-  font-size: 80%;
-  font-weight: 400;
-}
-
 .curvedEdge {
   border-radius: 18.5px;
 }
@@ -491,11 +459,11 @@ margin: 5px 0px;
   position: absolute;
   bottom: 0;
   left: 0;
-  margin-bottom: 53px;
+  /* margin-bottom: 53px; */
 }
 @media only screen and (max-width: 576px) {
   .bg-footer {
-      margin-bottom: 55px;
+      margin-bottom: 53px;
   }
 }
 .bg-footer-legend {

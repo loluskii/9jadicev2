@@ -30,6 +30,14 @@ import Top from '../components/Layouts/Top'
 export default {
   components: { Top, Foot, MenuFooter, LoginModal },
   name: 'default',
+  methods:{
+    refresh_user(){
+      this.$auth.fetchUser()
+    }
+  },
+  mounted(){
+    this.refresh_user();
+  }
 }
 </script>
 

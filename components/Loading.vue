@@ -1,6 +1,9 @@
 <template>
-  <div v-if="loading" class="loading-page">
-    <p>Loading...</p>
+  <div v-if="loading" class="loading-page loadingBackdrop2" id="loadingBackdrop2" style="display: none;">
+    <div class="d-flex flex-column align-items-center justify-content-center text-white h-100 w-100">
+        <img class="loaderInnerEl" height="50px" src="https://dice.ng/images/mobile/loader.png">
+        <div class="loadingTextAnim mt-4">Loading...</div>
+    </div>
   </div>
 </template>
 

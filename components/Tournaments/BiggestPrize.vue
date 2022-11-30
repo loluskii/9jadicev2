@@ -1,114 +1,207 @@
 <template>
-  <div class="row mt-2">
-    <div class="col-12 p-0">
-      <div class="d-flex flex-column small py-1 topic-bg">
-        <div class="d-flex px-1">
-          <div class="d-flex align-items-center">
-            <div class="font-weight-bold text-capitalize">Biggest Prizes</div>
-          </div>
-          <div class="d-flex ml-auto">
-            <div class="rounded listOptionTitle">
-              <div class="text-capitalize small d-flex align-items-center">
-                <span style="margin-right: 0.2rem"
-                  ><i class="fa fa-user"></i
-                ></span>
-                <span>Players</span>
+  <div>
+    <div class="row">
+      <div class="col-12 p-0">
+        <div class="d-flex flex-column small py-1 topic-bg">
+          <div class="d-flex px-1">
+            <div class="d-flex align-items-center">
+              <div class="font-weight-bold text-capitalize">Biggest Prize Games</div>
+            </div>
+            <div class="d-flex ml-auto">
+              <div class="rounded listOptionTitle">
+                <div class="text-capitalize small d-flex align-items-center">
+                  <span style="margin-right: 0.2rem"
+                    ><i class="fa fa-user"></i
+                  ></span>
+                  <span>Players</span>
+                </div>
               </div>
-            </div>
-            <div class="rounded listOptionTitle">
-              <small class="text-capitalize">Amount</small>
-            </div>
-            <div class="rounded listOptionTitle">
-              <small class="text-capitalize">Status</small>
+              <div class="rounded listOptionTitle">
+                <small class="text-capitalize">Amount</small>
+              </div>
+              <div class="rounded listOptionTitle">
+                <small class="text-capitalize">Status</small>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="p-0" id="biggestPrizesList">
-        <div class="small py-1 listBackground">
-          <span
-            class="ml-1 prizeToFirstText px-1 rounded bg-sv-warning text-white"
-            style="font-size: 8px"
-            >₦109,980 to 1st</span
-          >
-          <div class="d-flex justify-content-between text-white px-1">
-            <div
-              class="d-flex justify-content-between align-items-center flex-fill mr-3"
+
+        <div id="verifiedGamesList">
+          <div
+              v-for="(game, index) in biggest_prize_games"
+              :key="index"
+              class="small py-1 listBackground"
             >
-              <div
-                onclick='openInfoModal({"id":81760,"name":"Big Dice","category_id":6,"duration":1,"duration_type":"week","slug":"big-dice","reference_id":"1nkZr7ewhC","end_date":"2022-09-02 12:09:43","stake":200,"status":"started","no_of_players":5000,"no_of_players_joined":2,"time_started":"2022-08-26 12:09:43","club_color":null,"club_jesery":null,"hot":0,"creator":{"user_data_name":null,"verfication":null},"api_leaderboard":[],"leaderboard_length":2,"api_userrecords":[],"freetournament":null});'
-                class="d-flex flex-column"
+              <span
+                class="ml-1 prizeToFirstText px-1 rounded bg-sv-warning text-white"
+                style="font-size: 8px"
+                >₦{{ calculateWinnings(game) }} to 1st</span
               >
-                <div class="d-flex align-items-center">
-                  <span
-                    class="font-weight-bold text-uppercase tournamentTitle small"
-                    >Big Dice</span
-                  >
-                </div>
-                <div class="tournamentGameListInfoText">
-                  <div>
-                    <span>Ends in 3 days</span>
-
-                    <span class="ml-1 badge badge-success px-1">
-                      <i class="fa fa-circle text-white">&nbsp;Live</i>
-                    </span>
-                  </div>
-                  <div class="bg-secondary text-white rounded px-1">
-                    Multiple entries allowed
-                  </div>
-                </div>
-              </div>
-              <span>
-                <button
-                  class="btn btn-sm text-dark btn-light info-button"
-                  onclick='openInfoModal({"id":81760,"name":"Big Dice","category_id":6,"duration":1,"duration_type":"week","slug":"big-dice","reference_id":"1nkZr7ewhC","end_date":"2022-09-02 12:09:43","stake":200,"status":"started","no_of_players":5000,"no_of_players_joined":2,"time_started":"2022-08-26 12:09:43","club_color":null,"club_jesery":null,"hot":0,"creator":{"user_data_name":null,"verfication":null},"api_leaderboard":[],"leaderboard_length":2,"api_userrecords":[],"freetournament":null})'
+              <div class="d-flex justify-content-between text-white px-1">
+                <div
+                  class="d-flex justify-content-between align-items-center flex-fill mr-3"
                 >
-                  <i class="fa fa-info cursorPointer"></i>
-                </button>
-              </span>
-            </div>
+                  <div class="d-flex flex-column">
+                    <div class="d-flex align-items-center">
+                      <small
+                        class="font-weight-bold text-uppercase tournamentTitle"
+                        >{{ game.name }}</small
+                      >
+                      <!-- <span class="small ml-2"
+                      ><i class="fa fa-check-circle text-info"></i
+                    ></span> -->
+                    </div>
+                    <div class="tournamentGameListInfoText">
+                      <div>
+                        <span>{{ getGameTime(game) }}</span>
+                        <span v-html="getGameStatus(game)"></span>
+                      </div>
+                      <div class="bg-secondary text-white rounded px-1">
+                        Multiple entries allowed
+                      </div>
+                    </div>
+                  </div>
+                  <span>
+                    <button
+                      class="btn btn-sm text-dark btn-light info-button"
+                      @click="loadData(game.id)"
+                      v-b-modal="'game_' + game.reference_id"
+                    >
+                      <i class="fa fa-info cursorPointer"></i>
+                    </button>
+                  </span>
+                </div>
 
-            <div class="d-flex">
-              <div class="bg-sv-primary p-1 rounded-left listOption">
-                <div>
-                  <div id="join81760" class="text-center">2</div>
-                  <div class="listBorderTop text-center">5K</div>
+                <div class="d-flex">
+                  <div class="bg-sv-primary p-1 rounded-left listOption">
+                    <div>
+                      <div class="text-center">
+                        {{ game.no_of_players_joined }}
+                      </div>
+                      <div class="listBorderTop text-center">
+                        {{ roundPlayers(game.no_of_players) }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bg-sv-primary p-1 rounded-0 listOption">
+                    ₦{{ formatNumber(game.stake) }}
+                  </div>
+                  <div class="bg-sv-primary p-1 rounded-right small listOption">
+                    <div
+                      v-if="
+                        $moment(currentDate).format() >
+                        $moment(game.end_date).format()
+                      "
+                    >
+                      <span class="badge badge-danger px-1">Ended</span>
+                    </div>
+                    <div
+                      v-else-if="
+                        game.no_of_players_joined >= game.no_of_players
+                      "
+                    >
+                      <span class="ml-1 badge badge-danger px-1">Sold Out</span
+                      >'
+                    </div>
+                    <div
+                      v-else-if="game.no_of_players_joined < game.no_of_players"
+                    >
+                      <button
+                        id="join_button"
+                        @click="showJoinConfirmation(game)"
+                        class="btn btn-sm btn-success rounded-pill shadow py-0 px-2 text-white"
+                      >
+                        Join
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="bg-sv-primary p-1 rounded-0 listOption">₦200</div>
-              <div class="bg-sv-primary p-1 rounded-right small listOption">
-                <button
-                  id="join_button"
-                  class="btn btn-sm btn-success rounded-pill shadow py-0 px-2 text-white"
-                  data-toggle="modal"
-                  data-target="#loginModal"
-                >
-                  Join
-                </button>
-              </div>
+              <info-modal
+                :game="game"
+                :leaderboard="leaderboard"
+                :paytable="paytable"
+              ></info-modal>
+              <join-confirmation :game="game" v-if="$auth.loggedIn"></join-confirmation>
             </div>
-          </div>
+        </div>
+      </div>
+      <div class="col-12 p-0" id="verifiedGamesViewMore">
+        <div v-if="biggest_prize_games.length" class="text-center my-1">
+          <a
+            class="btn-sm rounded-pill bg-outline-sv-white btn-light-outline text-white py-0 px-4 small"
+          >
+            <small>View more </small>
+          </a>
+        </div>
+        <div v-else class="p-0 text-center" id="freeGamesList">
+          <div class="text-white text-center font-italic">No game available.</div>
         </div>
       </div>
     </div>
-    <div class="col-12" id="biggestPrizesGamesViewMore">
-      <div class="text-center my-1">
-        <a
-          href="https://dice.ng/verified-games-list"
-          class="btn-sm rounded-pill bg-outline-sv-white btn-light-outline text-white py-0 px-4 small"
-        >
-          <small>View more </small>
-        </a>
-      </div>
-    </div>
+    <login-modal v-if="!$auth.loggedIn"></login-modal>
   </div>
 </template>
 
 <script>
+import InfoModal from "../Modals/InfoModal.vue";
+import JoinConfirmation from '../Modals/JoinConfirmation.vue';
+import LoginModal from "../Modals/LoginModal.vue";
 export default {
   name: "",
+  components: { InfoModal, LoginModal, JoinConfirmation },
   data() {
-    return {};
+    return {
+      biggest_prize_games: [],
+      leaderboard: [],
+      paytable: [],
+      loading: false,
+      currentDate: new Date(),
+    };
+  },
+
+  methods: {
+    showCreateTournament() {
+      if (this.$auth.loggedIn) {
+        this.$bvModal.show("createTournament");
+      } else {
+        this.$router.push("/auth/login");
+      }
+    },
+    getBigPrizeGames() {
+      this.loading = true;
+      this.$axios.get("/tournaments?category=6&take=10").then((res) => {
+        this.biggest_prize_games = res.data.data;
+        this.loading = false;
+      });
+    },
+
+    loadData(id) {
+      this.$axios.get(`/tournaments/${id}/tournament-pay-stat`).then((res) => {
+        this.paytable = res.data.data;
+        this.$axios
+          .get(`/tournaments/${id}/leaderboard?count=10`)
+          .then((res2) => {
+            this.leaderboard = res2.data.data;
+          });
+      });
+    },
+    showJoinConfirmation(game){
+      if (this.$auth.loggedIn) {
+        this.$bvModal.show(`joinConfirmation_${game.id}`);
+      } else {
+        this.$router.push("/auth/login");
+      }
+    }
+
+
+    // getPaytable(){
+    //   this.$axios.get(`/tournaments/${this.game.id}/tournament-pay-stat`).then((res) => {})
+    // },
+  },
+
+  mounted() {
+    this.getBigPrizeGames();
   },
 };
 </script>
@@ -117,10 +210,6 @@ export default {
 .modal-content {
   background-color: black !important;
   color: white !important;
-}
-
-.tops {
-  padding-top: 100px;
 }
 
 .topic-bg {
@@ -205,5 +294,17 @@ export default {
     font-size: 0.7rem;
     /*color: yellow;*/
   }
+}
+
+#create-tournament-pills li.nav-item a.nav-link {
+  background: grey;
+  color: #000000;
+  padding: 3px 10px;
+}
+
+.b-skeleton-text {
+  height: 1rem;
+  /* margin-bottom: 0; */
+  border-radius: 0.25rem;
 }
 </style>
