@@ -233,20 +233,20 @@
             </button>
             <div id="legendInfoModal"></div>
             <button
-              class="btn btn-sm bg-sv-warning text-white mx-1 px-1"
+              class="btn btn-sm bg-sv-warning text-nowrap text-white mx-1 px-1"
               style="font-size: 12px"
             >
               <span>Share Game<i class="fa fa-share ml-2"></i></span>
             </button>
             <a
               href="https://dice.ng/legend/info/sure-game/syPcDikknA"
-              class="btn btn-sm btn-primary mr-1 px-1"
+              class="btn btn-sm text-nowrap btn-primary mr-1 px-1"
             >
               <span class="text-white" style="font-size: 12px">Info Page</span>
             </a>
             <a
               href="https://dice.ng/tournament/81817/discussions"
-              class="btn btn-sm bg-sv-primary text-sv-primary mr-1 px-1"
+              class="btn btn-sm text-nowrap bg-sv-primary text-sv-primary mr-1 px-1"
             >
               <span style="font-size: 12px"
                 >Discuss<i class="fa fa-comments ml-2"></i

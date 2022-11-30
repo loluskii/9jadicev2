@@ -324,7 +324,7 @@ import InstructionModal from '~/components/Modals/gameplay/InstructionModal.vue'
           this.generatedTotalScore = this.gameDataResponse.data.score;
           this.score1 = `<span style="font-size: 13px">${this.gameDataResponse.data.score}</span>`;
           this.showAnimatedDice();
-          setTimeout(() => this.showThrowLimitModal(), 1500);
+          setTimeout(() => this.showThrowLimitModal(), 2500);
         }
       },
       async recordTurbo(tournament_id, recordId) {
