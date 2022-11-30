@@ -107,7 +107,7 @@
         <section class="container-fluid diceDiv">
           <div class="row">
             <div class="col-md-4 col-lg-4 col-xl-4 col-3 lead">
-              <div class="lead text-center text-white" id="diceValue1"></div>
+              <div v-html="result_score" class="lead text-center text-white" id="diceValue1"></div>
             </div>
             <div class="col-md-4 col-lg-4 col-xl-4 col-6 text-center my-auto">
               <div class="row text-center">
@@ -117,6 +117,7 @@
                       id="die-1"
                       class="diceSize"
                       :src="dice1Image"
+                      ref="die1"
                     />
                   </div>
                 </div>
@@ -144,6 +145,7 @@
                   <div id="die4container">
                     <img
                       id="die-4"
+                      ref="die4"
                       class="diceSize"
                       :src="dice2Image"
                     />
@@ -282,7 +284,7 @@
         </section>
       </main>
     </section>
-    <winner-modal v-if="gameDataResponse != null" :data="gameDataResponse"></winner-modal>
+    <winner-modal :game_type="gameData.game_id" v-if="gameDataResponse != null" :data="gameDataResponse"></winner-modal>
   </div>
 </template>
 
@@ -296,6 +298,7 @@ export default{
     data() {
     return {
       result: "...",
+      result_score: null,
       gameData: {
         game_id: 7,
         amount: 100,
@@ -315,43 +318,32 @@ export default{
   },
 
   computed: {
-    user() {
-      return this.$store.state.auth.user;
-    },
     dice1Image() {
       return require(`~/assets/images/gameplay/gameplay-assets/dices/${this.dice1}.png`);
     },
     dice2Image() {
       return require(`~/assets/images/gameplay/gameplay-assets/dices/${this.dice2}.png`);
     },
-    cup_shake() {
-      return this.$store.state.cup_shake;
-    },
   },
   methods: {
-    addStake(value) {
-      this.gameData.amount = parseInt(this.gameData.amount) + parseInt(value);
-      if (this.gameData.amount > this.user.balance) {
-        this.feedback = "Your balance is too low to stake!";
-      }
-    },
+    
     clearStake() {
       this.gameData.amount = 0;
     },
     async startGame() {
       this.feedback = "Starting Game...";
       this.isMatchBegin = true;
-
       this.gameDataResponse = await this.$axios
         .post("/games/under-over/roll", this.gameData)
         .then((res) => {
           return res.data.data;
         });
+      this.dice1 = this.gameDataResponse.dice.dice1;
+      this.dice2 = this.gameDataResponse.dice.dice2;
       this.instructionDiv = false;
       this.feedback = "";
       this.timeToTap = true;
     },
-
     shakeCup() {
       const beep = new Audio(this.cup_shake);
       if (this.count == 1) {
@@ -376,41 +368,34 @@ export default{
         document
           .querySelector("#animated-cup")
           .remove("animated", "tada", "infinite");
-        document.getElementById("diceValue1").innerHTML =
-          this.gameDataResponse.dice.dice1 +
-          ", " +
-          this.gameDataResponse.dice.dice2;
-        this.dice1 = this.gameDataResponse.dice.dice1;
-        this.dice2 = this.gameDataResponse.dice.dice2;
-        var dice_1 = document.getElementById("die-1");
-        var dice_4 = document.getElementById("die-4");
-        dice_1.style.display = "block";
-        dice_4.style.display = "block";
+        this.result_score =  this.dice1 + ", " + this.dice2;
+        this.$refs.die1.style.display = "block"
+        this.$refs.die4.style.display = "block"
         setTimeout(() => this.showResult(), 1500);
       }
-    },
-    cupShakeAnimation(element, animationName, callback) {
-      let node = document.querySelector(element);
-
-      node.classList.add("animated", animationName, "infinite");
-
-      function handleAnimationEnd() {
-        // Code to run on animation end
-
-        node.classList.remove("animated", animationName); // remove animated class from cup
-        node.classList.remove("infinite"); // remove animated class from cup
-
-        node.removeEventListener("animationend", handleAnimationEnd); // remove event listener from cup
-        audio.pause(); // Pause the cup shaking audio
-        if (typeof callback === "function") callback; // if last argument is function the call the function
-      }
-      // window.setInterval(1000);
-      node.addEventListener("animationend", handleAnimationEnd); // Add event listener to cup
     },
     showResult() {
       this.$bvModal.show("winnerModal");
     },
   },
+  mounted(){
+    this.$nuxt.$on('refresh_under_over', () => {
+      this.result= "...";
+      this.gameData.amount= 100;
+      this.gameDataResponse= null;
+      this.isMatchBegin= false;
+      this.feedback= "";
+      this.instructionDiv= true;
+      this.timeToTap= false;
+      this.count= 1;
+      this.isCupShaking= false;
+      this.dice1= 1;
+      this.dice2= 2;
+      this.result_score = null
+      this.$refs.die1.style.display = "none"
+      this.$refs.die4.style.display = "none"
+    });
+  }
 };
 </script>
 

@@ -141,13 +141,13 @@
         <section class="container-fluid diceDiv">
           <div class="row">
             <div class="col-md-4 col-lg-4 col-xl-4 col-3 lead">
-              <div class="lead text-center text-white" id="diceValue1"></div>
+              <div class="lead text-center text-white" v-html="result_dice"></div>
             </div>
             <div class="col-md-4 col-lg-4 col-xl-4 col-6 text-center my-auto">
               <div class="row text-center">
                 <div class="col-6 px-0">
                   <div id="die1container">
-                    <img id="die-1" class="diceSize" :src="dice1Image" />
+                    <img ref="die1" id="die-1" class="diceSize" :src="dice1Image" />
                   </div>
                 </div>
                 <div class="col-6 px-0">
@@ -172,7 +172,7 @@
                 </div>
                 <div class="col-6 px-0">
                   <div id="die4container">
-                    <img id="die-4" class="diceSize" :src="dice2Image" />
+                    <img ref="die4" id="die-4" class="diceSize" :src="dice2Image" />
                   </div>
                 </div>
               </div>
@@ -355,6 +355,7 @@
       </div>
     </section>
     <winner-modal
+      :game_type="gameData.game_id"
       v-if="gameDataResponse != null"
       :data="gameDataResponse"
     ></winner-modal>
@@ -372,6 +373,7 @@ export default {
     return {
       player_choice: "...",
       result: "...",
+      result_dice: null,
       gameData: {
         game_id: 8,
         amount: 100,
@@ -391,18 +393,12 @@ export default {
     };
   },
   computed: {
-    user() {
-      return this.$store.state.auth.user;
-    },
     dice1Image() {
       return require(`~/assets/images/gameplay/gameplay-assets/dices/${this.dice1}.png`);
     },
     dice2Image() {
       return require(`~/assets/images/gameplay/gameplay-assets/dices/${this.dice2}.png`);
     },
-    cup_shake(){
-      return this.$store.state.cup_shake
-    }
   },
   methods: {
     selectOddOrEven(type, e) {
@@ -422,15 +418,6 @@ export default {
         e.target.classList += " betSelectionAreaActive";
       }
     },
-    addStake(value) {
-      this.gameData.amount = parseInt(this.gameData.amount) + parseInt(value);
-      if (this.gameData.amount > this.user.balance) {
-        this.feedback = "Your balance is too low to stake!";
-      }
-    },
-    clearStake() {
-      this.gameData.amount = 0;
-    },
     async startGame() {
       this.feedback = "Starting Game...";
       this.isMatchBegin = true;
@@ -446,23 +433,19 @@ export default {
       this.feedback = "";
       this.timeToTap = true;
     },
-
     shakeCup() {
-      const beep = new Audio(this.cup_shake)
       if (this.count == 1) {
-        beep.play()
+        this.beep.play()
         this.isCupShaking = true;
-        // sound.currentTime = 0; // Rewind audio timing to isStart
-        // sound.play(); // Play the cup shaking audio
         this.cupShakeAnimation("#animated-cup-img", "tada"); //add animation class to cup container
         this.count++;
       } else if (this.count == 2) {
-        // sound.pause();
-        // sound.currentTime = 0;
+        this.beep.pause();
+        this.beep.currentTime = 0;
         this.timeToTap = false;
         let result =
-          parseInt(this.gameDataResponse.dice.dice1) +
-          parseInt(this.gameDataResponse.dice.dice2);
+          parseInt(this.dice1) +
+          parseInt(this.dice2);
         if (result % 2 == 0) {
           this.result = "EVEN";
         } else {
@@ -471,43 +454,19 @@ export default {
         document
           .querySelector("#animated-cup")
           .remove("animated", "tada", "infinite");
-        document.getElementById("diceValue1").innerHTML =
-          this.gameDataResponse.dice.dice1 +
-          ", " +
-          this.gameDataResponse.dice.dice2;
-        // this.dice1 = this.gameDataResponse.dice.dice1;
-        // this.dice2 = this.gameDataResponse.dice.dice2;
-        var dice_1 = document.getElementById("die-1");
-        var dice_4 = document.getElementById("die-4");
-        dice_1.style.display = "block";
-        dice_4.style.display = "block";
+        this.result_dice = this.dice1 + ", " + this.dice2;
+        this.result_dice = null;
+        this.$refs.die1.style.display = "block"
+        this.$refs.die4.style.display = "block"
         setTimeout(() => this.showResult(), 1500);
       }
-    },
-    cupShakeAnimation(element, animationName, callback) {
-      let node = document.querySelector(element);
-
-      node.classList.add("animated", animationName, "infinite");
-
-      function handleAnimationEnd() {
-        // Code to run on animation end
-
-        node.classList.remove("animated", animationName); // remove animated class from cup
-        node.classList.remove("infinite"); // remove animated class from cup
-
-        node.removeEventListener("animationend", handleAnimationEnd); // remove event listener from cup
-        audio.pause(); // Pause the cup shaking audio
-        if (typeof callback === "function") callback; // if last argument is function the call the function
-      }
-      // window.setInterval(1000);
-      node.addEventListener("animationend", handleAnimationEnd); // Add event listener to cup
     },
     showResult() {
       this.$bvModal.show("winnerModal");
     },
   },
   mounted(){
-    this.$nuxt.$on('restart_odd_even',() => {
+    this.$nuxt.$on('refresh_odd_even',() => {
       this.gameDataResponse = null;
       this.isMatchBegin = false
       this.player_choice = "...";
@@ -520,9 +479,9 @@ export default {
       this.isCupShaking= false;
       this.dice1= 1;
       this.dice2= 2;
-      document.getElementById("diceValue1").innerHTML = "";
-      document.getElementById("die-1").style.display = "none";
-      document.getElementById("die-4").style.display = "none";
+      this.result_dice = null;
+      this.$refs.die1.style.display = "none"
+      this.$refs.die4.style.display = "none"
     })
   }
 };

@@ -59,11 +59,16 @@ export default {
   data() {
     return {};
   },
-  props: ["data"],
+  props: ["data","game_type"],
   methods: {
     restart(){
+      if(this.game_type == 7){
+        this.$nuxt.$emit('refresh_under_over');
+      }else if(this.game_type == 8){
+        console.log('o/e')
+        this.$nuxt.$emit('refresh_odd_even');
+      }
       this.$bvModal.hide('winnerModal')
-      this.$nuxt.$emit('restart_odd_even');
     }
   },
 };

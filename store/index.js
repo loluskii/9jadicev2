@@ -8,6 +8,7 @@ export const state = () => ({
   record_id: null,
   betlist: [],
   cup_shake: require('~/assets/images/gameplay/gameplay-assets/shake-cup.mp3').default,
+  dice_roll_anim: '/dice-roll-anim.gif'
 })
 
 

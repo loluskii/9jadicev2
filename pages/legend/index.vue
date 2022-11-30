@@ -102,18 +102,17 @@
         <div class="row">
           <div class="col-12 position-relative">
             <div class="position-absolute" style="left:0; margin-left: 33%; margin-top: 4%;">
-              <div class="flex-fill align-items-center justify-content-center" style="display: none;"
-                id="totalOutputDiv">
+              <div ref="totalOutputDiv" class="flex-fill align-items-center justify-content-center" style="display: none;" id="totalOutputDiv">
                 <div class="small text-white mr-2">Total</div>
-                <div class="customAmountDiv d-inline text-center small" id="generatedTotalScore"></div>
+                <div class="customAmountDiv d-inline text-center small" v-html="generatedTotalScore"></div>
               </div>
-              <div id="diceThrowInstruction" class="text-center text-warning mt-2"></div>
+              <div v-html="diceThrowInstruction" class="text-center text-warning mt-2"></div>
             </div>
             <div class="position-absolute text-center w-100" style="left:0; margin-top: 30%;">
-              <div id="score1" class="font-weight-bold text-black"></div>
+              <div v-html="score1" class="font-weight-bold text-black"></div>
 
             </div>
-            <img v-if="animated_dice" class="img-fluid border-0" src="~/assets/images/gameplay/gameplay-assets/dice-roll-anim.gif" style="margin-top: -30px;" id="diceRollGif">
+            <img class="img-fluid border-0" src="" style="margin-top: -30px;" id="diceRollGif">
           </div>
         </div>
       </section>
@@ -121,7 +120,7 @@
         <div class="row">
           <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3"></div>
           <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-            <div id="feedback" class="text-white font-weight-bold text-center" style="font-size: 1.2rem;"></div>
+            <div v-html="feedback" class="text-white font-weight-bold text-center" style="font-size: 1.2rem;"></div>
           </div>
           <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3"></div>
         </div>
@@ -258,17 +257,20 @@ import InstructionModal from '~/components/Modals/gameplay/InstructionModal.vue'
         count: 1,
         isTurboModeBegin: false,
         isNormalModeBegin: true,
-        // audio: new Audio('~/assets/images/gameplay/gameplay-assets/shake-cup.mp3'),
         gameDataResponse: "",
         animated_dice: false,
+        feedback: '',
+        score1: '',
+        generatedTotalScore: '',
+        diceThrowInstruction: ''
       };
     },
     computed: {
       recordId() {
         return this.$store.state.record_id;
       },
-      cup_shake(){
-        return this.$store.state.cup_shake
+      dice_roll(){
+        return this.$store.state.dice_roll_anim;
       }
     },
     watch: {
@@ -284,82 +286,47 @@ import InstructionModal from '~/components/Modals/gameplay/InstructionModal.vue'
     },
     methods: {
       async playNormalGame() {
-        const beep = new Audio(this.cup_shake)
         if (this.count == 1) {
-          beep.play()
+          this.beep.play()
           this.isCupShaking = true;
-          document.getElementById("totalOutputDiv").style.display = "flex";
-          document.getElementById("feedback").innerHTML = "";
-          document.getElementById("score1").innerHTML = "";
-          document.getElementById("generatedTotalScore").innerHTML = "";
+          this.$refs.totalOutputDiv.style.display = "flex";
           this.cupShakeAnimation("#animated-cup", "tada"); //add animation class to cup container
-          document.getElementById("diceThrowInstruction").innerHTML =
-            "rolling...";
-
-          this.gameDataResponse = await this.recordTurbo(
-            this.tournament.id,
-            this.recordId
-          );
-
-          document.getElementById("diceThrowInstruction").innerHTML =
-            "tap again to throw";
-
+          this.diceThrowInstruction = "rolling...";
+          this.gameDataResponse = await this.recordTurbo( this.tournament.id, this.recordId );
+          this.diceThrowInstruction = "tap again to throw";
           if (this.gameDataResponse) {
             this.count++;
           }
         } else if (this.count == 2) {
-          beep.pause();
-          console.log(this.gameDataResponse);
-          document.getElementById("diceThrowInstruction").innerHTML = "";
-          document
-            .querySelector("#animated-cup")
-            .remove("animated", "tada", "infinite");
-          document.getElementById("generatedTotalScore").innerHTML =
-            this.gameDataResponse.data.score;
-          document.getElementById(
-            "score1"
-          ).innerHTML = `<span style="font-size: 13px">${this.gameDataResponse.data.score}</span>`;
+          this.beep.pause();
+          this.beep.currentTime = 0;
+          this.diceThrowInstruction = '';
+          document.querySelector("#animated-cup").remove("animated", "tada", "infinite");
+          this.generatedTotalScore = this.gameDataResponse.data.score;
+          this.score1 = `<span style="font-size: 13px">${this.gameDataResponse.data.score}</span>`;
           this.showAnimatedDice();
-
           setTimeout(() => this.showThrowLimitModal(), 1500);
         }
       },
-
       async turboMode() {
         this.isCupShaking = true;
-        document.getElementById("totalOutputDiv").style.display = "flex";
-        document.getElementById("feedback").innerHTML = "";
-        document.getElementById("generatedTotalScore").innerHTML = "";
-        // sound.currentTime = 0; // Rewind audio timing to isStart
-        // sound.play(); // Play the cup shaking audio
+        this.$refs.totalOutputDiv.style.display = "flex";
+        this.beep.currentTime = 0; // Rewind audio timing to isStart
+        this.beep.play(); // Play the cup shaking audio
         this.cupShakeAnimation("#animated-cup", "tada"); //add animation class to cup container
-        document.getElementById("diceThrowInstruction").innerHTML = "rolling...";
-
-        this.gameDataResponse = await this.recordTurbo(
-          this.tournament.id,
-          this.recordId
-        );
-
-        document.getElementById("diceThrowInstruction").innerHTML =
-          "tap again to throw";
-
+        this.diceThrowInstruction = "rolling...";
+        this.gameDataResponse = await this.recordTurbo( this.tournament.id, this.recordId );
         if (this.gameDataResponse) {
-          document.getElementById("diceThrowInstruction").innerHTML = "";
-          // sound.pause();
-          // sound.currentTime = 0;
-          document
-            .querySelector("#animated-cup")
-            .remove("animated", "tada", "infinite");
-          document.getElementById("generatedTotalScore").innerHTML =
-            this.gameDataResponse.data.score;
-          document.getElementById(
-            "score1"
-          ).innerHTML = `<span style="font-size: 13px">${this.gameDataResponse.data.score}</span>`;
+          this.beep.pause();
+          this.beep.currentTime = 0;
+          this.diceThrowInstruction = "";
+          document .querySelector("#animated-cup").remove("animated", "tada", "infinite");
+          this.generatedTotalScore = this.gameDataResponse.data.score;
+          this.score1 = `<span style="font-size: 13px">${this.gameDataResponse.data.score}</span>`;
           this.showAnimatedDice();
           setTimeout(() => this.showThrowLimitModal(), 1500);
         }
       },
-
       async recordTurbo(tournament_id, recordId) {
         return this.$axios
           .post(`/tournaments/${tournament_id}/${recordId}/roll`)
@@ -372,50 +339,29 @@ import InstructionModal from '~/components/Modals/gameplay/InstructionModal.vue'
             // infoAlertTop(2000);
           });
       },
-
-      cupShakeAnimation(element, animationName, callback) {
-        let node = document.querySelector(element);
-
-        node.classList.add("animated", animationName, "infinite");
-
-        function handleAnimationEnd() {
-          // Code to run on animation end
-
-          node.classList.remove("animated", animationName); // remove animated class from cup
-          node.classList.remove("infinite"); // remove animated class from cup
-
-          node.removeEventListener("animationend", handleAnimationEnd); // remove event listener from cup
-          audio.pause(); // Pause the cup shaking audio
-          if (typeof callback === "function") callback; // if last argument is function the call the function
-        }
-        // window.setInterval(1000);
-        node.addEventListener("animationend", handleAnimationEnd); // Add event listener to cup
-      },
-
       getTournamentByRef() {
         this.$axios.get("/tournaments/" + this.reference_id).then((res) => {
           this.tournament = res.data.data;
         });
       },
-
       showAnimatedDice() {
-        this.animated_dice = true;
+        document.getElementById("diceRollGif").style.display = "block";
+        document.getElementById("diceRollGif").src = this.dice_roll;
       },
-
       showThrowLimitModal() {
         this.$bvModal.show("throwLimitModal");
       },
-
       toggleInstructionDiv(){
         this.showInstruction = false;
       },
-
       toggleInstructionModal(){
         this.$bvModal.show('instructionModal');
       }
     },
 
-    mounted() { },
+    mounted() {
+      // console.log(this.$refs.diceRollGif.src = this.dice_roll)
+    },
   };
 </script>
 

@@ -379,29 +379,14 @@ export default {
     };
   },
   computed: {
-    user() {
-      return this.$store.state.auth.user;
-    },
     selectedDice() {
       return require(`~/assets/images/gameplay/colours/${this.dice}.png`);
     },
     resultDice() {
       return require(`~/assets/images/gameplay/colours/${this.result_dice}.png`);
     },
-    cup_shake() {
-      return this.$store.state.cup_shake;
-    },
   },
   methods: {
-    addStake(value) {
-      this.gameData.amount = parseInt(this.gameData.amount) + parseInt(value);
-      if (this.gameData.amount > this.user.balance) {
-        this.feedback = "Your balance is too low to stake!";
-      }
-    },
-    clearStake() {
-      this.gameData.amount = 0;
-    },
     preStartGame() {
       this.isMatchPrestart = true;
     },
@@ -423,21 +408,20 @@ export default {
         this.timeToTap = true;
       }
     },
-
     selectDice(id, name) {
       this.dice = id;
       this.dice_alt = name;
       this.gameData.selected = id;
     },
-
     shakeCup() {
-      const beep = new Audio(this.cup_shake);
       if (this.count == 1) {
-        beep.play();
+        this.beep.play();
         this.isCupShaking = true;
         this.cupShakeAnimation("#animated-cup-img", "tada"); //add animation class to cup container
         this.count++;
       } else if (this.count == 2) {
+        this.beep.pause();
+        this.beep.currentTime = 0;
         this.timeToTap = false;
         document.querySelector("#animated-cup").remove("animated", "tada", "infinite");
         var res = document.getElementById("dieContainer");
@@ -446,20 +430,6 @@ export default {
         res1.style.display = "block";
         setTimeout(() => this.showResult(), 1500);
       }
-    },
-    cupShakeAnimation(element, animationName, callback) {
-      let node = document.querySelector(element);
-      node.classList.add("animated", animationName, "infinite");
-      function handleAnimationEnd() {
-        // Code to run on animation end
-        node.classList.remove("animated", animationName); // remove animated class from cup
-        node.classList.remove("infinite"); // remove animated class from cup
-        node.removeEventListener("animationend", handleAnimationEnd); // remove event listener from cup
-        audio.pause(); // Pause the cup shaking audio
-        if (typeof callback === "function") callback; // if last argument is function the call the function
-      }
-      // window.setInterval(1000);
-      node.addEventListener("animationend", handleAnimationEnd); // Add event listener to cup
     },
     showResult() {
       if(this.gameDataResponse?.amount_won != 0){

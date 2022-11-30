@@ -6,19 +6,50 @@ Vue.mixin({
       game_status: {
         live: false,
       },
-      // audio.play();
-      // audio.src: "/audio/mobile/games/dice/shake-cup.mp3";
-
     };
+  },
+  computed:{
+    cup_shake(){
+      return this.$store.state.cup_shake
+    },
+    beep(){
+      return new Audio(this.cup_shake);
+    },
+    user() {
+      return this.$store.state.auth.user;
+    },
+    dice_roll(){
+      return this.$store.state.dice_roll_anim;
+    }
+
   },
   methods: {
     numberFormat(number) {
       return parseFloat(number).toLocaleString();
     },
-    marginCalc(turnover, winnings) {
-      let ggr = parseFloat(turnover) - parseFloat(winnings);
-      let margin = (parseFloat(ggr) * 100) / turnover;
-      return margin.toFixed(2);
+    cupShakeAnimation(element, animationName, callback) {
+      let node = document.querySelector(element);
+      node.classList.add("animated", animationName, "infinite");
+      function handleAnimationEnd() {
+        // Code to run on animation end
+        node.classList.remove("animated", animationName); // remove animated class from cup
+        node.classList.remove("infinite"); // remove animated class from cup
+        node.removeEventListener("animationend", handleAnimationEnd); // remove event listener from cup
+        this.beep.pause(); // Pause the cup shaking audio
+        this.beep.currentTime = 0;
+        if (typeof callback === "function") callback; // if last argument is function the call the function
+      }
+      // window.setInterval(1000);
+      node.addEventListener("animationend", handleAnimationEnd); // Add event listener to cup
+    },
+    addStake(value) {
+      this.gameData.amount = parseInt(this.gameData.amount) + parseInt(value);
+      if (this.gameData.amount > this.user.balance) {
+        this.feedback = "Your balance is too low to stake!";
+      }
+    },
+    clearStake() {
+      this.gameData.amount = 0;
     },
     formatNumber(number) {
       const n = number ? number : 0;
@@ -139,7 +170,6 @@ Vue.mixin({
 
   },
   mounted(){
-    console.log('entering...')
   }
 
   //gameplay
