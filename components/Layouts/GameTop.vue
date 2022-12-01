@@ -6,7 +6,7 @@
       >
         <nuxt-link class="" to="/">
           <img
-            src="~/assets/images/logos/logo.png"
+            src="/images/logos/logo.png"
             class="img-fluid"
             style="height: 30px"
             id="brand-logo"
@@ -118,7 +118,7 @@
             <span class="mb-1 gameTopTitle gameTopTitleActive">Tournament</span>
             <span>
               <img
-                src="~/assets/images/games/tournament/tournament.png"
+                src="/images/games/tournament/tournament.png"
                 style="height: 20px"
                 alt="tournament-icon"
               />
@@ -132,7 +132,7 @@
             <span class="mb-1 gameTopTitle">Dice lotto</span>
             <span>
               <img
-                src="~/assets/images/games/lotto/dice-lotto.png"
+                src="/images/games/lotto/dice-lotto.png"
                 style="height: 20px"
                 alt="dice-lotto-icon"
               />
@@ -146,7 +146,7 @@
             <span class="mb-1 gameTopTitle">Colours</span>
             <span>
               <img
-                src="~/assets/images/games/color/dice-colour.png"
+                src="/images/games/color/dice-colour.png"
                 style="height: 20px"
                 alt="dice-colours-icon"
               />
@@ -159,7 +159,7 @@
             <span class="mb-1 gameTopTitle">Single</span>
             <span>
               <img
-                src="~/assets/images/games/single/single.png"
+                src="/images/games/single/single.png"
                 style="height: 20px"
                 alt="single-icon"
               />
@@ -190,7 +190,7 @@
             <span class="mb-1 gameTopTitle">Under/Over</span>
             <span>
               <img
-                src="~/assets/images/games/under-over/under-over.png"
+                src="/images/games/under-over/under-over.png"
                 style="height: 20px"
                 alt="tournament-icon"
               />
@@ -204,7 +204,7 @@
             <span class="mb-1 gameTopTitle">Odd/Even</span>
             <span>
               <img
-                src="~/assets/images/games/odd-even/odd-even.png"
+                src="/images/games/odd-even/odd-even.png"
                 style="height: 20px"
                 alt="odd-even-icon"
               />
@@ -218,7 +218,7 @@
             <span class="mb-1 gameTopTitle">Mega Ten</span>
             <span>
               <img
-                src="~/assets/images/games/mega-ten/mega-ten.png"
+                src="/images/games/mega-ten/mega-ten.png"
                 style="height: 20px"
                 alt="mega-ten-icon"
               />

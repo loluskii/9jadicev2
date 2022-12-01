@@ -7,7 +7,7 @@
         <div class="d-flex justify-content-between mb-2 align-items-center">
           <nuxt-link to="/">
             <img
-              src="~/assets/images/logos/logo.png"
+              src="/images/logos/logo.png"
               style="height: 35px"
               alt="sv-logo"
             />
@@ -60,7 +60,6 @@
                 v-model="formData.password"
                 required
               />
-
             </div>
           </div>
           <div class="form-group mb-3">
@@ -73,7 +72,6 @@
                 name="password_confirmation"
                 required
               />
-
             </div>
           </div>
           <div class="form-group">
@@ -94,12 +92,22 @@
               v-model="age_limit"
               required
             />
-            <small  style="font-size: 12px">I am at least 18 years of age and I have read, accepted and agreed to the  <a class="text-sv-primary" style="color: #067a23;" href="https://9jadice.test/terms-and-conditions">Terms and Conditions</a>, rules, privacy policy, cookies policy and policies relating to age verification.</small>
+            <small style="font-size: 12px"
+              >I am at least 18 years of age and I have read, accepted and
+              agreed to the
+              <a
+                class="text-sv-primary"
+                style="color: #067a23"
+                href="https://9jadice.test/terms-and-conditions"
+                >Terms and Conditions</a
+              >, rules, privacy policy, cookies policy and policies relating to
+              age verification.</small
+            >
           </div>
 
           <div class="text-center mt-2">
             <button
-              :class='{"disabled": (age_limit == false)}'
+              :class="{ disabled: age_limit == false }"
               type="submit"
               id="registerBtn"
               name="register"
@@ -111,8 +119,13 @@
           </div>
         </form>
         <div class="d-flex justify-content-center align-items-center">
-            Already have an account ?
-            <nuxt-link to="/auth/login" class="btn btn-sm text-sv-primary" style="color: #067a23;">Sign in here</nuxt-link><br>
+          Already have an account ?
+          <nuxt-link
+            to="/auth/login"
+            class="btn btn-sm text-sv-primary"
+            style="color: #067a23"
+            >Sign in here</nuxt-link
+          ><br />
         </div>
       </section>
       <section class="col-sm-12 col-md-3 col-lg-3 col-xl-3"></section>
@@ -133,7 +146,7 @@ export default {
         email: "",
         phone_number: "",
         password: "",
-        promo_code: ""
+        promo_code: "",
       },
     };
   },

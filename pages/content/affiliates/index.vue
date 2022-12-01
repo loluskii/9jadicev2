@@ -6,7 +6,7 @@
     >
       <aside class="w-100 mt-2 text-center">
         <img
-          src="~/assets/images/affiliates/hero.jpeg"
+          src="/images/affiliates/hero.jpeg"
           class="img-fluid affiliate-img-height wow bounceInDown"
           data-wow-duration="1s"
         />
@@ -21,16 +21,13 @@
     >
       <aside>
         <img
-          src="~/assets/images/affiliates/hero-mobile.png"
+          src="/images/affiliates/hero-mobile.png"
           style="height: 400px; width: 70%"
         />
       </aside>
       <section
         class="bg-dark py-3"
-        style="
-          background: url(~/assets/images/affiliates/bg-mobile.png);
-          height: 60%;
-        "
+        style="background: url(/images/affiliates/bg-mobile.png); height: 60%"
       >
         <aside>
           <div>
@@ -56,7 +53,7 @@
           >
             <div class="flex-fill mr-2">
               <img
-                src="~/assets/images/affiliates/verified-user-icon.png"
+                src="/images/affiliates/verified-user-icon.png"
                 height="40px"
                 class=""
               />
@@ -83,7 +80,7 @@
           >
             <div class="flex-fill mr-2">
               <img
-                src="~/assets/images/affiliates/verified-icon-mobile.png"
+                src="/images/affiliates/verified-icon-mobile.png"
                 height="40px"
                 class=""
               />
@@ -110,7 +107,7 @@
           >
             <div class="flex-fill mr-2">
               <img
-                src="~/assets/images/affiliates/agent-icon-mobile.png"
+                src="/images/affiliates/agent-icon-mobile.png"
                 height="40px"
                 class=""
               />
@@ -150,7 +147,7 @@
             data-wow-duration="8s"
           >
             <img
-              src="~/assets/images/affiliates/celeb-icon.jpg"
+              src="/images/affiliates/celeb-icon.jpg"
               alt="celebrity icon"
               class="img-fluid"
             />
@@ -181,7 +178,7 @@
             data-wow-duration="10s"
           >
             <img
-              src="~/assets/images/affiliates/verified-icon.jpg"
+              src="/images/affiliates/verified-icon.jpg"
               alt="verified user icon"
               class="img-fluid"
             />
@@ -212,7 +209,7 @@
             data-wow-duration="8s"
           >
             <img
-              src="~/assets/images/affiliates/agent-icon.jpg"
+              src="/images/affiliates/agent-icon.jpg"
               alt="agent icon"
               class="img-fluid"
               data-wow-duration="2s"
@@ -242,12 +239,11 @@
 <script>
 export default {
   name: "affiliates",
-  layout: 'single'
+  layout: "single",
 };
 </script>
 
-<style
->
+<style>
 .nav-link {
   font-size: 1.1em;
 }

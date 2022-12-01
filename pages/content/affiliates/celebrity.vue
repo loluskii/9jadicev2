@@ -3,7 +3,7 @@
     <section class="container mb-5 mt-5">
       <aside class="w-100 mt-2 text-center">
         <img
-          src="~/assets/images/affiliates/celeb-banner.jpg"
+          src="/images/affiliates/celeb-banner.jpg"
           class="img-fluid affiliate-img-height wow bounceInDown"
           data-wow-duration="1s"
         />
@@ -45,7 +45,7 @@
             class="col-sm-12 col-md-6 col-lg-6 col-xl-6 bg-white text-center"
           >
             <img
-              src="~/assets/images/affiliates/affiliate-img-5.png"
+              src="/images/affiliates/affiliate-img-5.png"
               class="img-fluid mx-auto wow zoomInUp affiliate-img-height3"
               alt="affiliate-img"
               data-wow-delay="0.7s"
@@ -64,7 +64,7 @@
             data-wow-delay="1s"
           >
             <img
-              src="~/assets/images/affiliates/affiliate-img-2.png"
+              src="/images/affiliates/affiliate-img-2.png"
               class="img-fluid mx-auto affiliate-img-height2"
               alt="affiliate-img"
               style="height: 60vh"
@@ -137,7 +137,7 @@
                     <span class="m-0 p-3">1</span>
                   </div>
                   <img
-                    src="~/assets/images/affiliates/Asset-4.png"
+                    src="/images/affiliates/Asset-4.png"
                     alt=""
                     class="img-fluid"
                   />
@@ -167,7 +167,7 @@
                     <span class="m-0 p-3">2</span>
                   </div>
                   <img
-                    src="~/assets/images/affiliates/Asset-3.png"
+                    src="/images/affiliates/Asset-3.png"
                     alt=""
                     class="img-fluid"
                   />
@@ -197,7 +197,7 @@
                     <span class="m-0 p-3">3</span>
                   </div>
                   <img
-                    src="~/assets/images/affiliates/agent-icon.jpg"
+                    src="/images/affiliates/agent-icon.jpg"
                     alt=""
                     class="img-fluid"
                   />
@@ -227,7 +227,7 @@
                     <span class="m-0 p-3">4</span>
                   </div>
                   <img
-                    src="~/assets/images/affiliates/Asset-2.png"
+                    src="/images/affiliates/Asset-2.png"
                     alt=""
                     class="img-fluid"
                   />
@@ -273,7 +273,7 @@
             class="col-sm-12 col-md-6 col-lg-6 col-xl-6 bg-white text-center"
           >
             <img
-              src="~/assets/images/affiliates/req-img.jpeg"
+              src="/images/affiliates/req-img.jpeg"
               class="img-fluid mx-auto wow zoomInLeft affiliate-img-height2"
               alt=""
               data-wow-delay="0.7s"

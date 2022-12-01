@@ -8,7 +8,7 @@
         >
           <nuxt-link class="" to="/">
             <img
-              src="~/assets/images/logos/logo.png"
+              src="/images/logos/logo.png"
               class="img-fluid"
               style="height: 30px"
               id="brand-logo"
@@ -113,135 +113,139 @@
         </nav>
       </header>
       <div class="row justify-content-center">
-          <div class="col-12 p-0 topGamesList">
-            <div class="text-capitalize topGamesList-left">
-              <nuxt-link
-                class="btn btn-sm btn-dark border-0 text-nowrap rounded-0 d-flex flex-column justify-content-center bg-sv-primary"
-                to="/"
+        <div class="col-12 p-0 topGamesList">
+          <div class="text-capitalize topGamesList-left">
+            <nuxt-link
+              class="btn btn-sm btn-dark border-0 text-nowrap rounded-0 d-flex flex-column justify-content-center bg-sv-primary"
+              to="/"
+            >
+              <span class="mb-1 gameTopTitle gameTopTitleActive"
+                >Tournament</span
               >
-                <span class="mb-1 gameTopTitle gameTopTitleActive"
-                  >Tournament</span
-                >
-                <span>
-                  <img
-                    src="~/assets/images/games/tournament/tournament.png"
-                    style="height: 20px"
-                    alt="tournament-icon"
-                  />
-                </span>
-              </nuxt-link>
-              <nuxt-link
-                class="btn btn-sm btn-dark border-0 text-nowrap rounded-0 position-relative d-flex flex-column justify-content-center"
-                to="/"
-              >
-                <span class="newBadge">New</span>
-                <span class="mb-1 gameTopTitle">Dice lotto</span>
-                <span>
-                  <img
-                    src="~/assets/images/games/lotto/dice-lotto.png"
-                    style="height: 20px"
-                    alt="dice-lotto-icon"
-                  />
-                </span>
-              </nuxt-link>
-              <nuxt-link
-                class="btn btn-sm btn-dark border-0 text-nowrap rounded-0 position-relative d-flex flex-column justify-content-center"
-                to="/dice/colors"
-              >
-                <span class="newBadge">New</span>
-                <span class="mb-1 gameTopTitle">Colours</span>
-                <span>
-                  <img
-                    src="~/assets/images/games/color/dice-colour.png"
-                    style="height: 20px"
-                    alt="dice-colours-icon"
-                  />
-                </span>
-              </nuxt-link>
-              <nuxt-link
-                class="btn btn-sm btn-dark border-0 text-nowrap rounded-0 d-flex flex-column justify-content-center text-white"
-                to="/dice/single"
-              >
-                <span class="mb-1 gameTopTitle">Single</span>
-                <span>
-                  <img
-                    src="~/assets/images/games/single/single.png"
-                    style="height: 20px"
-                    alt="single-icon"
-                  />
-                </span>
-              </nuxt-link>
-            </div>
-            <div class="topGamesList-right">
-              <a
-                @click="openAllGamesList"
-                class="btn btn-sm btn-dark border-0 rounded-0 d-flex flex-column justify-content-center text-white"
-              >
-                <span class="gameTopTitle">All</span>
-                <span>
-                  <i
-                    id="allGamesSlideDirection"
-                    class="fa fa-caret-down fa-2x newGamesNotification"
-                  ></i>
-                </span>
-              </a>
-            </div>
+              <span>
+                <img
+                  src="/images/games/tournament/tournament.png"
+                  style="height: 20px"
+                  alt="tournament-icon"
+                />
+              </span>
+            </nuxt-link>
+            <nuxt-link
+              class="btn btn-sm btn-dark border-0 text-nowrap rounded-0 position-relative d-flex flex-column justify-content-center"
+              to="/"
+            >
+              <span class="newBadge">New</span>
+              <span class="mb-1 gameTopTitle">Dice lotto</span>
+              <span>
+                <img
+                  src="/images/games/lotto/dice-lotto.png"
+                  style="height: 20px"
+                  alt="dice-lotto-icon"
+                />
+              </span>
+            </nuxt-link>
+            <nuxt-link
+              class="btn btn-sm btn-dark border-0 text-nowrap rounded-0 position-relative d-flex flex-column justify-content-center"
+              to="/dice/colors"
+            >
+              <span class="newBadge">New</span>
+              <span class="mb-1 gameTopTitle">Colours</span>
+              <span>
+                <img
+                  src="/images/games/color/dice-colour.png"
+                  style="height: 20px"
+                  alt="dice-colours-icon"
+                />
+              </span>
+            </nuxt-link>
+            <nuxt-link
+              class="btn btn-sm btn-dark border-0 text-nowrap rounded-0 d-flex flex-column justify-content-center text-white"
+              to="/dice/single"
+            >
+              <span class="mb-1 gameTopTitle">Single</span>
+              <span>
+                <img
+                  src="/images/games/single/single.png"
+                  style="height: 20px"
+                  alt="single-icon"
+                />
+              </span>
+            </nuxt-link>
           </div>
-          <div class="col-12 p-0" style="display: none" id="allGamesList">
-            <div class="topGamesList-left">
-              <nuxt-link
-                class="btn btn-sm btn-dark border-0 text-nowrap rounded-0 d-flex flex-column justify-content-center"
-                to="/dice/under-over"
-              >
-                <span class="mb-1 gameTopTitle">Under/Over</span>
-                <span>
-                  <img
-                    src="~/assets/images/games/under-over/under-over.png"
-                    style="height: 20px"
-                    alt="tournament-icon"
-                  />
-                </span>
-              </nuxt-link>
-
-              <nuxt-link
-                class="btn btn-sm btn-dark border-0 text-nowrap rounded-0 d-flex flex-column justify-content-center"
-                to="/dice/odd-even"
-              >
-                <span class="mb-1 gameTopTitle">Odd/Even</span>
-                <span>
-                  <img
-                    src="~/assets/images/games/odd-even/odd-even.png"
-                    style="height: 20px"
-                    alt="odd-even-icon"
-                  />
-                </span>
-              </nuxt-link>
-
-              <nuxt-link
-                class="btn btn-sm btn-dark border-0 text-nowrap rounded-0 d-flex flex-column justify-content-center text-nowrap"
-                to="/dice/mega-ten"
-              >
-                <span class="mb-1 gameTopTitle">Mega Ten</span>
-                <span>
-                  <img
-                    src="~/assets/images/games/mega-ten/mega-ten.png"
-                    style="height: 20px"
-                    alt="mega-ten-icon"
-                  />
-                </span>
-              </nuxt-link>
-
-              <nuxt-link to=""  class="btn btn-sm btn-dark border-0 rounded-0 text-nowrap d-flex flex-column justify-content-center text-nowrap" style="visibility: hidden;" >
-                <span class="mb-1 gameTopTitle">Mega Ten</span>
-                <span>
-                    <img src="" style="height: 20px" alt="mega-ten-icon" />
-                </span>
-              </nuxt-link>
-            </div>
+          <div class="topGamesList-right">
+            <a
+              @click="openAllGamesList"
+              class="btn btn-sm btn-dark border-0 rounded-0 d-flex flex-column justify-content-center text-white"
+            >
+              <span class="gameTopTitle">All</span>
+              <span>
+                <i
+                  id="allGamesSlideDirection"
+                  class="fa fa-caret-down fa-2x newGamesNotification"
+                ></i>
+              </span>
+            </a>
           </div>
+        </div>
+        <div class="col-12 p-0" style="display: none" id="allGamesList">
+          <div class="topGamesList-left">
+            <nuxt-link
+              class="btn btn-sm btn-dark border-0 text-nowrap rounded-0 d-flex flex-column justify-content-center"
+              to="/dice/under-over"
+            >
+              <span class="mb-1 gameTopTitle">Under/Over</span>
+              <span>
+                <img
+                  src="/images/games/under-over/under-over.png"
+                  style="height: 20px"
+                  alt="tournament-icon"
+                />
+              </span>
+            </nuxt-link>
+
+            <nuxt-link
+              class="btn btn-sm btn-dark border-0 text-nowrap rounded-0 d-flex flex-column justify-content-center"
+              to="/dice/odd-even"
+            >
+              <span class="mb-1 gameTopTitle">Odd/Even</span>
+              <span>
+                <img
+                  src="/images/games/odd-even/odd-even.png"
+                  style="height: 20px"
+                  alt="odd-even-icon"
+                />
+              </span>
+            </nuxt-link>
+
+            <nuxt-link
+              class="btn btn-sm btn-dark border-0 text-nowrap rounded-0 d-flex flex-column justify-content-center text-nowrap"
+              to="/dice/mega-ten"
+            >
+              <span class="mb-1 gameTopTitle">Mega Ten</span>
+              <span>
+                <img
+                  src="/images/games/mega-ten/mega-ten.png"
+                  style="height: 20px"
+                  alt="mega-ten-icon"
+                />
+              </span>
+            </nuxt-link>
+
+            <nuxt-link
+              to=""
+              class="btn btn-sm btn-dark border-0 rounded-0 text-nowrap d-flex flex-column justify-content-center text-nowrap"
+              style="visibility: hidden"
+            >
+              <span class="mb-1 gameTopTitle">Mega Ten</span>
+              <span>
+                <img src="" style="height: 20px" alt="mega-ten-icon" />
+              </span>
+            </nuxt-link>
+          </div>
+        </div>
       </div>
     </div>
-      <side-nav v-if="$auth.loggedIn"></side-nav>
+    <side-nav v-if="$auth.loggedIn"></side-nav>
     <div class="col-sm-12 col-md-1 col-lg-2 col-xl-3"></div>
   </div>
 </template>

@@ -26,7 +26,7 @@
           if you don't have an account yet
         </p>
         <img
-          src="~/assets/images/how-to-play/login.svg"
+          src="/images/how-to-play/login.svg"
           class="img-fluid"
           alt=""
           srcset=""
@@ -38,7 +38,7 @@
           Select any game from any available category of games (e.g Verified,
           Biggest prizes, Luxury, State, Premier League, Bonus, Free).
         </p>
-        <!-- <img src="~/assets/images/how-to-play/categories.svg" class="img-fluid"
+        <!-- <img src="/images/how-to-play/categories.svg" class="img-fluid"
                                 alt="" srcset=""> -->
       </section>
       <section class="step mb-3">
@@ -48,7 +48,7 @@
           button, fill all fields and click 'create'.)
         </p>
         <img
-          src="~/assets/images/how-to-play/create.svg"
+          src="/images/how-to-play/create.svg"
           class="img-fluid"
           alt=""
           srcset=""
@@ -61,7 +61,7 @@
           page.
         </p>
         <img
-          src="~/assets/images/how-to-play/join.svg"
+          src="/images/how-to-play/join.svg"
           class="img-fluid"
           alt=""
           srcset=""
@@ -74,7 +74,7 @@
           way into billions!
         </p>
         <img
-          src="~/assets/images/how-to-play/dice-cup.svg"
+          src="/images/how-to-play/dice-cup.svg"
           class="img-fluid"
           alt=""
           srcset=""

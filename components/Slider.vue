@@ -12,17 +12,11 @@
         @sliding-start="onSlideStart"
         @sliding-end="onSlideEnd"
       >
-        <b-carousel-slide
-          img-src="~/assets/images/banners/tg.png"
-        ></b-carousel-slide>
+        <b-carousel-slide img-src="/images/banners/tg.png"></b-carousel-slide>
 
-        <b-carousel-slide
-          img-src="~/assets/images/banners/lotg.jpg"
-        ></b-carousel-slide>
+        <b-carousel-slide img-src="/images/banners/lotg.jpg"></b-carousel-slide>
 
-        <b-carousel-slide
-          img-src="~/assets/images/banners/lod.jpg"
-        ></b-carousel-slide>
+        <b-carousel-slide img-src="/images/banners/lod.jpg"></b-carousel-slide>
       </b-carousel>
     </div>
   </div>
@@ -45,7 +39,7 @@ export default {
     onSlideEnd(slide) {
       this.sliding = false;
     },
-  }
+  },
 };
 </script>
 

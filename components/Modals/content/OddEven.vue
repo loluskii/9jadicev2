@@ -17,7 +17,7 @@
           by selecting either ODD or EVEN.
         </p>
         <img
-          src="~/assets/images/how-to-play/step-2.svg"
+          src="/images/how-to-play/step-2.svg"
           class="img-fluid"
           alt=""
           srcset=""
@@ -27,7 +27,7 @@
         <h4>Step 2</h4>
         <p class="mb-1">Select or enter amount to stake</p>
         <img
-          src="~/assets/images/how-to-play/step-4.svg"
+          src="/images/how-to-play/step-4.svg"
           class="img-fluid"
           alt=""
           srcset=""
@@ -37,7 +37,7 @@
         <h4>Step 3</h4>
         <p class="mb-1">Click on the "Play" button to start the games.</p>
         <img
-          src="~/assets/images/how-to-play/step-3.svg"
+          src="/images/how-to-play/step-3.svg"
           class="img-fluid"
           alt=""
           srcset=""
@@ -47,7 +47,7 @@
         <h4>Step 4</h4>
         <p class="mb-1">Tap on the dice cup twice to roll the dice.</p>
         <img
-          src="~/assets/images/how-to-play/step-5.svg"
+          src="/images/how-to-play/step-5.svg"
           class="img-fluid"
           alt=""
           srcset=""

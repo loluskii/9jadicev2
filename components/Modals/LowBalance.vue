@@ -24,14 +24,12 @@
                 <img
                   class="img-fluid"
                   style="height: 50vh"
-                  src="~/assets/images/homepage/promotions/low-balance.png"
+                  src="/images/homepage/promotions/low-balance.png"
                   alt="low-balance"
                 />
 
                 <div class="mt-2">
-                  <nuxt-link
-                    to=""
-                    class="btn bg-sv-primary text-sv-primary"
+                  <nuxt-link to="" class="btn bg-sv-primary text-sv-primary"
                     >Deposit Now!</nuxt-link
                   >
                 </div>
@@ -46,7 +44,7 @@
 
 <script>
 export default {
-  name: 'low-balance'
+  name: "low-balance",
 };
 </script>
 

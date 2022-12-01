@@ -1,7 +1,9 @@
 <template>
   <div class="row justify-content-center">
     <div class="col-12 p-0 topGamesList">
-      <div class="text-capitalize text-nowrap hideScrollbar topGamesList-left w-100">
+      <div
+        class="text-capitalize text-nowrap hideScrollbar topGamesList-left w-100"
+      >
         <nuxt-link
           to=""
           class="btn btn-sm btn-dark border-0 rounded-0 d-flex flex-column justify-content-center bg-sv-primary"
@@ -9,7 +11,7 @@
         >
           <span>
             <img
-              src="~/assets/images/games/tournament/tournament.png"
+              src="/images/games/tournament/tournament.png"
               style="height: 20px"
               alt="tournament-icon"
               class="mb-1"
@@ -25,7 +27,7 @@
           <span class="newBadge">New</span>
           <span>
             <img
-              src="~/assets/images/games/lotto/dice-lotto.png"
+              src="/images/games/lotto/dice-lotto.png"
               style="height: 22px"
               alt="dice-lotto-icon"
               class="mb-0"
@@ -41,7 +43,7 @@
           <span class="newBadge">New</span>
           <span>
             <img
-              src="~/assets/images/games/color/dice-colour.png"
+              src="/images/games/color/dice-colour.png"
               style="height: 20px"
               alt="dice-colours-icon"
               class="mb-1"
@@ -56,7 +58,7 @@
         >
           <span>
             <img
-              src="~/assets/images/games/single/single.png"
+              src="/images/games/single/single.png"
               style="height: 20px"
               alt="single-icon"
               class="mb-1"
@@ -71,7 +73,7 @@
         >
           <span>
             <img
-              src="~/assets/images/games/under-over/under-over.png"
+              src="/images/games/under-over/under-over.png"
               style="height: 20px"
               alt="tournament-icon"
               class="mb-1"
@@ -86,7 +88,7 @@
         >
           <span>
             <img
-              src="~/assets/images/games/odd-even/odd-even.png"
+              src="/images/games/odd-even/odd-even.png"
               style="height: 20px"
               alt="odd-even-icon"
               class="mb-1"
@@ -101,7 +103,7 @@
         >
           <span>
             <img
-              src="~/assets/images/games/mega-ten/mega-ten.png"
+              src="/images/games/mega-ten/mega-ten.png"
               style="height: 20px"
               alt="mega-ten-icon"
               class="mb-1"
@@ -110,7 +112,6 @@
           <span class="gameTopTitle">Mega Ten</span>
         </nuxt-link>
       </div>
-
     </div>
     <div class="col-12 p-0" style="display: none" id="allGamesList">
       <div class="topGamesList-left">
@@ -122,7 +123,7 @@
           <span class="mb-1 gameTopTitle">Under/Over</span>
           <span>
             <img
-              src="~/assets/images/games/under-over/under-over.png"
+              src="/images/games/under-over/under-over.png"
               style="height: 20px"
               alt="tournament-icon"
             />
@@ -136,7 +137,7 @@
           <span class="mb-1 gameTopTitle">Odd/Even</span>
           <span>
             <img
-              src="~/assets/images/games/odd-even/odd-even.png"
+              src="/images/games/odd-even/odd-even.png"
               style="height: 20px"
               alt="odd-even-icon"
             />
@@ -150,7 +151,7 @@
           <span class="mb-1 gameTopTitle">Mega Ten</span>
           <span>
             <img
-              src="~/assets/images/games/mega-ten/mega-ten.png"
+              src="/images/games/mega-ten/mega-ten.png"
               style="height: 20px"
               alt="mega-ten-icon"
             />

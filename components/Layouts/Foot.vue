@@ -10,7 +10,7 @@
             <div>
               <a href="">
                 <img
-                  src="~/assets/images/logos/logo.png"
+                  src="/images/logos/logo.png"
                   class="img-fluid"
                   id="brand-logo"
                 />
@@ -24,7 +24,7 @@
               >
                 <img
                   style="height: 35px"
-                  src="~/assets/images/logos/connect-logo.png"
+                  src="/images/logos/connect-logo.png"
                   alt=""
                 />
               </a>
@@ -59,35 +59,35 @@
           >
             <div>
               <img
-                src="~/assets/images/homepage/partners/opay.png"
+                src="/images/homepage/partners/opay.png"
                 style="height: 40px"
                 class="mr-3"
               />
             </div>
             <div>
               <img
-                src="~/assets/images/homepage/partners/paystack2.png"
+                src="/images/homepage/partners/paystack2.png"
                 style="height: 25px"
                 class="mr-3"
               />
             </div>
             <div>
               <img
-                src="~/assets/images/homepage/partners/zenith.png"
+                src="/images/homepage/partners/zenith.png"
                 style="height: 25px"
                 class="mr-3"
               />
             </div>
             <div>
               <img
-                src="~/assets/images/homepage/partners/mastercard.png"
+                src="/images/homepage/partners/mastercard.png"
                 style="height: 25px"
                 class="mr-3"
               />
             </div>
             <div>
               <img
-                src="~/assets/images/homepage/partners/visa.png"
+                src="/images/homepage/partners/visa.png"
                 style="height: 18px"
                 class="mr-3"
               />
@@ -105,12 +105,12 @@
             <div class="text-center font-weight-bold">
               <img
                 class="mr-2"
-                src="~/assets/images/homepage/cms/18.png"
+                src="/images/homepage/cms/18.png"
                 alt="18plus gambling"
                 style="height: 35px"
               />
               <img
-                src="~/assets/images/homepage/cms/lslb.png"
+                src="/images/homepage/cms/lslb.png"
                 alt="lagos-state-lottery-board"
                 style="height: 35px"
               />
@@ -138,7 +138,7 @@
 
 <script>
 export default {
-  name: 'foot'
+  name: "foot",
 };
 </script>
 

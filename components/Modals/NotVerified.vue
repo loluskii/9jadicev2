@@ -14,9 +14,7 @@
       >
         <div>
           <nuxt-link to=""
-            ><img
-              style="height: 25px"
-              src="~/assets/images/logos/logo-white.png"
+            ><img style="height: 25px" src="/images/logos/logo-white.png"
           /></nuxt-link>
         </div>
         <div class="text-uppercase text-center font-weight-bold">
@@ -33,7 +31,10 @@
       </div>
       <div class="row">
         <div class="col-12">
-          <div class="lead text-white text-center py-3" id="verificationModalMessage">
+          <div
+            class="lead text-white text-center py-3"
+            id="verificationModalMessage"
+          >
             <div class="mb-3">
               Only Verified Users Are Allowed To Create Premium Games. Please
               Click On Public Games To Create Games

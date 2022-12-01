@@ -1,179 +1,325 @@
 <template>
-<div>
-  <main class="container">
-        <section class="container mb-5 mt-5">
-            <aside class="row">
-                <div class="col-12 text-right">
-                    <nuxt-link to="" class="text-decoration-none btn btn-success">Become an agent</nuxt-link>
-                </div>
-            </aside>
-            <aside class="w-100 mt-2 text-center" >
-               <img src="~/assets/images/affiliates/agent-banner.jpg" class="img-fluid affiliate-img-height wow bounceInDown "/>
-            </aside>
+  <div>
+    <main class="container">
+      <section class="container mb-5 mt-5">
+        <aside class="row">
+          <div class="col-12 text-right">
+            <nuxt-link to="" class="text-decoration-none btn btn-success"
+              >Become an agent</nuxt-link
+            >
+          </div>
+        </aside>
+        <aside class="w-100 mt-2 text-center">
+          <img
+            src="/images/affiliates/agent-banner.jpg"
+            class="img-fluid affiliate-img-height wow bounceInDown"
+          />
+        </aside>
 
-            <aside class="bg-white container py-5 radiusInflected mt-5 wow bounceInUp">
-                <div class="row text-dark align-items-center">
-                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 wow slideInRight px-5" data-wow-delay="1s">
-                        <ul class="text-decoration-none list-unstyled">
-                            <li class=" text-capitalize font-weight-bold title text-center round mb-3 py-2 uniformShadow bg-white">description</li>
-                            <li class="text-muted list-unstyled text-left 3">
-                                <span>
-                                Agent Partners are offered the unique opportunity of owning their own gaming business by partnering with the first dice tournament platform in the world.
-                                Upon creating a Verified tournament game between 2 – 5 million entries, and the game gets full for example (Which is not a must), 90% of the stake amount goes to the players and its shared according to the position in the leader-board, while 10% goes to the company which is shared between the company and the Agent partner in a 60% for the company and 40% for the Agent partner.
-                                As a partner, you will have access to Dice.NG APP to track and monitor your tournament games.
-                                </span>
-                            </li>
-                        </ul>
+        <aside
+          class="bg-white container py-5 radiusInflected mt-5 wow bounceInUp"
+        >
+          <div class="row text-dark align-items-center">
+            <div
+              class="col-sm-12 col-md-12 col-lg-12 col-xl-12 wow slideInRight px-5"
+              data-wow-delay="1s"
+            >
+              <ul class="text-decoration-none list-unstyled">
+                <li
+                  class="text-capitalize font-weight-bold title text-center round mb-3 py-2 uniformShadow bg-white"
+                >
+                  description
+                </li>
+                <li class="text-muted list-unstyled text-left 3">
+                  <span>
+                    Agent Partners are offered the unique opportunity of owning
+                    their own gaming business by partnering with the first dice
+                    tournament platform in the world. Upon creating a Verified
+                    tournament game between 2 – 5 million entries, and the game
+                    gets full for example (Which is not a must), 90% of the
+                    stake amount goes to the players and its shared according to
+                    the position in the leader-board, while 10% goes to the
+                    company which is shared between the company and the Agent
+                    partner in a 60% for the company and 40% for the Agent
+                    partner. As a partner, you will have access to Dice.NG APP
+                    to track and monitor your tournament games.
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+
+        <aside
+          class="container p-5 radius wow bounceInUp"
+          style="background-color: rgb(4, 121, 38)"
+        >
+          <div class="row text-dark align-items-center">
+            <div
+              class="col-sm-12 col-md-6 col-lg-6 col-xl-6 bg-white wow zoomInDown text-center mt-3 mt-md-2 mt-lg-2 mt-xl-2"
+              data-wow-delay="1s"
+            >
+              <img
+                src="/images/affiliates/affiliate-img-2.png"
+                class="img-fluid mx-auto affiliate-img-height2"
+                alt="affiliate-img"
+                style="height: 60vh"
+              />
+            </div>
+            <div
+              class="col-sm-12 col-md-6 col-lg-6 col-xl-6 wow zoomInLeft mt-5 mt-md-2 mt-lg-2 mt-xl-2 pl-0 pl-md-5 pl-lg-5 pl-xl-5"
+              data-wow-duration="2s"
+            >
+              <ul class="text-decoration-none list-unstyled">
+                <li
+                  class="text-capitalize font-weight-bold bg-white title text-center round mb-3 py-2 uniformShadow"
+                >
+                  benefits
+                </li>
+                <ol class="px-2 text-light text-left list-unstyled">
+                  <div class="d-flex align-items-center">
+                    <i class="fa fa-check"></i>
+                    <li class="lists pl-3 text-capitalize text-left">
+                      Attractive revenue share deals
+                    </li>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <i class="fa fa-check"></i>
+                    <li class="lists pl-3 text-capitalize">
+                      advanced reporting
+                    </li>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <i class="fa fa-check"></i>
+                    <li class="lists pl-3 text-capitalize">
+                      world class support
+                    </li>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <i class="fa fa-check"></i>
+                    <li class="lists pl-3 text-capitalize">
+                      fast & easy payments
+                    </li>
+                  </div>
+                </ol>
+              </ul>
+            </div>
+          </div>
+        </aside>
+
+        <aside class="container bg-dark radius wow bounceInUp">
+          <div class="row wow fadeInUp">
+            <div
+              class="col-sm-12 col-md-12 col-lg-6 col-xl-6 mx-auto mt-5 mb-3"
+            >
+              <ul class="text-decoration-none list-unstyled">
+                <li
+                  class="text-capitalize font-weight-bold title border mb-3 py-2 px-2 round uniformShadow bg-white text-center"
+                >
+                  How does it works?
+                </li>
+              </ul>
+            </div>
+
+            <section
+              class="container mb-5 wow bounceInUp"
+              data-wow-duration="1s"
+            >
+              <div class="row border-bottom border-top position-relative">
+                <aside
+                  class="col-sm-12 col-md-6 col-lg-3 col-xl-3 text-center bg-light shadow wow zoomIn py-3"
+                  data-wow-duration="2s "
+                >
+                  <div
+                    class="rounded rounded-circle circles d-flex align-items-center justify-content-center mx-auto shadow position-relative p-4"
+                  >
+                    <div
+                      class="position-absolute numbers font-weight-bold d-flex align-items-center"
+                      style="top: 0; left: 0"
+                    >
+                      <span class="m-0 p-3">1</span>
                     </div>
-                </div>
-            </aside>
-
-            <aside class="container p-5 radius wow bounceInUp" style="background-color: rgb(4,121,38);">
-                <div class="row text-dark align-items-center">
-
-                    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 bg-white wow zoomInDown text-center mt-3 mt-md-2 mt-lg-2 mt-xl-2" data-wow-delay="1s">
-                        <img src="~/assets/images/affiliates/affiliate-img-2.png" class="img-fluid mx-auto affiliate-img-height2" alt="affiliate-img" style="height: 60vh;"/>
+                    <img
+                      src="/images/affiliates/Asset-4.png"
+                      alt="become-a-partner"
+                      class="img-fluid"
+                    />
+                  </div>
+                  <div class="my-3 text-muted">
+                    <div class="text-dark font-weight-bold text-uppercase mb-2">
+                      Become a partner
                     </div>
-                    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 wow zoomInLeft mt-5 mt-md-2 mt-lg-2 mt-xl-2 pl-0 pl-md-5 pl-lg-5 pl-xl-5" data-wow-duration="2s">
-                        <ul class="text-decoration-none list-unstyled">
-                            <li class=" text-capitalize font-weight-bold bg-white title text-center round mb-3 py-2 uniformShadow">benefits</li>
-                            <ol class="px-2 text-light text-left list-unstyled">
-                                <div class="d-flex align-items-center">
-                                    <i class="fa fa-check"></i>
-                                    <li class="lists pl-3 text-capitalize text-left">Attractive revenue share deals</li>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <i class="fa fa-check"></i>
-                                    <li class="lists pl-3 text-capitalize">advanced reporting</li>
-                                </div><div class="d-flex align-items-center">
-                                    <i class="fa fa-check"></i>
-                                    <li class="lists pl-3 text-capitalize">world class support</li>
-                                </div><div class="d-flex align-items-center">
-                                    <i class="fa fa-check"></i>
-                                    <li class="lists pl-3 text-capitalize">fast & easy payments</li>
-                                </div>
-                            </ol>
-                        </ul>
+                    <div class="">
+                      An Agent joins Dice.ng and markets the globally trusted
+                      Dice.ng brand.
                     </div>
-                </div>
-            </aside>
+                  </div>
+                </aside>
 
-            <aside class="container bg-dark radius wow bounceInUp">
-
-                <div class="row wow fadeInUp">
-                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 mx-auto mt-5 mb-3">
-                       <ul class="text-decoration-none list-unstyled">
-                            <li class=" text-capitalize font-weight-bold title border mb-3 py-2 px-2 round uniformShadow bg-white text-center">How does it works?</li>
-
-                        </ul>
+                <aside
+                  class="col-sm-12 col-md-6 col-lg-3 col-xl-3 text-center bg-light shadow wow zoomIn py-3"
+                  data-wow-duration="2s"
+                >
+                  <div
+                    class="rounded rounded-circle circles d-flex align-items-center justify-content-center mx-auto shadow position-relative p-4"
+                  >
+                    <div
+                      class="position-absolute numbers font-weight-bold d-flex align-items-center"
+                      style="top: 0; left: 0"
+                    >
+                      <span class="m-0 p-3">2</span>
                     </div>
-
-                   <section class="container mb-5 wow bounceInUp" data-wow-duration="1s" >
-                        <div class="row border-bottom border-top position-relative">
-
-                            <aside class="col-sm-12 col-md-6 col-lg-3 col-xl-3 text-center bg-light shadow wow zoomIn py-3" data-wow-duration="2s ">
-                                <div class="rounded rounded-circle circles d-flex align-items-center justify-content-center mx-auto shadow position-relative p-4">
-                                    <div class="position-absolute numbers font-weight-bold d-flex align-items-center" style="top: 0; left: 0">
-                                        <span class="m-0 p-3">1</span>
-                                    </div>
-                                    <img  src="~/assets/images/affiliates/Asset-4.png" alt="become-a-partner" class="img-fluid"/>
-                                </div>
-                                <div class="my-3 text-muted">
-                                    <div class="text-dark font-weight-bold text-uppercase mb-2">Become a partner</div>
-                                    <div class="">An Agent joins Dice.ng and markets the globally trusted Dice.ng brand.</div>
-                                </div>
-                            </aside>
-
-                            <aside class="col-sm-12 col-md-6 col-lg-3 col-xl-3 text-center bg-light shadow wow zoomIn py-3" data-wow-duration="2s">
-                                <div class="rounded rounded-circle circles d-flex align-items-center justify-content-center mx-auto shadow position-relative p-4">
-                                    <div class="position-absolute numbers font-weight-bold d-flex align-items-center" style="top: 0; left: 0">
-                                        <span class="m-0 p-3">2</span>
-                                    </div>
-                                    <img  src="~/assets/images/affiliates/Asset-3.png" alt="" class="img-fluid"/>
-                                </div>
-                                <div class="my-3 text-muted">
-                                    <div class="text-dark font-weight-bold text-uppercase mb-2">Promote your game</div>
-                                    <div class="">The programme provides the Agent with creative and marketing materials to market the Dice.ng brand. </div>
-                                </div>
-                            </aside>
-
-                            <aside class="col-sm-12 col-md-6 col-lg-3 col-xl-3 text-center bg-light shadow wow zoomIn py-3" data-wow-duration="2s">
-                                <div class="rounded rounded-circle circles d-flex align-items-center justify-content-center mx-auto shadow position-relative p-4">
-                                    <div class="position-absolute numbers font-weight-bold d-flex align-items-center" style="top: 0; left: 0">
-                                        <span class="m-0 p-3">3</span>
-                                    </div>
-                                    <img  src="~/assets/images/affiliates/agent-icon.jpg" alt="" class="img-fluid"/>
-                                </div>
-                                <div class="my-3 text-muted">
-                                    <div class="text-dark font-weight-bold text-uppercase mb-2">Acquire customers</div>
-                                    <div class="">The Agent directs folks to play their tournament games on Dice.ng.</div>
-                                </div>
-                            </aside>
-
-                            <aside class="col-sm-12 col-md-6 col-lg-3 col-xl-3 text-center bg-light shadow wow zoomIn py-3" data-wow-duration="2s">
-                                <div class="rounded rounded-circle circles d-flex align-items-center justify-content-center mx-auto shadow position-relative p-4">
-                                    <div class="position-absolute numbers font-weight-bold d-flex align-items-center" style="top: 0; left: 0">
-                                        <span class="m-0 p-3">4</span>
-                                    </div>
-                                    <img src="~/assets/images/affiliates/Asset-2.png" alt="" class="img-fluid"/>
-                                </div>
-                                <div class="my-3 text-muted">
-                                    <div class="text-dark font-weight-bold text-uppercase mb-2">Earn money</div>
-                                    <div class="">Our advanced tracking system allocates and pays Agents their commission.</div>
-                                </div>
-                            </aside>
-
-                        </div>
-                    </section>
-                </div>
-            </aside>
-
-            <aside class="bg-white container py-5 radiusInflected mt-5 wow bounceInUp">
-                <div class="row text-dark align-items-center">
-                    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 wow slideInRight px-5" data-wow-delay="1s">
-                        <ul class="text-decoration-none list-unstyled">
-                            <li class=" text-capitalize font-weight-bold title text-center round mb-3 py-2 uniformShadow bg-white">requirements</li>
-                            <li class="text-muted list-unstyled text-left 3 font-weight-bold text-capitalize text-center">
-                                <ol class="px-2 text-muted text-left list-unstyled">
-                                    <div class="d-flex align-items-center">
-                                        <i class="fa fa-check"></i>
-                                        <li class="lists pl-3 text-capitalize font-weight-light">A smart mobile phone.</li>
-                                    </div>
-                                    <div class="d-flex mt-2">
-                                        <i class="fa fa-check mt-2"></i>
-                                        <li class="lists pl-3 text-capitalize font-weight-light">
-                                            a deposit of 10,000 (Ten thousand naira).
-                                        </li>
-                                    </div>
-                                </ol>
-                            </li>
-                        </ul>
+                    <img
+                      src="/images/affiliates/Asset-3.png"
+                      alt=""
+                      class="img-fluid"
+                    />
+                  </div>
+                  <div class="my-3 text-muted">
+                    <div class="text-dark font-weight-bold text-uppercase mb-2">
+                      Promote your game
                     </div>
-
-                    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 bg-white text-center" >
-                        <img src="~/assets/images/affiliates/agent-small.jpg" class="img-fluid mx-auto wow zoomInUp affiliate-img-height2"   alt="" data-wow-delay="0.7s"/>
+                    <div class="">
+                      The programme provides the Agent with creative and
+                      marketing materials to market the Dice.ng brand.
                     </div>
-                </div>
-            </aside>
+                  </div>
+                </aside>
 
-            <aside class="w-100 container">
-                <div class="row">
-                    <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8 mx-auto p-1">
-                        <nuxt-link to="" class="btn btn-lg btn-block text-capitalize btnCol mb-0" style="border-radius: 50px;">
-                            get started
-                        </nuxt-link>
+                <aside
+                  class="col-sm-12 col-md-6 col-lg-3 col-xl-3 text-center bg-light shadow wow zoomIn py-3"
+                  data-wow-duration="2s"
+                >
+                  <div
+                    class="rounded rounded-circle circles d-flex align-items-center justify-content-center mx-auto shadow position-relative p-4"
+                  >
+                    <div
+                      class="position-absolute numbers font-weight-bold d-flex align-items-center"
+                      style="top: 0; left: 0"
+                    >
+                      <span class="m-0 p-3">3</span>
                     </div>
-                </div>
-            </aside>
-        </section>
+                    <img
+                      src="/images/affiliates/agent-icon.jpg"
+                      alt=""
+                      class="img-fluid"
+                    />
+                  </div>
+                  <div class="my-3 text-muted">
+                    <div class="text-dark font-weight-bold text-uppercase mb-2">
+                      Acquire customers
+                    </div>
+                    <div class="">
+                      The Agent directs folks to play their tournament games on
+                      Dice.ng.
+                    </div>
+                  </div>
+                </aside>
+
+                <aside
+                  class="col-sm-12 col-md-6 col-lg-3 col-xl-3 text-center bg-light shadow wow zoomIn py-3"
+                  data-wow-duration="2s"
+                >
+                  <div
+                    class="rounded rounded-circle circles d-flex align-items-center justify-content-center mx-auto shadow position-relative p-4"
+                  >
+                    <div
+                      class="position-absolute numbers font-weight-bold d-flex align-items-center"
+                      style="top: 0; left: 0"
+                    >
+                      <span class="m-0 p-3">4</span>
+                    </div>
+                    <img
+                      src="/images/affiliates/Asset-2.png"
+                      alt=""
+                      class="img-fluid"
+                    />
+                  </div>
+                  <div class="my-3 text-muted">
+                    <div class="text-dark font-weight-bold text-uppercase mb-2">
+                      Earn money
+                    </div>
+                    <div class="">
+                      Our advanced tracking system allocates and pays Agents
+                      their commission.
+                    </div>
+                  </div>
+                </aside>
+              </div>
+            </section>
+          </div>
+        </aside>
+
+        <aside
+          class="bg-white container py-5 radiusInflected mt-5 wow bounceInUp"
+        >
+          <div class="row text-dark align-items-center">
+            <div
+              class="col-sm-12 col-md-6 col-lg-6 col-xl-6 wow slideInRight px-5"
+              data-wow-delay="1s"
+            >
+              <ul class="text-decoration-none list-unstyled">
+                <li
+                  class="text-capitalize font-weight-bold title text-center round mb-3 py-2 uniformShadow bg-white"
+                >
+                  requirements
+                </li>
+                <li
+                  class="text-muted list-unstyled text-left 3 font-weight-bold text-capitalize text-center"
+                >
+                  <ol class="px-2 text-muted text-left list-unstyled">
+                    <div class="d-flex align-items-center">
+                      <i class="fa fa-check"></i>
+                      <li class="lists pl-3 text-capitalize font-weight-light">
+                        A smart mobile phone.
+                      </li>
+                    </div>
+                    <div class="d-flex mt-2">
+                      <i class="fa fa-check mt-2"></i>
+                      <li class="lists pl-3 text-capitalize font-weight-light">
+                        a deposit of 10,000 (Ten thousand naira).
+                      </li>
+                    </div>
+                  </ol>
+                </li>
+              </ul>
+            </div>
+
+            <div
+              class="col-sm-12 col-md-6 col-lg-6 col-xl-6 bg-white text-center"
+            >
+              <img
+                src="/images/affiliates/agent-small.jpg"
+                class="img-fluid mx-auto wow zoomInUp affiliate-img-height2"
+                alt=""
+                data-wow-delay="0.7s"
+              />
+            </div>
+          </div>
+        </aside>
+
+        <aside class="w-100 container">
+          <div class="row">
+            <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8 mx-auto p-1">
+              <nuxt-link
+                to=""
+                class="btn btn-lg btn-block text-capitalize btnCol mb-0"
+                style="border-radius: 50px"
+              >
+                get started
+              </nuxt-link>
+            </div>
+          </div>
+        </aside>
+      </section>
     </main>
-</div>
+  </div>
 </template>
 
 <script>
 export default {
-  name:"agents",
-  layout: "single"
+  name: "agents",
+  layout: "single",
 };
 </script>
 

@@ -27,9 +27,9 @@
               <div class="mx-4 mb-4">
                 <div class="pointsBackground">
                   <div class="h4 text-center">
-                    <span class="text-capitalize wBold text-break"
-                      >{{ user.user_data_name }}</span
-                    >
+                    <span class="text-capitalize wBold text-break">{{
+                      user.user_data_name
+                    }}</span>
                   </div>
                   <div class="d-flex justify-content-center wBold">
                     <div class="col-5 p-0 text-center">
@@ -141,13 +141,21 @@
         <section class="container-fluid diceDiv">
           <div class="row">
             <div class="col-md-4 col-lg-4 col-xl-4 col-3 lead">
-              <div class="lead text-center text-white" v-html="result_dice"></div>
+              <div
+                class="lead text-center text-white"
+                v-html="result_dice"
+              ></div>
             </div>
             <div class="col-md-4 col-lg-4 col-xl-4 col-6 text-center my-auto">
               <div class="row text-center">
                 <div class="col-6 px-0">
                   <div id="die1container">
-                    <img ref="die1" id="die-1" class="diceSize" :src="dice1Image" />
+                    <img
+                      ref="die1"
+                      id="die-1"
+                      class="diceSize"
+                      :src="dice1Image"
+                    />
                   </div>
                 </div>
                 <div class="col-6 px-0">
@@ -155,7 +163,7 @@
                     <img
                       id="die-2"
                       class="diceSize"
-                      src="~/assets/images/gameplay/gameplay-assets/dices/2.png"
+                      src="/images/gameplay/gameplay-assets/dices/2.png"
                     />
                   </div> -->
                 </div>
@@ -166,13 +174,18 @@
                     <img
                       id="die-3"
                       class="diceSize"
-                      src="~/assets/images/gameplay/gameplay-assets/dices/3.png"
+                      src="/images/gameplay/gameplay-assets/dices/3.png"
                     />
                   </div> -->
                 </div>
                 <div class="col-6 px-0">
                   <div id="die4container">
-                    <img ref="die4" id="die-4" class="diceSize" :src="dice2Image" />
+                    <img
+                      ref="die4"
+                      id="die-4"
+                      class="diceSize"
+                      :src="dice2Image"
+                    />
                   </div>
                 </div>
               </div>
@@ -220,7 +233,7 @@
             <div id="animated-cup" class="text-center">
               <a @click="shakeCup">
                 <img
-                  src="~/assets/images/gameplay/gameplay-assets/dice-cup.png"
+                  src="/images/gameplay/gameplay-assets/dice-cup.png"
                   draggable="false"
                   alt="dice-cup"
                   id="animated-cup-img"
@@ -394,10 +407,10 @@ export default {
   },
   computed: {
     dice1Image() {
-      return require(`~/assets/images/gameplay/gameplay-assets/dices/${this.dice1}.png`);
+      return `/images/gameplay/gameplay-assets/dices/${this.dice1}.png`
     },
     dice2Image() {
-      return require(`~/assets/images/gameplay/gameplay-assets/dices/${this.dice2}.png`);
+      return `/images/gameplay/gameplay-assets/dices/${this.dice2}.png`
     },
   },
   methods: {
@@ -435,7 +448,7 @@ export default {
     },
     shakeCup() {
       if (this.count == 1) {
-        this.beep.play()
+        this.beep.play();
         this.isCupShaking = true;
         this.cupShakeAnimation("#animated-cup-img", "tada"); //add animation class to cup container
         this.count++;
@@ -443,9 +456,7 @@ export default {
         this.beep.pause();
         this.beep.currentTime = 0;
         this.timeToTap = false;
-        let result =
-          parseInt(this.dice1) +
-          parseInt(this.dice2);
+        let result = parseInt(this.dice1) + parseInt(this.dice2);
         if (result % 2 == 0) {
           this.result = "EVEN";
         } else {
@@ -456,8 +467,8 @@ export default {
           .remove("animated", "tada", "infinite");
         this.result_dice = this.dice1 + ", " + this.dice2;
         this.result_dice = null;
-        this.$refs.die1.style.display = "block"
-        this.$refs.die4.style.display = "block"
+        this.$refs.die1.style.display = "block";
+        this.$refs.die4.style.display = "block";
         setTimeout(() => this.showResult(), 1500);
       }
     },
@@ -465,25 +476,25 @@ export default {
       this.$bvModal.show("winnerModal");
     },
   },
-  mounted(){
-    this.$nuxt.$on('refresh_odd_even',() => {
+  mounted() {
+    this.$nuxt.$on("refresh_odd_even", () => {
       this.gameDataResponse = null;
-      this.isMatchBegin = false
+      this.isMatchBegin = false;
       this.player_choice = "...";
       this.result = "...";
       this.gameData.selected = "";
       this.feedback = "";
       this.instructionDiv = true;
       this.timeToTap = false;
-      this.count= 1;
-      this.isCupShaking= false;
-      this.dice1= 1;
-      this.dice2= 2;
+      this.count = 1;
+      this.isCupShaking = false;
+      this.dice1 = 1;
+      this.dice2 = 2;
       this.result_dice = null;
-      this.$refs.die1.style.display = "none"
-      this.$refs.die4.style.display = "none"
-    })
-  }
+      this.$refs.die1.style.display = "none";
+      this.$refs.die4.style.display = "none";
+    });
+  },
 };
 </script>
 

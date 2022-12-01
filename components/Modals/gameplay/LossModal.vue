@@ -21,7 +21,7 @@
         </nuxt-link>
         <div class="text-center mb-4">
           <img
-            src="~/assets/images/gameplay/colours/lost-image.png"
+            src="/images/gameplay/colours/lost-image.png"
             class="img-fluid"
             style="width: 70%"
           />

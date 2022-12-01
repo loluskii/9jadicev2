@@ -27,9 +27,9 @@
               <div class="mx-4 mb-4">
                 <div class="pointsBackground">
                   <div class="h4 text-center">
-                    <span class="text-capitalize wBold text-break"
-                      >{{ user.user_data_name }}</span
-                    >
+                    <span class="text-capitalize wBold text-break">{{
+                      user.user_data_name
+                    }}</span>
                   </div>
                   <div class="d-flex justify-content-center wBold">
                     <div class="col-3 p-0 text-center"></div>
@@ -107,7 +107,11 @@
         <section class="container-fluid diceDiv">
           <div class="row">
             <div class="col-md-4 col-lg-4 col-xl-4 col-3 lead">
-              <div v-html="result_score" class="lead text-center text-white" id="diceValue1"></div>
+              <div
+                v-html="result_score"
+                class="lead text-center text-white"
+                id="diceValue1"
+              ></div>
             </div>
             <div class="col-md-4 col-lg-4 col-xl-4 col-6 text-center my-auto">
               <div class="row text-center">
@@ -126,7 +130,7 @@
                     <img
                       id="die-2"
                       class="diceSize"
-                      src="~/assets/images/gameplay/gameplay-assets/dices/2.png"
+                      src="/images/gameplay/gameplay-assets/dices/2.png"
                     />
                   </div> -->
                 </div>
@@ -137,7 +141,7 @@
                     <img
                       id="die-3"
                       class="diceSize"
-                      src="~/assets/images/gameplay/gameplay-assets/dices/3.png"
+                      src="/images/gameplay/gameplay-assets/dices/3.png"
                     />
                   </div> -->
                 </div>
@@ -178,11 +182,15 @@
           </div>
         </section>
         <section class="container-fluid bg-footer py-1">
-          <div v-if="timeToTap" class="d-flex justify-content-center" id="animated-cup-div">
+          <div
+            v-if="timeToTap"
+            class="d-flex justify-content-center"
+            id="animated-cup-div"
+          >
             <div id="animated-cup" class="text-center">
               <a @click="shakeCup">
                 <img
-                  src="~/assets/images/gameplay/gameplay-assets/dice-cup.png"
+                  src="/images/gameplay/gameplay-assets/dice-cup.png"
                   draggable="false"
                   alt="dice-cup"
                   id="animated-cup-img"
@@ -284,18 +292,22 @@
         </section>
       </main>
     </section>
-    <winner-modal :game_type="gameData.game_id" v-if="gameDataResponse != null" :data="gameDataResponse"></winner-modal>
+    <winner-modal
+      :game_type="gameData.game_id"
+      v-if="gameDataResponse != null"
+      :data="gameDataResponse"
+    ></winner-modal>
   </div>
 </template>
 
 <script>
 import WinnerModal from "~/components/Modals/gameplay/WinnerModal.vue";
-export default{
+export default {
   name: "under-over",
   middleware: "auth",
   components: { WinnerModal },
   layout: "game",
-    data() {
+  data() {
     return {
       result: "...",
       result_score: null,
@@ -319,14 +331,13 @@ export default{
 
   computed: {
     dice1Image() {
-      return require(`~/assets/images/gameplay/gameplay-assets/dices/${this.dice1}.png`);
+      return `/images/gameplay/gameplay-assets/dices/${this.dice1}.png`
     },
     dice2Image() {
-      return require(`~/assets/images/gameplay/gameplay-assets/dices/${this.dice2}.png`);
+      return `/images/gameplay/gameplay-assets/dices/${this.dice2}.png`
     },
   },
   methods: {
-    
     clearStake() {
       this.gameData.amount = 0;
     },
@@ -368,9 +379,9 @@ export default{
         document
           .querySelector("#animated-cup")
           .remove("animated", "tada", "infinite");
-        this.result_score =  this.dice1 + ", " + this.dice2;
-        this.$refs.die1.style.display = "block"
-        this.$refs.die4.style.display = "block"
+        this.result_score = this.dice1 + ", " + this.dice2;
+        this.$refs.die1.style.display = "block";
+        this.$refs.die4.style.display = "block";
         setTimeout(() => this.showResult(), 1500);
       }
     },
@@ -378,24 +389,24 @@ export default{
       this.$bvModal.show("winnerModal");
     },
   },
-  mounted(){
-    this.$nuxt.$on('refresh_under_over', () => {
-      this.result= "...";
-      this.gameData.amount= 100;
-      this.gameDataResponse= null;
-      this.isMatchBegin= false;
-      this.feedback= "";
-      this.instructionDiv= true;
-      this.timeToTap= false;
-      this.count= 1;
-      this.isCupShaking= false;
-      this.dice1= 1;
-      this.dice2= 2;
-      this.result_score = null
-      this.$refs.die1.style.display = "none"
-      this.$refs.die4.style.display = "none"
+  mounted() {
+    this.$nuxt.$on("refresh_under_over", () => {
+      this.result = "...";
+      this.gameData.amount = 100;
+      this.gameDataResponse = null;
+      this.isMatchBegin = false;
+      this.feedback = "";
+      this.instructionDiv = true;
+      this.timeToTap = false;
+      this.count = 1;
+      this.isCupShaking = false;
+      this.dice1 = 1;
+      this.dice2 = 2;
+      this.result_score = null;
+      this.$refs.die1.style.display = "none";
+      this.$refs.die4.style.display = "none";
     });
-  }
+  },
 };
 </script>
 

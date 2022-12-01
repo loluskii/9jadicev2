@@ -12,7 +12,7 @@
       <h4 class="mb-0">Step 1</h4>
       <p class="mb-1">Select Mega Ten game from the games list.</p>
       <img
-        src="~/assets/images/how-to-play/mega-ten.svg"
+        src="/images/how-to-play/mega-ten.svg"
         class="img-fluid"
         alt=""
         srcset=""
@@ -25,7 +25,7 @@
         every point you get after rolling the dice.
       </p>
       <img
-        src="~/assets/images/how-to-play/mega-ten-3.jpg"
+        src="/images/how-to-play/mega-ten-3.jpg"
         class="img-fluid"
         alt=""
         srcset=""
@@ -36,7 +36,7 @@
       <h4>Step 3</h4>
       <p class="mb-1">On the gameplay page, select or enter amount to stake</p>
       <img
-        src="~/assets/images/how-to-play/step-4.svg"
+        src="/images/how-to-play/step-4.svg"
         class="img-fluid"
         alt=""
         srcset=""
@@ -49,7 +49,7 @@
         start the games.
       </p>
       <img
-        src="~/assets/images/how-to-play/mega-ten-play.svg"
+        src="/images/how-to-play/mega-ten-play.svg"
         class="img-fluid"
         alt=""
         srcset=""
@@ -62,7 +62,7 @@
         after the tenth throw.
       </p>
       <img
-        src="~/assets/images/how-to-play/mega-ten-auto.svg"
+        src="/images/how-to-play/mega-ten-auto.svg"
         class="img-fluid"
         alt=""
         srcset=""
@@ -75,7 +75,7 @@
         times.
       </p>
       <img
-        src="~/assets/images/how-to-play/mega-ten_play.svg"
+        src="/images/how-to-play/mega-ten_play.svg"
         class="img-fluid"
         alt=""
         srcset=""
@@ -90,6 +90,4 @@ export default {
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

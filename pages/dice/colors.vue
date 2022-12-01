@@ -99,7 +99,7 @@
                     >
                       <img
                         @click="selectDice(1, 'cyan')"
-                        src="~/assets/images/gameplay/colours/1.png"
+                        src="/images/gameplay/colours/1.png"
                         class="img-fluid"
                         alt="cyan"
                         srcset=""
@@ -107,7 +107,7 @@
                       />
                       <img
                         @click="selectDice(2, 'magenta')"
-                        src="~/assets/images/gameplay/colours/2.png"
+                        src="/images/gameplay/colours/2.png"
                         class="img-fluid"
                         alt="magenta"
                         srcset=""
@@ -115,7 +115,7 @@
                       />
                       <img
                         @click="selectDice(3, 'yellow')"
-                        src="~/assets/images/gameplay/colours/3.png"
+                        src="/images/gameplay/colours/3.png"
                         class="img-fluid"
                         alt="yellow"
                         srcset=""
@@ -127,7 +127,7 @@
                     >
                       <img
                         @click="selectDice(4, 'orange')"
-                        src="~/assets/images/gameplay/colours/4.png"
+                        src="/images/gameplay/colours/4.png"
                         class="img-fluid"
                         alt="orange"
                         srcset=""
@@ -135,7 +135,7 @@
                       />
                       <img
                         @click="selectDice(5, 'purple')"
-                        src="~/assets/images/gameplay/colours/5.png"
+                        src="/images/gameplay/colours/5.png"
                         class="img-fluid"
                         alt="purple"
                         srcset=""
@@ -143,7 +143,7 @@
                       />
                       <img
                         @click="selectDice(6, 'green')"
-                        src="~/assets/images/gameplay/colours/6.png"
+                        src="/images/gameplay/colours/6.png"
                         class="img-fluid"
                         alt="green"
                         srcset=""
@@ -243,7 +243,7 @@
             <div id="animated-cup" class="text-center">
               <a @click="shakeCup">
                 <img
-                  src="~/assets/images/gameplay/gameplay-assets/dice-cup.png"
+                  src="/images/gameplay/gameplay-assets/dice-cup.png"
                   draggable="false"
                   alt="dice-cup"
                   id="animated-cup-img"
@@ -350,8 +350,8 @@
 </template>
 
 <script>
-import LossModal from '~/components/Modals/gameplay/LossModal.vue';
-import WinModal from '~/components/Modals/gameplay/WinModal.vue';
+import LossModal from "~/components/Modals/gameplay/LossModal.vue";
+import WinModal from "~/components/Modals/gameplay/WinModal.vue";
 export default {
   components: { WinModal, LossModal },
   name: "colors",
@@ -380,10 +380,10 @@ export default {
   },
   computed: {
     selectedDice() {
-      return require(`~/assets/images/gameplay/colours/${this.dice}.png`);
+      return `/images/gameplay/colours/${this.dice}.png`
     },
     resultDice() {
-      return require(`~/assets/images/gameplay/colours/${this.result_dice}.png`);
+      return `/images/gameplay/colours/${this.result_dice}.png`
     },
   },
   methods: {
@@ -423,7 +423,9 @@ export default {
         this.beep.pause();
         this.beep.currentTime = 0;
         this.timeToTap = false;
-        document.querySelector("#animated-cup").remove("animated", "tada", "infinite");
+        document
+          .querySelector("#animated-cup")
+          .remove("animated", "tada", "infinite");
         var res = document.getElementById("dieContainer");
         res.style.display = "block";
         var res1 = document.getElementById("dice");
@@ -432,9 +434,9 @@ export default {
       }
     },
     showResult() {
-      if(this.gameDataResponse?.amount_won != 0){
+      if (this.gameDataResponse?.amount_won != 0) {
         this.$bvModal.show("WonModal");
-      }else{
+      } else {
         this.$bvModal.show("LossModal");
       }
     },
@@ -442,25 +444,25 @@ export default {
       this.instructionDiv = false;
     },
   },
-  mounted(){
-    this.$nuxt.$on('refresh_colors', () => {
-      this.gameData.selected= null;
-      this.gameDataResponse= null;
-      this.isMatchPrestart= false;
-      this.isMatchStart= false;
-      this.feedback= "";
-      this.instructionDiv= true;
-      this.timeToTap= false;
-      this.count= 1;
-      this.isCupShaking= false;
-      this.dice= 1;
-      this.dice_alt= "";
-      this.result_dice= 1;
-      this.result_dice_alt= "";
+  mounted() {
+    this.$nuxt.$on("refresh_colors", () => {
+      this.gameData.selected = null;
+      this.gameDataResponse = null;
+      this.isMatchPrestart = false;
+      this.isMatchStart = false;
+      this.feedback = "";
+      this.instructionDiv = true;
+      this.timeToTap = false;
+      this.count = 1;
+      this.isCupShaking = false;
+      this.dice = 1;
+      this.dice_alt = "";
+      this.result_dice = 1;
+      this.result_dice_alt = "";
       document.getElementById("dieContainer").style.display = "none";
       document.getElementById("dice").style.display = "none";
-    })
-  }
+    });
+  },
 };
 </script>
 

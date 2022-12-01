@@ -14,10 +14,7 @@
       >
         <div class="col-12 d-flex justify-content-between align-items-center">
           <div>
-            <img
-              style="height: 25px"
-              src="~/assets/images/logos/logo-white.png"
-            />
+            <img style="height: 25px" src="/images/logos/logo-white.png" />
           </div>
           <div
             class="text-uppercase text-sv-primary text-center font-weight-bold mb-2"
@@ -256,7 +253,9 @@
         </div>
         <div id="playSlider" class="">
           <div id="joinedGamesDiv">
-            <div class="small text-white text-center mb-2">My active games:</div>
+            <div class="small text-white text-center mb-2">
+              My active games:
+            </div>
             <div
               class="d-flex flex-nowrap hideScrollbar py-3"
               style="overflow-x: scroll"
@@ -266,7 +265,11 @@
                 <i class="fa fa-caret-right fa-2x text-white"></i>
               </span>
 
-              <div class="mb-1 mr-2" v-for="(play, index) in game.auth_user.pending_plays" :key="index">
+              <div
+                class="mb-1 mr-2"
+                v-for="(play, index) in game.auth_user.pending_plays"
+                :key="index"
+              >
                 <div class="small text-center position-relative">
                   <span
                     class="badge badge-pill bg-sv-warning text-dark small font-weight-light"
@@ -277,14 +280,16 @@
                       margin-left: 46%;
                       margin-top: -8px;
                     "
-                    > {{ play.join_count }} </span
                   >
+                    {{ play.join_count }}
+                  </span>
                   <div class="bg-sv-primary text-white">
                     <button
-                    @click.prevent="playUnrolled(play.id, play.reference)"
+                      @click.prevent="playUnrolled(play.id, play.reference)"
                       class="btn bg-sv-primary text-sv-primary py-1 w-100 btn-sm"
-                      >Play Game</button
                     >
+                      Play Game
+                    </button>
                   </div>
                 </div>
               </div>
@@ -314,15 +319,17 @@ export default {
     },
   },
   methods: {
-    playUnrolled(id, ref){
+    playUnrolled(id, ref) {
       let name = this.game.slug;
-      let refid = this.game.reference_id
-      this.$store.dispatch('setCommitRecordID', id)
-      this.$router.push({name: "legend-name-ref-refid-game", params: {name:name, ref:ref, refid:refid}})
-    }
+      let refid = this.game.reference_id;
+      this.$store.dispatch("setCommitRecordID", id);
+      this.$router.push({
+        name: "legend-name-ref-refid-game",
+        params: { name: name, ref: ref, refid: refid },
+      });
+    },
   },
-  mounted() {
-  },
+  mounted() {},
 };
 </script>
 
