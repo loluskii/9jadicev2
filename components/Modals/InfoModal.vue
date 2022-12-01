@@ -5,7 +5,7 @@
     hide-footer
     content-class="bg-sv-primary curvedEdge"
     body-class="p-0 bg-dark curvedEdge"
-    :id="'game_' + game.reference_id"
+    :id="'game_' + game.reference_id + '_' + type"
   >
     <div class="container-fluid" id="infoModal">
       <div
@@ -307,7 +307,7 @@ export default {
   data() {
     return {};
   },
-  props: ["game", "paytable", "leaderboard"],
+  props: ["game", "paytable", "leaderboard", "type"],
   computed: {
     getTime() {
       return this.$moment().format("LTS");
