@@ -405,10 +405,10 @@ height: 100px;
   font-size: 0.4rem;
 }
 
-/* small, .small{
-  font-size: 80%;
+small, .small{
+  font-size: 85%;
   font-weight: 400;
-} */
+}
 
 /* .customPrimaryGradient {
   background-image: linear-gradient(

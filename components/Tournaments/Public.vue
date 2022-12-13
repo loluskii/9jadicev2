@@ -1,5 +1,39 @@
 <template>
   <div>
+    <div class="row py-1">
+      <div class="col-6 pl-0 pr-1">
+        <button
+          id="specialSubsection"
+          @click.prevent="showCreateTournament"
+          class="btn btn-sm btn-block bg-sv-primary createTournamentText"
+        >
+          <span class="small text-white"
+            ><i class="fa fa-plus text-sv-warning"></i>&nbsp;Create
+            Tournament</span
+          >
+        </button>
+      </div>
+      <div class="col-6 px-0 d-flex">
+        <button
+          type="button"
+          id="filterButton"
+          @click="openModal('filterModal')"
+          class="btn btn-sm btn-block px-3 bg-sv-primary createTournamentText cursorPointer mx-1 filterButton"
+        >
+          <span class="small align-items-center">
+            <i class="fa fa-filter mr-1"></i>
+            <span>Filter</span>
+          </span>
+        </button>
+        <button
+          type="button"
+          id="showSearchBarButton"
+          class="btn btn-sm px-3 bg-sv-primary createTournamentText cursorPointer showSearchBarButton"
+        >
+          <span class="small"><i class="fa fa-search"></i></span>
+        </button>
+      </div>
+    </div>
     <div class="row">
       <div class="col-12 p-0">
         <div class="d-flex flex-column small py-1 topic-bg">
@@ -65,7 +99,7 @@
                     <button
                       class="btn btn-sm text-dark btn-light info-button"
                       @click="loadData(game.id)"
-                      v-b-modal="'game_' + game.reference_id"
+                      v-b-modal="'game_' + game.reference_id  + '_' + 1"
                     >
                       <i class="fa fa-info cursorPointer"></i>
                     </button>
@@ -117,11 +151,12 @@
                   </div>
                 </div>
               </div>
-              <!-- <info-modal
+              <info-modal
                 :game="game"
                 :leaderboard="leaderboard"
                 :paytable="paytable"
-              ></info-modal> -->
+                :type="1"
+              ></info-modal>
               <join-confirmation :game="game" v-if="$auth.loggedIn"></join-confirmation>
             </div>
         </div>
@@ -139,17 +174,21 @@
         </div>
       </div>
     </div>
+    <create-tournament :category_id="1"></create-tournament>
     <login-modal v-if="!$auth.loggedIn"></login-modal>
+    <filter-modal></filter-modal>
   </div>
 </template>
 
 <script>
+import CreateTournament from '../Modals/CreateTournament.vue';
+import FilterModal from '../Modals/FilterModal.vue';
 import InfoModal from "../Modals/InfoModal.vue";
 import JoinConfirmation from '../Modals/JoinConfirmation.vue';
 import LoginModal from "../Modals/LoginModal.vue";
 export default {
   name: "",
-  components: { InfoModal, LoginModal, JoinConfirmation },
+  components: { InfoModal, LoginModal, JoinConfirmation, CreateTournament, FilterModal },
   data() {
     return {
       public_games: [],
@@ -163,14 +202,14 @@ export default {
   methods: {
     showCreateTournament() {
       if (this.$auth.loggedIn) {
-        this.$bvModal.show("createTournament");
+        this.$bvModal.show("createTournament_"+1);
       } else {
         // console.log('log in now')
         // this.$bvModal.show("loginModal");
         this.$router.push("/auth/login");
       }
     },
-    getVerifiedGames() {
+    getPublicGames() {
       this.loading = true;
       this.$axios.get("/tournaments?category=1&take=10").then((res) => {
         this.public_games = res.data.data;
@@ -203,7 +242,7 @@ export default {
   },
 
   mounted() {
-    this.getVerifiedGames();
+    this.getPublicGames();
     // console.log(this.game_status);
   },
 };

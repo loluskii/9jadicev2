@@ -1,5 +1,8 @@
 /*THIS STYLE IS CREATED FOR THE GAME-PLAY DISPLAY ONLY, IT DOESN'T WORK DIRECTLY WITH A GAME'S SCRIPT EXCEPT IN RARE CASES*/
 
+html, body, p, h1, h2, h3, h4, h5, h6, span, div {
+  font-family: 'Montserrat' !important;
+}
 
 #main {
 	background-color: #0E171C;

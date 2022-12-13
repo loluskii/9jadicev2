@@ -7,7 +7,7 @@
         <div class="d-flex justify-content-between mb-5 align-items-center">
           <nuxt-link to="/">
             <img
-              src="~/assets/images/logos/logo.png"
+              src="/images/logos/logo.png"
               style="height: 35px"
               alt="sv-logo"
             />
@@ -30,7 +30,7 @@
               class="form-control text-white"
               id="logContactNo"
               name="user_data_name"
-              v-model="formData.email"
+              v-model="formData.user_data_name"
               style="background-color: transparent"
               required
             />
@@ -98,32 +98,33 @@
 export default {
   name: "login",
   layout: "main",
-  data(){
+  data() {
     return {
       formData: {
-        email: 'adeloreisaac@gmail.com',
-        password: 'clarioncall123',
+        user_data_name: "Escobar",
+        password: "clarioncall123",
       },
       error: false,
-    }
+    };
   },
-  methods:{
-    async loginUser(){
-      $('#loginBtn').text('Please wait...').attr('disabled');
-      await this.$auth.loginWith('local', { data:this.formData })
-      .then(async (res) => {
-        const data = res.data.data.user
-        this.$auth.setUser(data)
-        // this.$auth.$storage.setUniversal('user', data, true)
-        this.$router.push('/')
-      }).catch( (error) => {
-          $('#loginBtn').text('Login').attr('disabled', false);
+  methods: {
+    async loginUser() {
+      $("#loginBtn").text("Please wait...").attr("disabled");
+      await this.$auth
+        .loginWith("local", { data: this.formData })
+        .then(async (res) => {
+          // const data = res.data.data.user
+          // this.$auth.setUser(data)
+          // this.$auth.$storage.setUniversal('user', data, true)
+          this.$router.push("/");
+        })
+        .catch((error) => {
+          $("#loginBtn").text("Login").attr("disabled", false);
           this.error = true;
-          console.log(error)
-      })
-    }
-  }
-
+          console.log(error);
+        });
+    },
+  },
 };
 </script>
 

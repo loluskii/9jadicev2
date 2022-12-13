@@ -33,7 +33,7 @@
             <div class="d-flex justify-content-center">
               <div style="width:90%">
                 <div class="my-2">
-                  <button class="btn bg-sv-warning btn-block text-white font-weight-bold btn-sm py-2" id="showJoinAgainConfirmationButton">Join Again</button>
+                  <button @click="showJoinConfirmation(tournament)"  class="btn bg-sv-warning btn-block text-white font-weight-bold btn-sm py-2" id="showJoinAgainConfirmationButton">Join Again</button>
                 </div>
                 <div class="d-flex justify-content-between">
                   <nuxt-link class="btn bg-sv-primary text-sv-primary w-100 d-flex align-content-stretch justify-content-center align-items-center px-1 btn-sm mr-2" :to="{name:'legend-tournamentid-leaderboard', params: {tournamentid:tournament_id}}">View Leaderboard</nuxt-link>
@@ -43,13 +43,16 @@
             </div>
           </div>
         </div>
+        <join-confirmation :game="tournament"></join-confirmation>
       </div>
     </b-modal>
   </div>
 </template>
 
 <script>
+import JoinConfirmation from '../JoinConfirmation.vue';
 export default {
+  components: { JoinConfirmation },
   name: "throw-limit-modal",
   props: ['score','end_date','tournament_id', "tournament"],
   methods:{
@@ -60,7 +63,14 @@ export default {
     },
     goToLeaderboard(){
       this.$router.push({name: "legend-tournamentid-leaderboard", params: {tournamentid:this.tournament_id}})
-    }
+    },
+    showJoinConfirmation(game){
+      if (this.$auth.loggedIn) {
+        this.$bvModal.show(`joinConfirmation_${game.id}`);
+      } else {
+        this.$router.push("/auth/login");
+      }
+    },
   }
 
 };

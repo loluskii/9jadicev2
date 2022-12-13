@@ -32,6 +32,10 @@ export default {
         rel: "stylesheet",
         href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
       },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css?family=Montserrat"
+      }
     ],
   },
 
@@ -41,6 +45,7 @@ export default {
     "bootstrap-vue/dist/bootstrap-vue.css",
     "~/assets/css/index.css",
     "~/assets/css/navbar.css",
+    // "~/assets/css/font-awesome.min.css"
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -70,7 +75,7 @@ export default {
     "@nuxtjs/moment",
   ],
 
-  // loading: '~/components/Loading.vue',
+  loading: '~/components/Loading.vue',
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
@@ -92,8 +97,8 @@ export default {
           global: true,
         },
         user: {
-          property: false,
-          autoFetch: false,
+          property: 'user',
+          // autoFetch: false,
         },
         refreshToken: {
           prefix: "refresh_token.",
@@ -102,8 +107,8 @@ export default {
         endpoints: {
           login: { url: "/auth/login", method: "post" },
           logout: { url: "/logout", method: "post" },
-          refresh: { url: "/refresh", method: "post" },
-          user: false,
+          // refresh: { url: "/refresh", method: "post" },
+          user: { url: "/refresh", method: "post" },
         },
       },
     },
@@ -144,10 +149,10 @@ export default {
         path: "/legend/:tournamentid/leaderboard",
         components: {
           default: resolve(__dirname, "pages/legend/leaderboard"), // or routes[index].component
-          layout: resolve(__dirname, "layouts/legend.vue"),
+          layout: resolve(__dirname, "layouts/game.vue"),
         },
         chunkNames: {
-          layout: "layouts/legend",
+          layout: "layouts/game",
         },
       });
     },

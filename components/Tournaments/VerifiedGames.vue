@@ -188,7 +188,7 @@
                     <button
                       class="btn btn-sm text-dark btn-light info-button"
                       @click="loadData(game.id)"
-                      v-b-modal="'game_' + game.reference_id"
+                      v-b-modal="'game_' + game.reference_id + '_' + 3"
                     >
                       <i class="fa fa-info cursorPointer"></i>
                     </button>
@@ -224,10 +224,10 @@
                       "
                     >
                       <span class="ml-1 badge badge-danger px-1">Sold Out</span
-                      >'
+                      >
                     </div>
                     <div
-                      v-else-if="game.no_of_players_joined < game.no_of_players"
+                      v-else-if="(game.no_of_players_joined < game.no_of_players) && (game.auth_user.pending_count < 1)"
                     >
                       <button
                         id="join_button"
@@ -237,14 +237,27 @@
                         Join
                       </button>
                     </div>
+                    <div
+                      v-else-if="game.auth_user.pending_count > 0"
+                    >
+                      <button
+                        id="join_button"
+                        @click="loadData(game.id)"
+                        v-b-modal="'game_' + game.reference_id + '_' + 3"
+                        class="btn btn-sm btn-success rounded-pill shadow py-0 px-2 text-white"
+                      >
+                        Play
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-              <!-- <info-modal
+              <info-modal
                 :game="game"
                 :leaderboard="leaderboard"
                 :paytable="paytable"
-              ></info-modal> -->
+                :type="3"
+              ></info-modal>
               <join-confirmation :game="game" v-if="$auth.loggedIn"></join-confirmation>
             </div>
           </b-skeleton-wrapper>
@@ -260,9 +273,10 @@
         </div>
       </div>
     </div>
-    <create-tournament></create-tournament>
+    <create-tournament :category_id="3"></create-tournament>
     <login-modal v-if="!$auth.loggedIn"></login-modal>
     <filter-modal></filter-modal>
+    <not-verified></not-verified>
 
   </div>
 </template>
@@ -273,9 +287,10 @@ import FilterModal from "../Modals/FilterModal.vue";
 import InfoModal from "../Modals/InfoModal.vue";
 import JoinConfirmation from '../Modals/JoinConfirmation.vue';
 import LoginModal from "../Modals/LoginModal.vue";
+import NotVerified from '../Modals/NotVerified.vue';
 export default {
   name: "",
-  components: { CreateTournament, InfoModal, LoginModal, FilterModal, JoinConfirmation },
+  components: { CreateTournament, InfoModal, LoginModal, FilterModal, JoinConfirmation, NotVerified },
   data() {
     return {
       verified_games: [],
@@ -288,8 +303,14 @@ export default {
 
   methods: {
     showCreateTournament() {
+      console.log(this.user.user_status_role_id)
       if (this.$auth.loggedIn) {
-        this.$bvModal.show("createTournament");
+        if(this.user.user_status_role_id == 1 || this.user.user_status_role_id == 2){
+          this.$bvModal.show("createTournament"+3);
+        }else{
+          console.log(this.user.user_status_role_id)
+          this.$bvModal.show("notVerified");
+        }
       } else {
         // console.log('log in now')
         // this.$bvModal.show("loginModal");

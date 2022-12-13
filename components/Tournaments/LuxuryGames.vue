@@ -65,7 +65,7 @@
                     <button
                       class="btn btn-sm text-dark btn-light info-button"
                       @click="loadData(game.id)"
-                      v-b-modal="'game_' + game.reference_id"
+                      v-b-modal="'game_' + game.reference_id  + '_' + 7"
                     >
                       <i class="fa fa-info cursorPointer"></i>
                     </button>
@@ -117,11 +117,12 @@
                   </div>
                 </div>
               </div>
-              <!-- <info-modal
+              <info-modal
                 :game="game"
                 :leaderboard="leaderboard"
                 :paytable="paytable"
-              ></info-modal> -->
+                :type="7"
+              ></info-modal>
               <join-confirmation :game="game" v-if="$auth.loggedIn"></join-confirmation>
             </div>
         </div>

@@ -325,6 +325,6 @@ export default {
 
 
 main#main{
-  margin-top: 160px;
+  /* margin-top: 160px; */
 }
 </style>

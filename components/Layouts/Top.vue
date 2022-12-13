@@ -122,7 +122,7 @@
               </nuxt-link>
               <nuxt-link
                 class="btn btn-sm btn-dark border-0 rounded-0 position-relative d-flex flex-column justify-content-center"
-                to="/"
+                to="/dice/colors"
               >
                 <span class="newBadge">New</span>
                 <span class="mb-1 gameTopTitle">Colours</span>
@@ -167,7 +167,7 @@
             <div class="topGamesList-left">
               <nuxt-link
                 class="btn btn-sm btn-dark border-0 rounded-0 d-flex flex-column justify-content-center"
-                to="/"
+                to="/dice/under-over"
               >
                 <span class="mb-1 gameTopTitle">Under/Over</span>
                 <span>
@@ -181,7 +181,7 @@
 
               <nuxt-link
                 class="btn btn-sm btn-dark border-0 rounded-0 d-flex flex-column justify-content-center"
-                to="/"
+                to="/dice/odd-even"
               >
                 <span class="mb-1 gameTopTitle">Odd/Even</span>
                 <span>
@@ -195,7 +195,7 @@
 
               <nuxt-link
                 class="btn btn-sm btn-dark border-0 rounded-0 d-flex flex-column justify-content-center text-nowrap"
-                to="/"
+                to=""
               >
                 <span class="mb-1 gameTopTitle">Mega Ten</span>
                 <span>
